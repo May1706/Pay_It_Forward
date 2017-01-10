@@ -1,21 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DonationCenterProfile.aspx.cs" Inherits="PayItForward.Pages.DonationCenterProfile" %>
+﻿<%@ Page Title="Profile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DonationCenterProfile.aspx.cs" Inherits="PayItForward.Pages.DonationCenterProfile" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <h1>
-        Donation Center profile page
+        Donation Center Profile Page
     </h1>
 
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>
-</html>
+</asp:Content>

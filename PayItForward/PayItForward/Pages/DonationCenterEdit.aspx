@@ -1,21 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DonationCenterEdit.aspx.cs" Inherits="PayItForward.Pages.DonationCenterEdit" %>
+﻿<%@ Page Title="Edit Donation Center" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DonationCenterEdit.aspx.cs" Inherits="PayItForward.Pages.DonationCenterEdit" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <h1>
-        Create or edit donation center
+        Create or edit a donation center
     </h1>
 
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>
-</html>
+</asp:Content>

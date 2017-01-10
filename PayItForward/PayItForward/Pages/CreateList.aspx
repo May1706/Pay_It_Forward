@@ -1,20 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateList.aspx.cs" Inherits="PayItForward.CreateList" %>
+﻿<%@ Page Title="Create List" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateList.aspx.cs" Inherits="PayItForward.CreateList" %>
 
-<!DOCTYPE html>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
     <h1>
         Create Donation List Based on Categories and Such
     </h1>
 
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>
-</html>
+    <a href="./ViewDonationCenters.aspx">
+        <input type="button" value="Done!"/>
+    </a>
+
+</asp:Content>

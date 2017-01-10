@@ -5,7 +5,7 @@
     <div class="jumbotron">
         <h1>Pay It Forward</h1>
         <p class="lead">UNDER CONSTRUCTION</p>
-        <p>Home page with links to all other pages</p>
+        <p>Home page with links to all other pages; for dev purposes</p>
     </div>
 
     <div>
