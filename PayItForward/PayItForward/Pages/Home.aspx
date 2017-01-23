@@ -15,6 +15,7 @@
         <a href="./DonationCenterEdit.aspx">Create Donation Center</a><br />
         <a href="./UserProfile.aspx">User Profile</a><br />
         <a href="./AdminProfile.aspx">Admin Page</a><br />
+        <a href="Register.aspx">Register</a><br />
     </div>
 
 </asp:Content>
