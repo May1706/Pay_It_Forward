@@ -6,9 +6,9 @@ using System.Data.Entity;
 
 namespace PayItForward.Classes
 {
-    public class PayItForwardContext : DbContext
+    public class DatabaseContext : DbContext
     {
-        public PayItForwardContext()
+        public DatabaseContext()
             : base("name=DatabaseModel")
         {
 
