@@ -12,10 +12,10 @@
         <a href="./CreateList.aspx">Create List</a><br />
         <a href="./ViewDonationCenters.aspx">View Donation Centers</a><br />
         <a href="./DonationCenterProfile.aspx">Donation Center Profile</a><br />
-        <a href="./DonationCenterEdit.aspx">Create Donation Center</a><br />
+        <a href="./DonationCenterEdit.aspx">Edit Donation Center</a><br /> <!-- Probably should make this appear only if user has access to center -->
         <a href="./UserProfile.aspx">User Profile</a><br />
         <a href="./AdminProfile.aspx">Admin Page</a><br />
-        <a href="Register.aspx">Register</a><br />
+        <a href="DonationCenterCreate.aspx">Create a Donation Center</a><br />
     </div>
 
 </asp:Content>

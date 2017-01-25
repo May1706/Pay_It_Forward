@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <h1>
-        Create or edit a donation center
+        Edit a donation center
     </h1>
 
 </asp:Content>

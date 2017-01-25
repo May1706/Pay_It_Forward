@@ -215,7 +215,7 @@
     <Content Include="Pages\DonationCenterProfile.aspx" />
     <Content Include="Pages\UserProfile.aspx" />
     <Content Include="Pages\ViewDonationCenters.aspx" />
-    <Content Include="Pages\Register.aspx" />
+    <Content Include="Pages\DonationCenterCreate.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -427,12 +427,12 @@
     <Compile Include="Pages\ViewDonationCenters.aspx.designer.cs">
       <DependentUpon>ViewDonationCenters.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
+    <Compile Include="Pages\DonationCenterCreate.aspx.cs">
+      <DependentUpon>DonationCenterCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
+    <Compile Include="Pages\DonationCenterCreate.aspx.designer.cs">
+      <DependentUpon>DonationCenterCreate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
