@@ -17,7 +17,7 @@ namespace PayItForward
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Database.SetInitializer(new DropCreateDatabaseAlways<Classes.PayItForwardContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<Classes.DatabaseContext>());
         }
     }
 }
