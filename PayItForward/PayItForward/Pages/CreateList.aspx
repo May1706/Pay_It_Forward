@@ -6,20 +6,44 @@
         What are you looking to donate?
     </h1>
 
-    <ul class="sortable">
-        <li draggable="true" class="ditem">Item 1
-        <li draggable="true" class="ditem">Item 2
-        <li draggable="true" class="ditem">Item 3
-        <li draggable="true" class="ditem">Item 4
-    </ul>
+    <br />
 
-    <ul class="sortable">
-        <li draggable="true" class="ditem">Item 5
-        <li draggable="true" class="ditem">Item 6
-        <li draggable="true" class="ditem">Item 7
-        <li draggable="true" class="ditem">Item 8
-    </ul>
-    
+    <div class="shoppingcart">
+        <ul class="sortable">
+            <li draggable="true" class="ditem">Item 1
+            <li draggable="true" class="ditem">Item 2
+            <li draggable="true" class="ditem">Item 3
+            <li draggable="true" class="ditem">Item 4
+        </ul>
+    </div>
+
+    <div class="shoppingcart">
+        <select class="categoryselect">
+            <option>&lt;Category&gt;</option>
+            <option>Category 1</option>
+            <option>Category 2</option>
+            <option>Category 3</option>
+            <option>Category 4</option>
+        </select>
+
+        <ul class="sortable">
+            <li draggable="true" class="ditem">Item 5
+            <li draggable="true" class="ditem">Item 6
+            <li draggable="true" class="ditem">Item 7
+            <li draggable="true" class="ditem">Item 8
+            <li draggable="true" class="ditem">Item 9
+            <li draggable="true" class="ditem">Item 10
+            <li draggable="true" class="ditem">Item 11
+            <li draggable="true" class="ditem">Item 12
+            <li draggable="true" class="ditem">Item 13
+            <li draggable="true" class="ditem">Item 14
+            <li draggable="true" class="ditem">Item 15
+            <li draggable="true" class="ditem">Item 16
+            <li draggable="true" class="ditem">Item 17
+            <li draggable="true" class="ditem">Item 18
+        </ul>
+    </div>
+
     <br />
 
     <script src="/Scripts/jquery.sortable.js"></script>
@@ -30,14 +54,22 @@
     </script>
 
     <style>
+        .shoppingcart {
+            display: inline-block;
+        }
+
+        .categoryselect {
+            width: 300px;
+            margin: 1px;
+        }
+
         .sortable {
             border: 2px solid #50B948;
-            display: inline-block;
-            list-style: none;
+            list-style-type: square;
             overflow: hidden;
             overflow-y: scroll;
-            height: 200px;
-            width: 200px;
+            height: 300px;
+            width: 300px;
             padding: 0;
         }
 
