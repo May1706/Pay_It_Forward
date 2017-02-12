@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace PayItForward
+namespace PayItForward.Pages
 {
     public partial class CreateList : System.Web.UI.Page
     {

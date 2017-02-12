@@ -394,12 +394,33 @@
     <Compile Include="Classes\Item.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Pages\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Pages\AdminProfile.aspx.cs">
       <DependentUpon>AdminProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminProfile.aspx.designer.cs">
+      <DependentUpon>AdminProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CreateList.aspx.cs">
+      <DependentUpon>CreateList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CreateList.aspx.designer.cs">
+      <DependentUpon>CreateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DonationCenterCreate.aspx.cs">
+      <DependentUpon>DonationCenterCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DonationCenterCreate.aspx.designer.cs">
+      <DependentUpon>DonationCenterCreate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\DonationCenterEdit.aspx.cs">
       <DependentUpon>DonationCenterEdit.aspx</DependentUpon>

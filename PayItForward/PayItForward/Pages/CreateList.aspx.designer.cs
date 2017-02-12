@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PayItForward {
+namespace PayItForward.Pages {
     
     
     public partial class CreateList {
