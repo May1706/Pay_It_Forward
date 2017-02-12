@@ -7,47 +7,23 @@ namespace PayItForward.Classes
 {
     public class Category
     {
-        #region Fields
+        public int Id { get; }
+        public string Name { get; set; }
 
-        private string _name;
-        private int _id;
+        public virtual List<Item> Items { get; set; }
 
-        #endregion
-
-        public Category()
+        public Category(int id, string name, List<Item> items)
         {
-            Name = "";
-            Id = 0;
+            Id = id;
+            Name = name;
+            Items = items;
         }
-
         public Category(int id, string name)
         {
-            Name    = name;
             Id = id;
+            Name = name;
+            Items = new List<Item>();
         }
 
-        #region Methods
-
-        public bool GetCategory(string query)
-        {
-            return false;
-        }
-
-        #endregion
-
-        #region Properties
-
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
-        #endregion
     }
 }

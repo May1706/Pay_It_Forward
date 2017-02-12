@@ -392,6 +392,7 @@
     <Compile Include="Classes\DonationCenter.cs" />
     <Compile Include="Classes\Item.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\AdminProfile.aspx.cs">
       <DependentUpon>AdminProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
