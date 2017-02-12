@@ -12,6 +12,7 @@ namespace PayItForward.Classes
         private string _name;
         private double _price;
         private double _weight;
+        private List<Category> _categories;
 
         #endregion
 
@@ -56,6 +57,11 @@ namespace PayItForward.Classes
         {
             get { return _weight; }
             set { _weight = value; }
+        }
+        public List<Category> Categories
+        {
+            get { return _categories; }
+            set { _categories = value; }
         }
 
         #endregion
