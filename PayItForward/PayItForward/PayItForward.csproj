@@ -205,17 +205,18 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Pages\AdminProfile.aspx" />
-    <Content Include="Pages\CreateList.aspx" />
     <Content Include="Account\Web.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Pages\About.aspx" />
+    <Content Include="Pages\AdminProfile.aspx" />
+    <Content Include="Pages\CreateList.aspx" />
+    <Content Include="Pages\DonationCenterCreate.aspx" />
     <Content Include="Pages\DonationCenterEdit.aspx" />
     <Content Include="Pages\DonationCenterProfile.aspx" />
     <Content Include="Pages\UserProfile.aspx" />
     <Content Include="Pages\ViewDonationCenters.aspx" />
-    <Content Include="Pages\DonationCenterCreate.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -392,19 +393,12 @@
     <Compile Include="Classes\DonationCenter.cs" />
     <Compile Include="Classes\Item.cs" />
     <Compile Include="Classes\User.cs" />
-    <Compile Include="Pages\AdminProfile.aspx.cs">
-      <DependentUpon>AdminProfile.aspx</DependentUpon>
+    <Compile Include="Pages\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\AdminProfile.aspx.designer.cs">
-      <DependentUpon>AdminProfile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\CreateList.aspx.cs">
-      <DependentUpon>CreateList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\CreateList.aspx.designer.cs">
-      <DependentUpon>CreateList.aspx</DependentUpon>
+    <Compile Include="Pages\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\DonationCenterEdit.aspx.cs">
       <DependentUpon>DonationCenterEdit.aspx</DependentUpon>
@@ -444,13 +438,6 @@
     </Compile>
     <Compile Include="Pages\ViewDonationCenters.aspx.designer.cs">
       <DependentUpon>ViewDonationCenters.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\DonationCenterCreate.aspx.cs">
-      <DependentUpon>DonationCenterCreate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\DonationCenterCreate.aspx.designer.cs">
-      <DependentUpon>DonationCenterCreate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
