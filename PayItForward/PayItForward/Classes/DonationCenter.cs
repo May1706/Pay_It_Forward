@@ -21,7 +21,7 @@ namespace PayItForward.Classes
 
         public DonationCenter(int requestorId)
         {
-            Name = "";
+            CenterName = "";
             UserId = requestorId;
         }
 
