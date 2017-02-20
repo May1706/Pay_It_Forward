@@ -14,7 +14,7 @@ namespace PayItForward.Classes
         private string _name;
         private double _price;
         private double _weight;
-        private List<Category> _categories; //do we want a singular catagory for an item?
+        private Category _category; //do we want a singular catagory for an item?
 
         #endregion
 
@@ -69,10 +69,10 @@ namespace PayItForward.Classes
             get { return _weight; }
             set { _weight = value; }
         }
-        public List<Category> Categories
+        public Category Category
         {
-            get { return _categories; }
-            set { _categories = value; }
+            get { return _category; }
+            set { _category = value; }
         }
 
         #endregion

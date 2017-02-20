@@ -266,7 +266,9 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
@@ -395,6 +397,14 @@
     <Compile Include="Classes\DonationCenter.cs" />
     <Compile Include="Classes\Item.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Migrations\201702210319413_Baseline.cs" />
+    <Compile Include="Migrations\201702210319413_Baseline.Designer.cs">
+      <DependentUpon>201702210319413_Baseline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702210338287_CenterStatus.cs" />
+    <Compile Include="Migrations\201702210338287_CenterStatus.Designer.cs">
+      <DependentUpon>201702210338287_CenterStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -489,6 +499,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201702210319413_Baseline.resx">
+      <DependentUpon>201702210319413_Baseline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702210338287_CenterStatus.resx">
+      <DependentUpon>201702210338287_CenterStatus.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

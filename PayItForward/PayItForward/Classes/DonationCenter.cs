@@ -10,11 +10,14 @@ namespace PayItForward.Classes
     {
         #region Fields
 
+        private int _centerId;
         private int _userId;
         private string _centerName;
         private string _hours;
         private string _address;
         private string _pickup;
+        private DateTime _lastUpdate;
+        private int _status;
         private List<Category> _categories;
 
         #endregion
@@ -41,6 +44,13 @@ namespace PayItForward.Classes
         #endregion
 
         #region Properties
+
+        [Key]
+        public int CenterId
+        {
+            get { return _centerId; }
+            set { _centerId = value; }
+        }
 
         public int UserId
         {
@@ -70,6 +80,12 @@ namespace PayItForward.Classes
         {
             get { return _pickup; }
             set { _pickup = value; }
+        }
+
+        public DateTime LastUpdate
+        {
+            get { return _lastUpdate; }
+            set { _lastUpdate = value; }
         }
 
         #endregion

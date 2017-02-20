@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,10 +8,16 @@ namespace PayItForward.Classes
 {
     public class Category
     {
-        public int Id { get; }
+
+        #region Properties
+
+        [Key]
+        public int Id { get; set; }
         public string Name { get; set; }
 
         public virtual List<Item> Items { get; set; }
+
+        #endregion
 
         public Category(int id, string name, List<Item> items)
         {

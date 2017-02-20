@@ -9,7 +9,7 @@ namespace PayItForward.Classes
     public class DatabaseContext : DbContext
     {
         public DatabaseContext()
-            : base("name=DatabaseModel")
+            : base("DatabaseModel")
         {
 
         }
