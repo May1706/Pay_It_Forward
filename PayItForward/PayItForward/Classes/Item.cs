@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace PayItForward.Classes
 {
@@ -9,10 +10,11 @@ namespace PayItForward.Classes
     {
         #region Fields
 
+        private int _itemId;
         private string _name;
         private double _price;
         private double _weight;
-        private List<Category> _categories;
+        private List<Category> _categories; //do we want a singular catagory for an item?
 
         #endregion
 
@@ -32,14 +34,23 @@ namespace PayItForward.Classes
 
         #region Methods
 
-        public bool GetItem(string query)
+        public Item GetItem(string name)
         {
-            return false;
+            //build query, query, return
+            throw new NotImplementedException();
+            
         }
 
         #endregion
 
         #region Properties
+
+        [Key]
+        public int itemId
+        {
+            get { return _itemId; }
+            set { _itemId = value; }
+        }
 
         public string Name
         {

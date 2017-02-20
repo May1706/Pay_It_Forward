@@ -14,9 +14,9 @@ namespace PayItForward.Classes
 
         }
 
-        public DbSet<User> Users { get; set; }
-        public DbSet<DonationCenter> DonationCenters { get; set; }
-        public DbSet<Item> Items { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<DonationCenter> DonationCenter { get; set; }
+        public DbSet<Item> Item { get; set; }
+        public DbSet<Category> Category { get; set; }
     }
 }

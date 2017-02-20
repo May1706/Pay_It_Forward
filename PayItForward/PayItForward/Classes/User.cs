@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace PayItForward.Classes
 {
@@ -30,9 +31,10 @@ namespace PayItForward.Classes
         #endregion
 
         // todo: make specified constructor, nothing specified
-        public User()
+        public User(string email, string password)
         {
-
+            Email = email;
+            Password = password;
         }
 
         #region Methods
@@ -41,7 +43,10 @@ namespace PayItForward.Classes
         {
             //todo: implement
             // Check that granting user has admin privilege
-            // Add privilege
+            if (grantingUser.isAdmin())
+            {
+                // Add privilege
+            }
         }
 
         public bool isAdmin()
@@ -66,6 +71,7 @@ namespace PayItForward.Classes
 
         #region Properties
 
+        [Key]
         public int UserID
         {
             get { return _userID; }
