@@ -19,14 +19,15 @@
     <div class="listbox">
         <h2>Donation Items</h2>
 
+        <select class="categoryselect">
+            <option>&lt;Category&gt;</option>
+            <option>Category 1</option>
+            <option>Category 2</option>
+            <option>Category 3</option>
+            <option>Category 4</option>
+        </select>
+
         <div id="availableItems" class="sortable">
-            <select class="categoryselect">
-                <option>&lt;Category&gt;</option>
-                <option>Category 1</option>
-                <option>Category 2</option>
-                <option>Category 3</option>
-                <option>Category 4</option>
-            </select>
             <div class="ditem">Item 1<i class="js-remove">✖</i></div>
             <div class="ditem">Item 2<i class="js-remove">✖</i></div>
             <div class="ditem">Item 3<i class="js-remove">✖</i></div>
@@ -34,6 +35,8 @@
     </div>
 
     <br />
+
+    <asp:Button id="submitButton" Text="Find Accepting Donation Centers" OnClick="submitButton_Click" runat="server" />
 
     <script src="/Scripts/Sortable.js"></script>
     <script>
@@ -103,9 +106,5 @@
             font-style: normal;
         }
     </style>
-
-    <a href="/Pages/ViewDonationCenters.aspx">
-        <input type="button" value="Find Accepting Donation Centers"/>
-    </a>
 
 </asp:Content>

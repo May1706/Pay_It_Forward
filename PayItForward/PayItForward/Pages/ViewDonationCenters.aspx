@@ -6,6 +6,10 @@
         View all donation centers or a filtered list
     </h1>
 
+    <div id="results" runat="server">
+
+    </div>
+
     <a href="./DonationCenterProfile.aspx">
         <input type="button" value="DC One"/>
     </a>
