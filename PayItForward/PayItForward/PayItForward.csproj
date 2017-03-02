@@ -406,6 +406,10 @@
     <Compile Include="Migrations\201702210338287_CenterStatus.Designer.cs">
       <DependentUpon>201702210338287_CenterStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703022245302_ListsAsStrings.cs" />
+    <Compile Include="Migrations\201703022245302_ListsAsStrings.Designer.cs">
+      <DependentUpon>201703022245302_ListsAsStrings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -507,6 +511,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702210338287_CenterStatus.resx">
       <DependentUpon>201702210338287_CenterStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703022245302_ListsAsStrings.resx">
+      <DependentUpon>201703022245302_ListsAsStrings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

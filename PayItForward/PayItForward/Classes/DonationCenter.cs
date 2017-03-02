@@ -18,7 +18,12 @@ namespace PayItForward.Classes
         private string _pickup;
         private DateTime _lastUpdate;
         private int _status;
+
+        // Lazy instantiation
         private List<Category> _categories;
+
+        // Auto-populated from the concatenated string stored in DB
+        private List<string> _cateogyNames;
 
         #endregion
 
@@ -86,6 +91,18 @@ namespace PayItForward.Classes
         {
             get { return _lastUpdate; }
             set { _lastUpdate = value; }
+        }
+
+        public List<string> CategoryNames
+        {
+            get { return _cateogyNames; }
+            set { _cateogyNames = value; }
+        }
+
+        public string CategoryNamesAsString
+        {
+            get { return string.Join(",", CategoryNames); }
+            set { CategoryNames = value.Split(',').ToList(); }
         }
 
         #endregion

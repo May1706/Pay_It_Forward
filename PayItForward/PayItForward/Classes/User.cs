@@ -28,6 +28,9 @@ namespace PayItForward.Classes
         // List of donation centers for which user has edit privileges
         private List<DonationCenter> _centers;
 
+        // Stores names of donation centers to avoid unnecessary queries
+        private List<string> _centerNames;
+
         #endregion
 
         // todo: make specified constructor, nothing specified
@@ -90,6 +93,12 @@ namespace PayItForward.Classes
         {
             get { return _password; }
             set { _password = value; }
+        }
+
+        public string centersAsString
+        {
+            get { return string.Join(",", _centerNames); }
+            set { _centerNames = value.Split(',').ToList(); }
         }
 
         #endregion
