@@ -84,20 +84,23 @@
             border: 1px solid #50B948;
             margin: 5px;
             padding: 5px;
-            cursor: move;
+            cursor: pointer;
             position: relative;
+        }
+        
+        #cart .js-remove:hover {
+            color: red !important;
         }
 
         #cart .ditem:hover .js-remove {
             opacity: 1;
-            cursor: pointer;
+            color: black;
         }
 
         .js-remove {
             transition: opacity .2s;
             opacity: 0;
             display: block;
-            color: #c00;
             top: 5px;
             right: 10px;
             position: absolute;
