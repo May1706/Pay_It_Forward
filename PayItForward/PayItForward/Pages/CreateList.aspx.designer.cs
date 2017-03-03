@@ -13,6 +13,24 @@ namespace PayItForward.Pages {
     public partial class CreateList {
         
         /// <summary>
+        /// categoryList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList categoryList;
+        
+        /// <summary>
+        /// availableItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl availableItems;
+        
+        /// <summary>
         /// submitButton control.
         /// </summary>
         /// <remarks>

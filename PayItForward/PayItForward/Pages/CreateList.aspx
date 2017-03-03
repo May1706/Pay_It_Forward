@@ -6,10 +6,12 @@
 
     <h3>Select the category of your item and drag it into your donation cart.
         After everything you wish to donate is in your cart, click the button below to find the best donation centers based on your items.</h3>
+    
+    <h4>Currently only supports categories and not specific items</h4>
 
     <br />
 
-    <div class="listbox">
+    <div class="listbox" runat="server">
         <h2>Donation Cart</h2>
         <div id="cart" class="sortable">
 
@@ -19,15 +21,11 @@
     <div class="listbox">
         <h2>Donation Items</h2>
 
-        <select class="categoryselect">
-            <option>&lt;Category&gt;</option>
-            <option>Category 1</option>
-            <option>Category 2</option>
-            <option>Category 3</option>
-            <option>Category 4</option>
-        </select>
+        <!--
+        <asp:DropDownList id="categoryList" class="categoryselect" OnSelectedIndexChanged="categoryList_SelectedIndexChanged" AutoPostBack="true" runat="server"/>
+        -->
 
-        <div id="availableItems" class="sortable">
+        <div id="availableItems" class="sortable" clientmode="Static" runat="server">
             <div class="ditem">Item 1<i class="js-remove">✖</i></div>
             <div class="ditem">Item 2<i class="js-remove">✖</i></div>
             <div class="ditem">Item 3<i class="js-remove">✖</i></div>
@@ -51,7 +49,7 @@
             }
         });
 
-        var availableItems = document.getElementById('availableItems');
+        var availableItems = document.getElementById("<%=availableItems.ClientID%>");
         Sortable.create(availableItems, {
             group: { name: 'donation', pull: 'clone', put: false },
             animation: 150,

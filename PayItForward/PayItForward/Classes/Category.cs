@@ -12,7 +12,7 @@ namespace PayItForward.Classes
         #region Properties
 
         [Key]
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
 
         // TODO Will need to perform a search if we ever actually need the
@@ -32,13 +32,13 @@ namespace PayItForward.Classes
 
         public Category(int id, string name, List<Item> items)
         {
-            Id = id;
+            ID = id;
             Name = name;
             Items = items;
         }
         public Category(int id, string name)
         {
-            Id = id;
+            ID = id;
             Name = name;
             Items = new List<Item>();
         }

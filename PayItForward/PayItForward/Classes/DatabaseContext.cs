@@ -8,15 +8,20 @@ namespace PayItForward.Classes
 {
     public class DatabaseContext : DbContext
     {
-        public DatabaseContext()
-            : base("DatabaseModel")
+        public DatabaseContext() : base("DatabaseModel")
         {
 
         }
 
-        public DbSet<User> User { get; set; }
-        public DbSet<DonationCenter> DonationCenter { get; set; }
-        public DbSet<Item> Item { get; set; }
-        public DbSet<Category> Category { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<DatabaseContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<DonationCenter> DonationCenters { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
