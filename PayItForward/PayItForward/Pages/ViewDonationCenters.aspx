@@ -3,21 +3,9 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <h1>
-        View all donation centers or a filtered list
+        Donation Centers
     </h1>
-
-    <div id="results" runat="server">
+    <div id="centerDisplay" runat="server">
 
     </div>
-
-    <a href="./DonationCenterProfile.aspx">
-        <input type="button" value="DC One"/>
-    </a>
-    <a href="./DonationCenterProfile.aspx">
-        <input type="button" value="DC Two"/>
-    </a>
-    <a href="./DonationCenterProfile.aspx">
-        <input type="button" value="DC Three"/>
-    </a>
-
 </asp:Content>
