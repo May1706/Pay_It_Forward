@@ -6,14 +6,10 @@
         Admin Profile Page / Action Center
     </h1>
 
-    <p>Type: </p>
-    <asp:TextBox ID="TB1" input="text" runat="server" style="width:224px"/>
-    <br />    
-
-
-
     <br />
-    <asp:Button ID="Button2" runat="server" Text="Enter" style="width:85px" onclick="Button2_Click" />
+    <asp:Button ID="Generate" runat="server" Text="Generate Requests" style="width:auto" onclick="Generate_Click" />
+    <asp:Button ID="Remove" runat="server" Text="Remove Requests" style="width:auto" onclick="Remove_Click" />
+    <asp:Button ID="Display" runat="server" Text="Display Requests" style="width:auto" onclick="Display_Click" />
     <hr />
 
 
