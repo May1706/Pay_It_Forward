@@ -415,10 +415,6 @@
     <Compile Include="Migrations\201703042025403_AddRequestTable.Designer.cs">
       <DependentUpon>201703042025403_AddRequestTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703042049075_RewriteRequest.cs" />
-    <Compile Include="Migrations\201703042049075_RewriteRequest.Designer.cs">
-      <DependentUpon>201703042049075_RewriteRequest.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -526,9 +522,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703042025403_AddRequestTable.resx">
       <DependentUpon>201703042025403_AddRequestTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703042049075_RewriteRequest.resx">
-      <DependentUpon>201703042049075_RewriteRequest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
