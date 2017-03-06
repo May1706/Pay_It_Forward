@@ -10,7 +10,7 @@
 namespace PayItForward.Pages {
     
     
-    public partial class UserProfile {
+    public partial class CreateUser {
         
         /// <summary>
         /// Email control.
@@ -31,21 +31,48 @@ namespace PayItForward.Pages {
         protected global::System.Web.UI.WebControls.TextBox Password;
         
         /// <summary>
-        /// LoginB control.
+        /// passwordrequiredvalidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LoginB;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator passwordrequiredvalidator;
         
         /// <summary>
-        /// ErrMsg control.
+        /// RePassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ErrMsg;
+        protected global::System.Web.UI.WebControls.TextBox RePassword;
+        
+        /// <summary>
+        /// RePasswordRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RePasswordRequiredValidator;
+        
+        /// <summary>
+        /// LoginButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button LoginButton;
+        
+        /// <summary>
+        /// ErrorMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorMsg;
     }
 }
