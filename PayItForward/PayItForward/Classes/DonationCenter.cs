@@ -11,7 +11,6 @@ namespace PayItForward.Classes
         #region Fields
 
         private int _centerId;
-        private int _userId;
         private string _centerName;
         private string _hours;
         private string _address;
@@ -57,11 +56,7 @@ namespace PayItForward.Classes
             set { _centerId = value; }
         }
 
-        public int UserId
-        {
-            get { return _userId; }
-            set { _userId = value; }
-        }
+        public int UserId { get; set; }
 
         public string CenterName
         {

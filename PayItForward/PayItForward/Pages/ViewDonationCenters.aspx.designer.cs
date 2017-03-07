@@ -13,12 +13,12 @@ namespace PayItForward.Pages {
     public partial class ViewDonationCenters {
         
         /// <summary>
-        /// results control.
+        /// centerDisplay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl results;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl centerDisplay;
     }
 }
