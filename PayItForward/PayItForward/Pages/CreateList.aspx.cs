@@ -84,9 +84,13 @@ namespace PayItForward.Pages
                     }
                 }
 
-                items.Add(new Item("Item1", 0, 0));
-                items.Add(new Item("Item2", 0, 0));
-                items.Add(new Item("Item3", 0, 0));
+                items.Add(new Item("Book", 0, 0));
+                items.Add(new Item("Children", 0, 0));
+                items.Add(new Item("Clothes", 0, 0));
+
+                items[0].Category = new Category(0, "Books");
+                items[1].Category = new Category(1, "Children");
+                items[2].Category = new Category(2, "Clothing");
 
                 Session["donationItems"] = items;
 
