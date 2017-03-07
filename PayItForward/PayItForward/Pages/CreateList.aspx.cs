@@ -95,9 +95,6 @@ namespace PayItForward.Pages
 
                 Session["donationItems"] = items;
 
-                string message = strings[0];
-                Response.Write("<script language='javascript'>alert('" + message + "');</script>");
-
                 Response.BufferOutput = true;
                 Response.Redirect("/Pages/ViewDonationCenters.aspx");
             }
