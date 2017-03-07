@@ -93,6 +93,11 @@ namespace PayItForward.Pages
                     }
                 }
 
+                foreach (Item i in items)
+                {
+                    i.Category = items[0].Category = new Category(0, i.Name);
+                }
+
                 Session["donationItems"] = items;
 
                 Response.BufferOutput = true;
