@@ -9,8 +9,13 @@
     <br />
     <asp:Button ID="Generate" runat="server" Text="Generate Requests" style="width:auto" onclick="Generate_Click" />
     <asp:Button ID="Remove" runat="server" Text="Remove Requests" style="width:auto" onclick="Remove_Click" />
-    <asp:Button ID="Display" runat="server" Text="Display Requests" style="width:auto" onclick="Display_Click" />
+    
     <hr />
+
+    <asp:GridView ID="requestsGridView" SkinID="Professional" runat="server"></asp:GridView>
+
+    <hr />
+    <asp:Label ID="resultLabel" runat="server"></asp:Label>
 
 
 </asp:Content>

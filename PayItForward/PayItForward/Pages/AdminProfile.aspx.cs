@@ -12,7 +12,7 @@ namespace PayItForward.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            updateGridView();
         }
 
         protected void Generate_Click(object sender, EventArgs e)
@@ -35,6 +35,8 @@ namespace PayItForward.Pages
                     dbctx.Requests.Add(req);
                     dbctx.SaveChanges();
                 }
+
+                updateGridView();
             }
         }
 
@@ -52,21 +54,22 @@ namespace PayItForward.Pages
                 }
                 db.SaveChanges();
             }
+
+            updateGridView();
         }
 
-        protected void Display_Click(object sender, EventArgs e)
+
+        private void updateGridView()
         {
-            Console.WriteLine("All entries in db: ");
+            DatabaseContext db = new DatabaseContext();
 
-            using (var db = new DatabaseContext())
-            {
-                var query = from b in db.Requests orderby b.RequestId select b;
+            var requests = db.Requests;
 
-                foreach (var r in query)
-                {
-                    Console.WriteLine(r.RequestId);
-                }
-            }
+            string result = "";
+
+            requestsGridView.DataSource = requests.ToList();
+            requestsGridView.DataBind();
+            resultLabel.Text = result;
         }
     }
 }
