@@ -43,7 +43,10 @@ namespace PayItForward.Pages
                 availableItems.InnerHtml = "";
                 foreach (string c in categories)
                 {
-                    availableItems.InnerHtml += "<div class='ditem'>" + c + "<i class='js-remove'>✖</i></div>";
+                    availableItems.InnerHtml += @"<div class='ditem' draggable='false'>
+                                                <div>" + c + @"</div>
+                                                <i class='js-remove'>✖</i>
+                                                </div>";
                 }
             }
         }
@@ -60,11 +63,14 @@ namespace PayItForward.Pages
                 availableItems.InnerHtml = "";
                 foreach (string i in items)
                 {
-                    availableItems.InnerHtml += "<div class='ditem'>" + i + "<i class='js-remove'>✖</i></div>";
+                    availableItems.InnerHtml += @"<div class='ditem' draggable='false'>
+                                                <div>" + i + @"</div>
+                                                <i class='js-remove'>✖</i>
+                                                </div>";
                 }
             }
         }
-
+        
         //The user has finished their list and wants to see appicable donation centers
         protected void submitButton_Click(object sender, EventArgs e)
         {
@@ -72,7 +78,10 @@ namespace PayItForward.Pages
             {
                 List<Item> items = new List<Item>();
 
-                string[] strings = Regex.Split(cart.InnerHtml, "<[^>]*>");
+                string ditems = cartText.Text;
+
+                //string[] strings = Regex.Split(ditems, "<[^>]*>");
+                string[] strings = Regex.Split(ditems, ";");
 
                 // TODO: Should be switched to GetItem() when that is implemented
                 foreach (string s in strings)
@@ -84,18 +93,17 @@ namespace PayItForward.Pages
                     }
                 }
 
-                items.Add(new Item("Item1", 0, 0));
-                items.Add(new Item("Item2", 0, 0));
-                items.Add(new Item("Item3", 0, 0));
-
                 Session["donationItems"] = items;
+
+                string message = strings[0];
+                Response.Write("<script language='javascript'>alert('" + message + "');</script>");
 
                 Response.BufferOutput = true;
                 Response.Redirect("/Pages/ViewDonationCenters.aspx");
             }
             else
             {
-                string message = "You need at least one item in your cart!";
+                string message = "You must add at least one item to your donation cart!";
                 Response.Write("<script language='javascript'>alert('" + message + "');</script>");
             }
         }

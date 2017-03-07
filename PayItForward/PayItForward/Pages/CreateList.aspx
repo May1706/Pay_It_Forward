@@ -9,17 +9,9 @@
     
     <h4>Currently only supports categories and not specific items</h4>
 
-    <div id="test1" runat="server">
+    <asp:Textbox id="cartText" hidden="true" runat="server"/>
 
-    </div>
-
-    <div id="test2" runat="server">
-
-    </div>
-
-    <br />
-
-    <div class="listbox">
+    <div class="listbox" runat="server">
         <h2>Donation Cart</h2>
         <div id="cart" class="sortable" runat="server"/>
     </div>
@@ -31,12 +23,12 @@
         <asp:DropDownList id="categoryList" class="categoryselect" OnSelectedIndexChanged="categoryList_SelectedIndexChanged" AutoPostBack="true" runat="server"/>
         -->
 
-        <div id="availableItems" class="sortable" clientmode="Static" runat="server"/>
+        <div id="availableItems" class="sortable" runat="server"/>
     </div>
 
     <br />
 
-    <asp:Button id="submitButton" Text="Find Accepting Donation Centers" OnClick="submitButton_Click" runat="server" />
+    <asp:Button id="submitButton" Text="Find Accepting Donation Centers" OnClick="submitButton_Click" runat="server"/>
 
     <script src="/Scripts/Sortable.js"></script>
     <script>
@@ -56,6 +48,12 @@
             group: { name: 'donation', pull: 'clone', put: false },
             animation: 150,
             ghostClass: 'itemPreview'
+        });
+
+        var text = document.getElementById("<%=cartText.ClientID%>");
+        $('.ditem').click(function () {
+            text.value += $(this).children(":first").html() + ";";
+            cart.appendChild(this.cloneNode(true));
         });
     </script>
 
