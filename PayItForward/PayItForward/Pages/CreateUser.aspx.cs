@@ -1,10 +1,7 @@
 ﻿using PayItForward.Classes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
+
 
 namespace PayItForward.Pages
 {
@@ -71,12 +68,12 @@ namespace PayItForward.Pages
             }
             if (valid)
             {
+
+                //add user to db
                 newUser = new User(userEmail, userPassword1);
-                using (var db = new DatabaseContext())
-                {
-                    db.Users.Add(newUser);
-                    db.SaveChanges();
-                }
+                DatabaseContext db = new DatabaseContext();
+                db.AddUser(newUser);
+
 
                 createStatus = "New user created";
                 Email.Text = "";

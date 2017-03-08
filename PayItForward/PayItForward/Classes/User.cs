@@ -33,9 +33,6 @@ namespace PayItForward.Classes
 
         #endregion
 
-        public User() {}
-
-        // todo: make specified constructor, nothing specified
         public User(string email, string password)
         {
             Username = email;

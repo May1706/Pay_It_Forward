@@ -26,25 +26,19 @@ namespace PayItForward.Pages
 
             userEmail = Email.Text;
             userPassword = Password.Text;
-            using (var db = new DatabaseContext())
+
+            //check if user in database
+            DatabaseContext db = new DatabaseContext();
+            int count = db.CheckForUser(userEmail);
+            if (count == 0)
             {
-                //check if user exists in database
-                try
-                {
-                    var u = (from us in db.Users
-                             where us.Username == Email.Text
-                             select us).FirstOrDefault<User>();
-                    if (u == null)
-                    {
-                        errorMessage = "Currently no account for this email";
-                    }
-                //check password
+                errorMessage = "This user does not exist yet";
             }
-                catch (System.Reflection.TargetInvocationException)
+            else
             {
-                errorMessage = "Currently login is unavailable";
+                errorMessage = "User " + userEmail + " is logged in";
             }
-        }
+            
             ErrMsg.Text = errorMessage;
         }
     }

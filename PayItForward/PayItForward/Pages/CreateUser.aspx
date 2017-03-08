@@ -9,10 +9,9 @@
     <div>
             Enter email: <br />
             <asp:Textbox id="Email" runat="server" CausesValidation="True" MaxLength="30" TextMode="Email" />
-            <%--<asp:RequiredFieldValidator id="UsernameRequiredValidator" runat="server"
-                                      ControlToValidate="Email" 
-                                      ValidationExpression="^(?!\.)("([^"\r\\]|\\["\\])*"|([-a-z0-9!#$%&'*+/=?^_`{|}~] |(?@[\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$"      
-                                      ForeColor="red" Display="Static" ErrorMessage="Required" /> --%>
+            <asp:RequiredFieldValidator id="UsernameRequiredValidator" runat="server"
+                                      ControlToValidate="Email"
+                                      ForeColor="red" Display="Static" ErrorMessage="Required" /> 
             <br />
             Enter password: <br />
             <asp:Textbox id="Password" TextMode="Password" runat="server" />
