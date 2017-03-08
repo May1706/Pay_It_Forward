@@ -19,7 +19,7 @@ namespace PayItForward.Classes
 
         #region Fields
         private int _userID;
-        private String _email;
+        private String _username;
         private String _password;
 
         // Bitwise tracking of privileges user has
@@ -33,10 +33,9 @@ namespace PayItForward.Classes
 
         #endregion
 
-        // todo: make specified constructor, nothing specified
         public User(string email, string password)
         {
-            Email = email;
+            Username = email;
             Password = password;
         }
 
@@ -81,10 +80,10 @@ namespace PayItForward.Classes
             set { _userID = value; }
         }
 
-        public String Email
+        public String Username
         {
-            get { return _email; }
-            set { _email = value; }
+            get { return _username; }
+            set { _username = value; }
         }
 
 
@@ -97,7 +96,14 @@ namespace PayItForward.Classes
 
         public string centersAsString
         {
-            get { return string.Join(",", _centerNames); }
+            get
+            {
+                if (_centerNames != null)
+                {
+                    return string.Join(",", _centerNames); 
+                }
+                return null;
+            }
             set { _centerNames = value.Split(',').ToList(); }
         }
 

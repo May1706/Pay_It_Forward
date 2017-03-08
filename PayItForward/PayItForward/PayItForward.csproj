@@ -212,6 +212,7 @@
     <Content Include="Pages\About.aspx" />
     <Content Include="Pages\AdminProfile.aspx" />
     <Content Include="Pages\CreateList.aspx" />
+    <Content Include="Pages\CreateUser.aspx" />
     <Content Include="Pages\DonationCenterCreate.aspx" />
     <Content Include="Pages\DonationCenterEdit.aspx" />
     <Content Include="Pages\DonationCenterProfile.aspx" />
@@ -398,6 +399,7 @@
     <Compile Include="Classes\DonationCenter.cs" />
     <Compile Include="Classes\Item.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Migrations\201702210319413_Baseline.cs" />
     <Compile Include="Migrations\201702210319413_Baseline.Designer.cs">
       <DependentUpon>201702210319413_Baseline.cs</DependentUpon>
@@ -431,6 +433,13 @@
     </Compile>
     <Compile Include="Pages\CreateList.aspx.designer.cs">
       <DependentUpon>CreateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CreateUser.aspx.cs">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CreateUser.aspx.designer.cs">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\DonationCenterCreate.aspx.cs">
       <DependentUpon>DonationCenterCreate.aspx</DependentUpon>
