@@ -11,24 +11,22 @@
 
     <asp:Textbox id="cartText" hidden="true" runat="server"/>
 
-    <div class="listbox" runat="server">
-        <h2>Donation Cart</h2>
-        <div id="cart" class="sortable" runat="server"/>
-    </div>
+    <div class="actionCenter">
+        <div class="listbox leftList" runat="server">
+            <h2>Donation Cart</h2>
+            <div id="cart" class="sortable" runat="server"/>
+        </div>
 
-    <div class="listbox">
-        <h2>Donation Items</h2>
-
-        <!--
-        <asp:DropDownList id="categoryList" class="categoryselect" OnSelectedIndexChanged="categoryList_SelectedIndexChanged" AutoPostBack="true" runat="server"/>
-        -->
-
-        <div id="availableItems" class="sortable" runat="server"/>
+        <div class="listbox rightList">
+            <h2>Accepted Items</h2>
+            <asp:DropDownList id="categoryList" class="categoryselect" OnSelectedIndexChanged="categoryList_SelectedIndexChanged" hidden="true" AutoPostBack="true" runat="server"/>
+            <div id="availableItems" class="sortable" runat="server"/>
+        </div>
     </div>
 
     <br />
 
-    <asp:Button id="submitButton" Text="Find Accepting Donation Centers" OnClick="submitButton_Click" runat="server"/>
+    <asp:Button id="submitButton" class="actionButton" Text="Find Accepting Donation Centers" OnClick="submitButton_Click" runat="server"/>
 
     <script src="/Scripts/Sortable.js"></script>
     <script>
@@ -58,12 +56,26 @@
     </script>
 
     <style>
-        .itemPreview{
-            opacity: 0.5;
+        .actionCenter {
+            width: 100%;
+            position: relative;
+            height: 500px;
         }
 
         .listbox {
             display: inline-block;
+            width: 49%;
+            position: absolute;
+            height: 85%;
+            display: inline-block;
+        }
+
+        .leftList {
+            left: 0px;
+        }
+
+        .rightList {
+            right: 0px;
         }
 
         .categoryselect {
@@ -75,9 +87,7 @@
             border: 2px solid #50B948;
             overflow: hidden;
             overflow-y: auto;
-            height: 300px;
-            width: 300px;
-            padding: 0;
+            height: 100%;
         }
 
         .ditem {
@@ -105,6 +115,24 @@
             right: 10px;
             position: absolute;
             font-style: normal;
+        }
+
+        .itemPreview{
+            opacity: 0.5;
+        }
+
+        .actionButton {
+            width: 100%;
+            height: 75px;
+            background-color: #50B948;
+            border: none;
+            color: rgba(255, 255, 255, 1);
+            font-size: 20px;
+        }
+
+        .actionButton:hover {
+            color: #333;
+            background-color: rgba(132, 201, 127, 1);
         }
     </style>
 

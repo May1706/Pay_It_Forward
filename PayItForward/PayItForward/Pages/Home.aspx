@@ -35,8 +35,6 @@
         }
 
         .actionButton {
-            -webkit-appearance: button;
-            -moz-appearance: button;
             position: absolute;
             width: 49%;
             height: 100%;
