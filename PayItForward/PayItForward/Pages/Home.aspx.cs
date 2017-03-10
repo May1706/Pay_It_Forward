@@ -22,6 +22,8 @@ namespace PayItForward
 
         protected void viewCentersButton_Click(object sender, EventArgs e)
         {
+            Session["donationItems"] = null;
+
             Response.BufferOutput = true;
             Response.Redirect("/Pages/ViewDonationCenters.aspx");
         }

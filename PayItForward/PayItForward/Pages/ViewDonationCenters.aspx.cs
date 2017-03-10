@@ -11,6 +11,7 @@ namespace PayItForward.Pages
     public partial class ViewDonationCenters : System.Web.UI.Page
     {
         Dictionary<DonationCenter, List<Item>> centerItems = new Dictionary<DonationCenter, List<Item>>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             List<Item> items = (List<Item>)Session["donationItems"];
@@ -58,31 +59,40 @@ namespace PayItForward.Pages
             }
             Create_Table();
         }
+
+        //TODO: Need to make each box lead to the specific donation center profile page by setting a session variable accordingly
         protected void Create_Table()
         {
             /* there's probably a better way to do this */
-            centerDisplay.InnerHtml  = "";
-            foreach(DonationCenter c in centerItems.Keys)
+            centerDisplay.InnerHtml = "";
+
+            foreach (DonationCenter c in centerItems.Keys)
             {
+                //TODO: Need to programmatically grab this
+                string dcImage = "/Images/DefaultDCImage.png";
+
+                centerDisplay.InnerHtml += "<div class='dcBox'>";
+                centerDisplay.InnerHtml += "<img class='dcThumb dcStuff' src='" + dcImage + "' onclick='location.href=\"/Pages/DonationCenterProfile.aspx\"'/>";
+                centerDisplay.InnerHtml += "<div class='dcInfo dcStuff'>";
                 centerDisplay.InnerHtml += "<table>";
                 centerDisplay.InnerHtml += "<tr><td><strong>";
                 centerDisplay.InnerHtml += c.CenterName;
                 centerDisplay.InnerHtml += "</strong></td></tr>";
 
-                if(c.Address != null)
+                if (c.Address != null)
                 {
                     centerDisplay.InnerHtml += "<tr><td><a href=\"http://maps.google.com/?q=" + c.Address + "\" target=\"_blank\">" + c.Address + "</a></td></tr>";
                 }
-                if(c.Hours != null)
+
+                if (c.Hours != null)
                 {
-                    centerDisplay.InnerHtml += "<tr><td>" + c.Hours +"</td></tr>";
+                    centerDisplay.InnerHtml += "<tr><td>" + c.Hours + "</td></tr>";
                 }
 
-
-                centerDisplay.InnerHtml += "<tr><td>Takes: ";
+                centerDisplay.InnerHtml += "<tr><td>Accepts: ";
                 if (centerItems[c].Count > 0)
                 {
-                    foreach(Item i in centerItems[c])
+                    foreach (Item i in centerItems[c])
                     {
                         centerDisplay.InnerHtml += "<em>" + i.Name + "</em>";
                         centerDisplay.InnerHtml += ", ";
@@ -91,15 +101,15 @@ namespace PayItForward.Pages
                 }
                 else
                 {
-                    centerDisplay.InnerHtml += "<em>" + c.CategoryNamesAsString.Replace(",",", ") + "</em>";
+                    centerDisplay.InnerHtml += "<em>" + c.CategoryNamesAsString.Replace(",", ", ") + "</em>";
                 }
 
                 centerDisplay.InnerHtml += "</td></tr>";
 
+                centerDisplay.InnerHtml += "</table>";
 
-                centerDisplay.InnerHtml += "</table><br />";
+                centerDisplay.InnerHtml += "</div></div>";
             }
         }
-
     }
 }
