@@ -58,7 +58,7 @@
                         <li><a href="/Pages/Home">Home</a></li>
                         <li><a href="/Pages/About">About Us</a></li>
                         <li><a href="http://www.cityofames.org">City of Ames</a></li>
-                        <li><a href="/Pages/UserProfile">Login</a></li>
+                        <li><a href="/Pages/Login">Login</a></li>
                     </ul>
                 </div>
             </div>

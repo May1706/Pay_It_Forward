@@ -218,6 +218,7 @@
     <Content Include="Pages\DonationCenterCreate.aspx" />
     <Content Include="Pages\DonationCenterEdit.aspx" />
     <Content Include="Pages\DonationCenterProfile.aspx" />
+    <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\UserProfile.aspx" />
     <Content Include="Pages\ViewDonationCenters.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -475,6 +476,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Pages\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\UserProfile.aspx.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
