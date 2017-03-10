@@ -209,6 +209,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\DefaultDCImage.png" />
+    <Content Include="Images\DefaultMap.jpg" />
     <Content Include="Pages\About.aspx" />
     <Content Include="Pages\AdminProfile.aspx" />
     <Content Include="Pages\CreateList.aspx" />
