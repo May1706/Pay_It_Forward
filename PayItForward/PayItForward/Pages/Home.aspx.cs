@@ -13,5 +13,17 @@ namespace PayItForward
         {
 
         }
+
+        protected void createListButton_Click(object sender, EventArgs e)
+        {
+            Response.BufferOutput = true;
+            Response.Redirect("/Pages/CreateList.aspx");
+        }
+
+        protected void viewCentersButton_Click(object sender, EventArgs e)
+        {
+            Response.BufferOutput = true;
+            Response.Redirect("/Pages/ViewDonationCenters.aspx");
+        }
     }
 }
