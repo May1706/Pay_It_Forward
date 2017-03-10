@@ -13,5 +13,11 @@ namespace PayItForward.Pages
         {
 
         }
+
+        protected void createCenter_Click(object sender, EventArgs e)
+        {
+            Response.BufferOutput = true;
+            Response.Redirect("/Pages/DonationCenterCreate.aspx");
+        }
     }
 }
