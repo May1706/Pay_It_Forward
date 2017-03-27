@@ -26,7 +26,7 @@
 
     <br />
 
-    <asp:Button id="submitButton" class="actionButton" Text="Find Accepting Donation Centers" OnClick="submitButton_Click" runat="server"/>
+    <asp:Button id="submitButton" class="actionButton" Text="Find Accepting Donation Centers" OnClientClick="submitClick()" OnClick="submitButton_Click" runat="server"/>
 
     <script src="/Scripts/Sortable.js"></script>
     <script>
@@ -50,9 +50,20 @@
 
         var text = document.getElementById("<%=cartText.ClientID%>");
         $('.ditem').click(function () {
-            text.value += $(this).children(":first").html() + ";";
+            //text.value += $(this).children(":first").html() + ";";
             cart.appendChild(this.cloneNode(true));
         });
+
+        //Occurs before the server
+        function submitClick() {
+            var s = $(cart).html().split(/<[^>]*>/);
+
+            for (var i = 0, len = s.length; i < len; i++) {
+                if (s[i] != null && s[i].trim().length > 0 && s[i].trim() != "✖") {
+                    text.value += s[i].trim() + ';';
+                }
+            }
+        }
     </script>
 
     <style>

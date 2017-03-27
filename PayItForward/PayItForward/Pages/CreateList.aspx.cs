@@ -8,6 +8,8 @@ using PayItForward.Classes;
 using System.Data;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using System.Text;
+using System.IO;
 
 namespace PayItForward.Pages
 {
@@ -74,7 +76,7 @@ namespace PayItForward.Pages
         //The user has finished their list and wants to see appicable donation centers
         protected void submitButton_Click(object sender, EventArgs e)
         {
-            if (true)
+            if (cartText.Text != null && cartText.Text.Length > 0)
             {
                 List<Item> items = new List<Item>();
 
@@ -86,10 +88,10 @@ namespace PayItForward.Pages
                 // TODO: Should be switched to GetItem() when that is implemented
                 foreach (string s in strings)
                 {
-                    if (s.Trim() != "✖" && s.Length > 0)
+                    if (s.Trim() != "✖" && s.Trim().Length > 0)
                     {
-                        items.Add(new Item(s, 0, 0));
-                        //items.Add(Item.GetItem(s));
+                        items.Add(new Item(s.Trim(), 0, 0));
+                        //items.Add(Item.GetItem(s.Trim()));
                     }
                 }
 
