@@ -39,6 +39,11 @@ namespace PayItForward.Classes
             Password = password;
         }
 
+        public User()
+        {
+
+        }
+
         #region Methods
 
         public void addAdminPrivilege(User grantingUser)
@@ -79,7 +84,7 @@ namespace PayItForward.Classes
             get { return _userID; }
             set { _userID = value; }
         }
-
+        
         public String Username
         {
             get { return _username; }

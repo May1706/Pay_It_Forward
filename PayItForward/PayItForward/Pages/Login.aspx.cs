@@ -11,35 +11,32 @@ namespace PayItForward.Pages
 {
     public partial class Login : System.Web.UI.Page
     {
-        string userEmail;
-        string userPassword;
-        string errorMessage = "";
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoginB.Click += new EventHandler(this.LoginB_Click);
+
         }
 
         protected void LoginB_Click(object sender, EventArgs e)
         {
-            Button clickedButton = (Button)sender;
-
-            userEmail = Email.Text;
-            userPassword = Password.Text;
-
-            //check if user in database
-            DatabaseContext db = new DatabaseContext();
-            int count = db.CheckForUser(userEmail);
-            if (count == 0)
-            {
-                errorMessage = "This user does not exist yet";
-            }
-            else
-            {
-                errorMessage = "User " + userEmail + " is logged in";
-            }
+            string userEmail    = Email.Text;
+            string userPassword = Password.Text;
             
-            ErrMsg.Text = errorMessage;
+            using (var db = new DatabaseContext())
+            {
+                User u = db.Users.FirstOrDefault(user => user.Username == userEmail);
+                
+                if (u != null && u.Password == userPassword)
+                {
+                    Session["activeUser"] = u;
+
+                    Response.BufferOutput = true;
+                    Response.Redirect("/Pages/Home.aspx");
+                }
+                else
+                {
+                    ErrMsg.Text = "Username or password is incorrect";
+                }
+            }
         }
     }
 }

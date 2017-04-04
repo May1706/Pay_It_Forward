@@ -7,6 +7,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using PayItForward.Classes;
 
 namespace PayItForward
 {
@@ -69,7 +70,11 @@ namespace PayItForward
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["activeUser"] != null)
+            {
+                loginText.InnerText = ((User)Session["activeUser"]).Username;
+                loginText.HRef = @"/Pages/UserProfile.aspx";
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

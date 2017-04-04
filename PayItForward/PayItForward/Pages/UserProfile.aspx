@@ -9,13 +9,8 @@
         <br />
         <br />
 
-        <asp:Label id="userEmail" Text="[Email]" runat="server" />
-
-        <br />
-        <br />
-
         <asp:Label Text="Donation Centers:" runat="server" />
-        <div id="userCenters">
+        <div id="userCenters" runat="server">
 
         </div>
 
@@ -23,7 +18,7 @@
         <br />
 
         <asp:Label Text="Donation History:" runat="server" />
-        <div id="userHistory">
+        <div id="userHistory" runat="server">
 
         </div>
 
