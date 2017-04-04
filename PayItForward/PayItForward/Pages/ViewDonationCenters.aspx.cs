@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using PayItForward.Classes;
 
 namespace PayItForward.Pages
@@ -14,11 +10,15 @@ namespace PayItForward.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            GenerateContent();
+        }
+
+        protected void GenerateContent()
+        {
             List<Item> items = (List<Item>)Session["donationItems"];
 
-            if(items == null || items.Count == 0)
+            if (items == null || items.Count == 0)
             {
-
                 using (var db = new DatabaseContext())
                 {
                     foreach (DonationCenter c in db.DonationCenters)
@@ -34,12 +34,13 @@ namespace PayItForward.Pages
                 {
                     foreach (Item i in items)
                     {
-                        foreach(DonationCenter c in db.DonationCenters)
+                        foreach (DonationCenter c in db.DonationCenters)
                         {
                             if (!c.CategoryNames.Contains(i.Category.Name))
                             {
                                 continue;
                             }
+
                             if (centerItems.ContainsKey(c))
                             {
                                 if (!centerItems[c].Contains(i))
@@ -57,6 +58,7 @@ namespace PayItForward.Pages
                     }
                 }
             }
+
             Create_Table();
         }
 
@@ -86,7 +88,7 @@ namespace PayItForward.Pages
 
                 if (c.Hours != null)
                 {
-                    centerDisplay.InnerHtml += "<tr><td>" + c.Hours + "</td></tr>";
+                    centerDisplay.InnerHtml += "<tr><td>" + c.Hours.Split(';')[(int)DateTime.Now.DayOfWeek] + "</td></tr>";
                 }
 
                 centerDisplay.InnerHtml += "<tr><td>Accepts: ";

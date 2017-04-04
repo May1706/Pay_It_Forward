@@ -17,6 +17,8 @@ namespace PayItForward.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["donationItems"] = null;
+
             populateCategories();
             //populateCategoriesDropdown();
         }

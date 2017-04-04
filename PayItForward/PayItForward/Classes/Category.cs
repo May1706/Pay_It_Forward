@@ -42,6 +42,9 @@ namespace PayItForward.Classes
             Name = name;
             Items = new List<Item>();
         }
+        public Category()
+        {
 
+        }
     }
 }

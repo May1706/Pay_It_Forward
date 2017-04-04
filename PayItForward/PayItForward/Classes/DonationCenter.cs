@@ -22,7 +22,7 @@ namespace PayItForward.Classes
         private List<Category> _categories;
 
         // Auto-populated from the concatenated string stored in DB
-        private List<string> _cateogyNames;
+        private List<string> _categoryNames;
 
         #endregion
 
@@ -90,8 +90,8 @@ namespace PayItForward.Classes
 
         public List<string> CategoryNames
         {
-            get { return _cateogyNames; }
-            set { _cateogyNames = value; }
+            get { return _categoryNames; }
+            set { _categoryNames = value; }
         }
 
         public string CategoryNamesAsString

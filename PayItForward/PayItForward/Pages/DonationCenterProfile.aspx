@@ -28,43 +28,38 @@
 
             <asp:Label Text="Hours:" runat="server" />
             <div id="dcHours">
+                <asp:Label class="hours" Text="Sunday" runat="server" />
+                <asp:Label id="sundayHours" class="hours time" Text="[Hours]" runat="server" />
+
+                <br />
+
                 <asp:Label class="hours" Text="Monday" runat="server" />
-                <asp:Label class="hours time" Text="[Hours]" runat="server" />
+                <asp:Label id="mondayHours" class="hours time" Text="[Hours]" runat="server" />
 
                 <br />
 
                 <asp:Label class="hours" Text="Tuesday" runat="server" />
-                <asp:Label class="hours time" Text="[Hours]" runat="server" />
+                <asp:Label id="tuesdayHours" class="hours time" Text="[Hours]" runat="server" />
 
                 <br />
 
                 <asp:Label class="hours" Text="Wednesday" runat="server" />
-                <asp:Label class="hours time" Text="[Hours]" runat="server" />
-
-                <br />
-
-                <asp:Label class="hours" Text="Monday" runat="server" />
-                <asp:Label class="hours time" Text="[Hours]" runat="server" />
+                <asp:Label id="wednesdayHours" class="hours time" Text="[Hours]" runat="server" />
 
                 <br />
 
                 <asp:Label class="hours" Text="Thursday" runat="server" />
-                <asp:Label class="hours time" Text="[Hours]" runat="server" />
+                <asp:Label id="thursdayHours" class="hours time" Text="[Hours]" runat="server" />
 
                 <br />
 
                 <asp:Label class="hours" Text="Friday" runat="server" />
-                <asp:Label class="hours time" Text="[Hours]" runat="server" />
+                <asp:Label id="fridayHours" class="hours time" Text="[Hours]" runat="server" />
 
                 <br />
 
                 <asp:Label class="hours" Text="Saturday" runat="server" />
-                <asp:Label class="hours time" Text="[Hours]" runat="server" />
-
-                <br />
-
-                <asp:Label class="hours" Text="Sunday" runat="server" />
-                <asp:Label class="hours time" Text="[Hours]" runat="server" />
+                <asp:Label id="saturdayHours" class="hours time" Text="[Hours]" runat="server" />
             </div>
 
             <br />
@@ -77,7 +72,7 @@
             <br />
             <br />
 
-            <asp:Label Text="Information Last Updated:" runat="server" />
+            <asp:Label Text="Information Last Updated:" runat="server" /><br />
             <asp:Label id="dcUpdated" Text="[Date]" runat="server" />
         </div>
 
