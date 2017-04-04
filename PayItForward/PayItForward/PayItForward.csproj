@@ -399,6 +399,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Classes\Category.cs" />
     <Compile Include="Classes\DatabaseContext.cs" />
+    <Compile Include="Classes\DonatedItem.cs" />
+    <Compile Include="Classes\Donation.cs" />
     <Compile Include="Classes\DonationCenter.cs" />
     <Compile Include="Classes\Item.cs" />
     <Compile Include="Classes\Request.cs" />
@@ -419,6 +421,9 @@
     <Compile Include="Migrations\201703042025403_AddRequestTable.cs" />
     <Compile Include="Migrations\201703042025403_AddRequestTable.Designer.cs">
       <DependentUpon>201703042025403_AddRequestTable.cs</DependentUpon>
+    <Compile Include="Migrations\201703302111430_HighAndLowValue.cs" />
+    <Compile Include="Migrations\201703302111430_HighAndLowValue.Designer.cs">
+      <DependentUpon>201703302111430_HighAndLowValue.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\About.aspx.cs">
@@ -541,6 +546,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703042025403_AddRequestTable.resx">
       <DependentUpon>201703042025403_AddRequestTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703302111430_HighAndLowValue.resx">
+      <DependentUpon>201703302111430_HighAndLowValue.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

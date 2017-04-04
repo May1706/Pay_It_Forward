@@ -92,7 +92,7 @@ namespace PayItForward.Pages
                 {
                     if (s.Trim() != "✖" && s.Trim().Length > 0)
                     {
-                        items.Add(new Item(s.Trim(), 0, 0));
+                        items.Add(new Item(s.Trim(), 0, 0, 0));
                         //items.Add(Item.GetItem(s.Trim()));
                     }
                 }

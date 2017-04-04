@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace PayItForward.Classes
 {
@@ -30,6 +31,9 @@ namespace PayItForward.Classes
 
         // Stores names of donation centers to avoid unnecessary queries
         private List<string> _centerNames;
+
+        // Donations made by this user
+        private List<Donation> _donations;
 
         #endregion
 
@@ -74,6 +78,8 @@ namespace PayItForward.Classes
                 == DonationCenterPrivilege;
         }
 
+        public void addDonation()
+
         #endregion
 
         #region Properties
@@ -110,6 +116,54 @@ namespace PayItForward.Classes
                 return null;
             }
             set { _centerNames = value.Split(',').ToList(); }
+        }
+
+        public string DonationsString
+        {
+            get
+            {
+                if (_donations == null || _donations.Count == 0) { return ""; }
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append(_donations[0].Id);
+
+                for (int i = 1; i < _donations.Count; i++)
+                {
+                    sb.Append("," + _donations[i].Id);
+                }
+
+                return sb.ToString();
+            }
+
+            set
+            {
+                _donations = new List<Donation>();
+
+                if (value == null) return;
+
+                string[] splitString = value.Split(',');
+                foreach (string donationId in splitString)
+                {
+                    try
+                    {
+                        int id = int.Parse(donationId);
+                        using (var db = new DatabaseContext())
+                        {
+
+                            Donation don = db.Donations
+                                .Where(d => d.Id == id)
+                                .FirstOrDefault();
+                            _donations.Add(don);
+                        }
+                    }
+                    catch (FormatException e)
+                    {
+                        Console.WriteLine("User db entry formatted incorrectly"
+                            + ": Expected int for donation id, got "
+                            + donationId);
+                    }
+                }
+            }
         }
 
         #endregion
