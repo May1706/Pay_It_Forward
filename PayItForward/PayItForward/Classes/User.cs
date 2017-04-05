@@ -21,6 +21,7 @@ namespace PayItForward.Classes
         private int _userID;
         private String _username;
         private String _password;
+        private String _key;
 
         // Bitwise tracking of privileges user has
         private int _privileges;
@@ -33,7 +34,7 @@ namespace PayItForward.Classes
 
         #endregion
 
-        public User(string email, string password)
+        public User(string email, string password, string key)
         {
             Username = email;
             Password = password;
