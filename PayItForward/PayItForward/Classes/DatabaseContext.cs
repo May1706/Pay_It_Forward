@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PayItForward.Classes
 {
@@ -21,9 +20,11 @@ namespace PayItForward.Classes
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<DonationCenter> DonationCenters { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<DonationCenter> DonationCenters { get; set; }
+        public DbSet<Request> Requests { get; set; }
+        public DbSet<Donation> Donations { get; set; }
 
         public User AddUser(User user)
         {

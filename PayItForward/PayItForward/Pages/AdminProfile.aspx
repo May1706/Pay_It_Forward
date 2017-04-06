@@ -6,4 +6,16 @@
         Admin Profile Page / Action Center
     </h1>
 
+    <br />
+    <asp:Button ID="Generate" runat="server" Text="Generate Requests" style="width:auto" onclick="Generate_Click" />
+    <asp:Button ID="Remove" runat="server" Text="Remove Requests" style="width:auto" onclick="Remove_Click" />
+    
+    <hr />
+
+    <asp:GridView ID="requestsGridView" SkinID="Professional" runat="server"></asp:GridView>
+
+    <hr />
+    <asp:Label ID="resultLabel" runat="server"></asp:Label>
+
+
 </asp:Content>

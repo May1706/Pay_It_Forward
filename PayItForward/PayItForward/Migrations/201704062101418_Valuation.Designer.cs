@@ -7,13 +7,13 @@ namespace PayItForward.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CenterStatus : IMigrationMetadata
+    public sealed partial class Valuation : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CenterStatus));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Valuation));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702210338287_CenterStatus"; }
+            get { return "201704062101418_Valuation"; }
         }
         
         string IMigrationMetadata.Source
