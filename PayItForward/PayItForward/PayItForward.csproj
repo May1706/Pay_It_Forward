@@ -414,6 +414,10 @@
     <Compile Include="Migrations\201704061930548_UpdateTables.Designer.cs">
       <DependentUpon>201704061930548_UpdateTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704062101418_Valuation.cs" />
+    <Compile Include="Migrations\201704062101418_Valuation.Designer.cs">
+      <DependentUpon>201704062101418_Valuation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -529,6 +533,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704061930548_UpdateTables.resx">
       <DependentUpon>201704061930548_UpdateTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704062101418_Valuation.resx">
+      <DependentUpon>201704062101418_Valuation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
