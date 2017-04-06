@@ -6,11 +6,12 @@
 
     <h3>Select the category of your item and drag it into your donation cart.
         After everything you wish to donate is in your cart, click the button below to find the best donation centers based on your items.</h3>
-    
-    <h4>Currently only supports categories and not specific items</h4>
+
+    <br />
 
     <asp:Textbox id="cartText" hidden="true" runat="server"/>
-
+    
+    <h2>Category</h2>
     <asp:DropDownList id="categoryList" class="categoryselect" runat="server"/>
 
     <div class="actionCenter">
@@ -32,6 +33,7 @@
 
     <script src="/Scripts/Sortable.js"></script>
     <script>
+        // Selecting a new category updates the available items box
         $('#<%=categoryList.ClientID%>').change(function() {
             var selectedCategory = $(this).val();
             console.log("Category: " + selectedCategory);
@@ -43,14 +45,10 @@
                 dataType: "json",
                 success:
                     function (data) {
-                        console.log("Data: " + data);
-                        console.log("Data.d: " + data.d);
                         obj = JSON.parse(data.d);
-                        console.log("Object: " + obj);
                         availableItems.innerHTML = "";
                         for (var key in obj) {
                             if (obj.hasOwnProperty(key)) {
-                                console.log(obj[key]);
                                 availableItems.innerHTML += "<div class='ditem' draggable='false'>" +
                                                             "<div>" + obj[key] + "</div>" +
                                                             "<i class='js-remove'>✖</i>" +
@@ -61,13 +59,7 @@
             })
         });
 
-        function addToList(item) {
-            availableItems.InnerHTML += "<div class='ditem' draggable='false'>" +
-                                        "<div>" + item + "</div>" +
-                                        "<i class='js-remove'>✖</i>" +
-                                        "</div>";
-        }
-
+        // Allows the cart to be dragged to
         var cart = document.getElementById("<%=cart.ClientID%>");
         Sortable.create(cart, {
             group: { name: 'donation', pull: true, put: true },
@@ -79,6 +71,7 @@
             }
         });
 
+        // Allow the Available Items box to dragged from
         var availableItems = document.getElementById("<%=availableItems.ClientID%>");
         Sortable.create(availableItems, {
             group: { name: 'donation', pull: 'clone', put: false },
@@ -86,13 +79,12 @@
             ghostClass: 'itemPreview'
         });
 
-        var text = document.getElementById("<%=cartText.ClientID%>");
+        // Allows clicking in addition to the dragging
         $('.ditem').click(function () {
-            //text.value += $(this).children(":first").html() + ";";
             cart.appendChild(this.cloneNode(true));
         });
 
-        //Occurs before the server
+        // Occurs before the server; adds all carted item to an invisible asp textbox so it can be read serverside
         function submitClick() {
             var s = $(cart).html().split(/<[^>]*>/);
 
@@ -128,7 +120,7 @@
         }
 
         .categoryselect {
-            width: 99%;
+            width: 99.75%;
             margin: 1px;
         }
 

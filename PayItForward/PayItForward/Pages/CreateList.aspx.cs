@@ -55,6 +55,23 @@ namespace PayItForward.Pages
                     }
                 }
             }
+
+            using (var db = new DatabaseContext())
+            {
+                string[] items = (from category in db.Categories
+                                  where category.Name == categoryList.SelectedItem.Text
+                                  select category.itemString).ToList()[0].Split(';');
+
+                availableItems.InnerHtml = "";
+
+                foreach (string i in items)
+                {
+                    availableItems.InnerHtml += @"<div class='ditem' draggable='false'>
+                                                <div>" + i + @"</div>
+                                                <i class='js-remove'>✖</i>
+                                                </div>";
+                }
+            }
         }
 
         //Populate the available items list with categories; this is in place of specific items
@@ -69,27 +86,6 @@ namespace PayItForward.Pages
                 {
                     availableItems.InnerHtml += @"<div class='ditem' draggable='false'>
                                                 <div>" + c + @"</div>
-                                                <i class='js-remove'>✖</i>
-                                                </div>";
-                }
-            }
-        }
-
-        //Change the available items based on the selected category
-        protected void categoryList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            using (var db = new DatabaseContext())
-            {
-                string[] items = (from category in db.Categories
-                                  where category.Name == categoryList.SelectedItem.Text
-                                  select category.itemString).ToList()[0].Split(';');
-
-                availableItems.InnerHtml = "";
-
-                foreach (string i in items)
-                {
-                    availableItems.InnerHtml += @"<div class='ditem' draggable='false'>
-                                                <div>" + i + @"</div>
                                                 <i class='js-remove'>✖</i>
                                                 </div>";
                 }
