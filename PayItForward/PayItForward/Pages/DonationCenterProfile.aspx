@@ -70,7 +70,6 @@
             </div>
 
             <br />
-            <br />
 
             <asp:Label Text="Information Last Updated:" runat="server" /><br />
             <asp:Label id="dcUpdated" Text="[Date]" runat="server" />
