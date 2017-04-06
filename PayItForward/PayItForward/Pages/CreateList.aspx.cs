@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using PayItForward.Classes;
 using System.Data;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace PayItForward.Pages
 {
@@ -67,16 +68,36 @@ namespace PayItForward.Pages
         //The user has finished their list and wants to see appicable donation centers
         protected void submitButton_Click(object sender, EventArgs e)
         {
-            List<Item> items = new List<Item>();
+            if (true)
+            {
+                List<Item> items = new List<Item>();
 
-            items.Add(new Item("Test 1", 0, 0));
-            items.Add(new Item("Test 2", 0, 0));
-            items.Add(new Item("Test 3", 0, 0));
+                string[] strings = Regex.Split(cart.InnerHtml, "<[^>]*>");
 
-            Session["donationItems"] = items;
+                // TODO: Should be switched to GetItem() when that is implemented
+                foreach (string s in strings)
+                {
+                    if (s.Trim() != "✖" && s.Length > 0)
+                    {
+                        items.Add(new Item(s, 0, 0));
+                        //items.Add(Item.GetItem(s));
+                    }
+                }
 
-            Response.BufferOutput = true;
-            Response.Redirect("/Pages/ViewDonationCenters.aspx");
+                items.Add(new Item("Item1", 0, 0));
+                items.Add(new Item("Item2", 0, 0));
+                items.Add(new Item("Item3", 0, 0));
+
+                Session["donationItems"] = items;
+
+                Response.BufferOutput = true;
+                Response.Redirect("/Pages/ViewDonationCenters.aspx");
+            }
+            else
+            {
+                string message = "You need at least one item in your cart!";
+                Response.Write("<script language='javascript'>alert('" + message + "');</script>");
+            }
         }
     }
 }

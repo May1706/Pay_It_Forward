@@ -9,13 +9,19 @@
     
     <h4>Currently only supports categories and not specific items</h4>
 
+    <div id="test1" runat="server">
+
+    </div>
+
+    <div id="test2" runat="server">
+
+    </div>
+
     <br />
 
-    <div class="listbox" runat="server">
+    <div class="listbox">
         <h2>Donation Cart</h2>
-        <div id="cart" class="sortable">
-
-        </div>
+        <div id="cart" class="sortable" runat="server"/>
     </div>
 
     <div class="listbox">
@@ -25,11 +31,7 @@
         <asp:DropDownList id="categoryList" class="categoryselect" OnSelectedIndexChanged="categoryList_SelectedIndexChanged" AutoPostBack="true" runat="server"/>
         -->
 
-        <div id="availableItems" class="sortable" clientmode="Static" runat="server">
-            <div class="ditem">Item 1<i class="js-remove">✖</i></div>
-            <div class="ditem">Item 2<i class="js-remove">✖</i></div>
-            <div class="ditem">Item 3<i class="js-remove">✖</i></div>
-        </div>
+        <div id="availableItems" class="sortable" clientmode="Static" runat="server"/>
     </div>
 
     <br />
@@ -38,7 +40,7 @@
 
     <script src="/Scripts/Sortable.js"></script>
     <script>
-        var cart = document.getElementById('cart');
+        var cart = document.getElementById("<%=cart.ClientID%>");
         Sortable.create(cart, {
             group: { name: 'donation', pull: true, put: true },
             animation: 150,
@@ -88,11 +90,11 @@
             position: relative;
         }
         
-        #cart .js-remove:hover {
+        #<%=cart.ClientID%> .js-remove:hover {
             color: red !important;
         }
 
-        #cart .ditem:hover .js-remove {
+        #<%=cart.ClientID%> .ditem:hover .js-remove {
             opacity: 1;
             color: black;
         }
