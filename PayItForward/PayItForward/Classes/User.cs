@@ -78,7 +78,7 @@ namespace PayItForward.Classes
                 == DonationCenterPrivilege;
         }
 
-        public void addDonation()
+        public void addDonation() { }
 
         #endregion
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -116,6 +117,7 @@ namespace PayItForward.Classes
 
         public DateTime DonationDateTime { get; set; }
 
+        [NotMapped]
         public List<DonatedItem> Items
         {
             get
