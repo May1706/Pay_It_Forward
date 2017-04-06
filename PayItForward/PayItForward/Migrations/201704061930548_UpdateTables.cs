@@ -3,10 +3,11 @@ namespace PayItForward.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddRequestTable : DbMigration
+    public partial class UpdateTables : DbMigration
     {
         public override void Up()
         {
+            DropIndex("dbo.Items", new[] { "Category_Id" });
             CreateTable(
                 "dbo.Requests",
                 c => new
@@ -22,14 +23,18 @@ namespace PayItForward.Migrations
                     })
                 .PrimaryKey(t => t.RequestId)
                 .ForeignKey("dbo.Requests", t => t.Request_RequestId)
-                .Index(t => t.Request_RequestId);            
+                .Index(t => t.Request_RequestId);
+            
+            CreateIndex("dbo.Items", "Category_ID");
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Requests", "Request_RequestId", "dbo.Requests");
             DropIndex("dbo.Requests", new[] { "Request_RequestId" });
+            DropIndex("dbo.Items", new[] { "Category_ID" });
             DropTable("dbo.Requests");
+            CreateIndex("dbo.Items", "Category_Id");
         }
     }
 }
