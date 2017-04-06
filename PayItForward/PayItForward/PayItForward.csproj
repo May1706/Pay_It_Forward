@@ -421,6 +421,7 @@
     <Compile Include="Migrations\201703042025403_AddRequestTable.cs" />
     <Compile Include="Migrations\201703042025403_AddRequestTable.Designer.cs">
       <DependentUpon>201703042025403_AddRequestTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201703302111430_HighAndLowValue.cs" />
     <Compile Include="Migrations\201703302111430_HighAndLowValue.Designer.cs">
       <DependentUpon>201703302111430_HighAndLowValue.cs</DependentUpon>
@@ -546,6 +547,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703042025403_AddRequestTable.resx">
       <DependentUpon>201703042025403_AddRequestTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703302111430_HighAndLowValue.resx">
       <DependentUpon>201703302111430_HighAndLowValue.cs</DependentUpon>
     </EmbeddedResource>
