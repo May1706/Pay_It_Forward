@@ -11,6 +11,8 @@
 
     <asp:Textbox id="cartText" hidden="true" runat="server"/>
 
+    <asp:DropDownList id="categoryList" class="categoryselect" runat="server"/>
+
     <div class="actionCenter">
         <div class="listbox leftList" runat="server">
             <h2>Donation Cart</h2>
@@ -19,7 +21,7 @@
 
         <div class="listbox rightList">
             <h2>Accepted Items</h2>
-            <asp:DropDownList id="categoryList" class="categoryselect" OnSelectedIndexChanged="categoryList_SelectedIndexChanged" hidden="true" AutoPostBack="true" runat="server"/>
+            
             <div id="availableItems" class="sortable" runat="server"/>
         </div>
     </div>
@@ -30,6 +32,42 @@
 
     <script src="/Scripts/Sortable.js"></script>
     <script>
+        $('#<%=categoryList.ClientID%>').change(function() {
+            var selectedCategory = $(this).val();
+            console.log("Category: " + selectedCategory);
+            $.ajax({
+                type: "POST",
+                url: "CreateList.aspx/GetItemsFromCategory",
+                data: '{"value":"' + selectedCategory + '"}',
+                contentType: "application/json",
+                dataType: "json",
+                success:
+                    function (data) {
+                        console.log("Data: " + data);
+                        console.log("Data.d: " + data.d);
+                        obj = JSON.parse(data.d);
+                        console.log("Object: " + obj);
+                        availableItems.innerHTML = "";
+                        for (var key in obj) {
+                            if (obj.hasOwnProperty(key)) {
+                                console.log(obj[key]);
+                                availableItems.innerHTML += "<div class='ditem' draggable='false'>" +
+                                                            "<div>" + obj[key] + "</div>" +
+                                                            "<i class='js-remove'>✖</i>" +
+                                                            "</div>";
+                            }
+                        }
+                    }
+            })
+        });
+
+        function addToList(item) {
+            availableItems.InnerHTML += "<div class='ditem' draggable='false'>" +
+                                        "<div>" + item + "</div>" +
+                                        "<i class='js-remove'>✖</i>" +
+                                        "</div>";
+        }
+
         var cart = document.getElementById("<%=cart.ClientID%>");
         Sortable.create(cart, {
             group: { name: 'donation', pull: true, put: true },

@@ -22,15 +22,6 @@ namespace PayItForward.Pages {
         protected global::System.Web.UI.WebControls.TextBox cartText;
         
         /// <summary>
-        /// cart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cart;
-        
-        /// <summary>
         /// categoryList control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace PayItForward.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList categoryList;
+        
+        /// <summary>
+        /// cart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cart;
         
         /// <summary>
         /// availableItems control.

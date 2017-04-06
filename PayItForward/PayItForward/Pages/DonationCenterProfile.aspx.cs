@@ -11,7 +11,7 @@ namespace PayItForward.Pages
 
             using (var db = new DatabaseContext())
             {
-                DonationCenter dc = db.DonationCenters.Find(1);
+                DonationCenter dc = db.DonationCenters.Find(0);
 
                 if (Session["donationCenter"] != null)
                 {
