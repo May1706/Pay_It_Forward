@@ -78,11 +78,23 @@ namespace PayItForward.Classes
             get { return _weight; }
             set { _weight = value; }
         }
+
         public Category Category
         {
-            get { return _category; }
-            set { _category = value; }
+            get
+            {
+                using (var db = new DatabaseContext())
+                {
+                    return db.GetCategory(StringCategory);
+                }
+            }
+            set
+            {
+                _category = value;
+            }
         }
+
+        public string StringCategory { get; set; }
 
         #endregion
     }
