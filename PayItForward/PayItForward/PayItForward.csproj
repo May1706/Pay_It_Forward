@@ -401,6 +401,7 @@
     <Compile Include="Classes\DatabaseContext.cs" />
     <Compile Include="Classes\DonationCenter.cs" />
     <Compile Include="Classes\Item.cs" />
+    <Compile Include="Classes\Request.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Migrations\201702210319413_Baseline.cs" />
@@ -414,6 +415,10 @@
     <Compile Include="Migrations\201703022245302_ListsAsStrings.cs" />
     <Compile Include="Migrations\201703022245302_ListsAsStrings.Designer.cs">
       <DependentUpon>201703022245302_ListsAsStrings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703042025403_AddRequestTable.cs" />
+    <Compile Include="Migrations\201703042025403_AddRequestTable.Designer.cs">
+      <DependentUpon>201703042025403_AddRequestTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\About.aspx.cs">
@@ -533,6 +538,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703022245302_ListsAsStrings.resx">
       <DependentUpon>201703022245302_ListsAsStrings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703042025403_AddRequestTable.resx">
+      <DependentUpon>201703042025403_AddRequestTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
