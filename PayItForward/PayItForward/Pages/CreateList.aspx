@@ -85,6 +85,7 @@
         });
 
         // Occurs before the server; adds all carted item to an invisible asp textbox so it can be read serverside
+        var text = document.getElementById("<%=cartText.ClientID%>");
         function submitClick() {
             var s = $(cart).html().split(/<[^>]*>/);
 

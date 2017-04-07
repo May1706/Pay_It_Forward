@@ -119,29 +119,19 @@ namespace PayItForward.Pages
                 List<Item> items = new List<Item>();
 
                 string ditems = cartText.Text;
-
-                //string[] strings = Regex.Split(ditems, "<[^>]*>");
+                
                 string[] strings = Regex.Split(ditems, ";");
-
-                // TODO: Should be switched to GetItem() when that is implemented
+                
                 foreach (string s in strings)
                 {
                     if (s.Trim() != "✖" && s.Trim().Length > 0)
                     {
-                        //items.Add(new Item(s.Trim(), 0, 0));
                         using (var db = new DatabaseContext())
                         {
                             items.Add(db.GetItem(s.Trim()));
                         }
                     }
                 }
-
-                /*
-                foreach (Item i in items)
-                {
-                    i.Category = items[0].Category = new Category(0, i.Name);
-                }
-                */
 
                 Session["donationItems"] = items;
 
