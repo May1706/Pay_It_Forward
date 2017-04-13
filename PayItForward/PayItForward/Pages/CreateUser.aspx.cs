@@ -81,7 +81,7 @@ namespace PayItForward.Pages
             {
 
                 //add user to db
-                newUser = new User(userEmail, Encrypt(userPassword1), key);
+                newUser = new User(userEmail, Encrypt(userPassword1, userEmail), key);
                 DatabaseContext db = new DatabaseContext();
                 db.AddUser(newUser);
 
@@ -96,10 +96,9 @@ namespace PayItForward.Pages
 
         }
 
-        static private string Encrypt(string plainText)
+        static private string Encrypt(string plainText, string keyPart)
         {
-            string EncryptionKey = "MAkv2SPbnI9u212";
-            key = ;
+            string EncryptionKey = "MAkv2SPbnI9u212" + keyPart;
             byte[] plainBytes = Encoding.Unicode.GetBytes(plainText);
 
             using (Aes encryptor = Aes.Create())

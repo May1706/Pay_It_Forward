@@ -28,7 +28,7 @@ namespace PayItForward.Pages
             {
                 User u = db.Users.FirstOrDefault(user => user.Username == userEmail);
                 
-                if (u != null && Decrypt(u.Password) == userPassword)
+                if (u != null && Decrypt(u.Password, u.Username) == userPassword)
                 {
                     Session["activeUser"] = u;
 
@@ -42,9 +42,9 @@ namespace PayItForward.Pages
             }
         }
 
-        static private string Decrypt(string cipherText)
+        static private string Decrypt(string cipherText, string keyPart)
         {
-            string EncryptionKey = "MAkv2SPbnI9u212";
+            string EncryptionKey = "MAkv2SPbnI9u212" + keyPart;
             byte[] cipherBytes = Convert.FromBase64String(cipherText);
             using (Aes encryptor = Aes.Create())
             {
