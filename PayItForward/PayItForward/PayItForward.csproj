@@ -375,21 +375,24 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Classes\Category.cs" />
     <Compile Include="Classes\DatabaseContext.cs" />
+    <Compile Include="Classes\DonatedItem.cs" />
+    <Compile Include="Classes\Donation.cs" />
     <Compile Include="Classes\DonationCenter.cs" />
     <Compile Include="Classes\Item.cs" />
+    <Compile Include="Classes\Request.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Migrations\201702210319413_Baseline.cs" />
     <Compile Include="Migrations\201702210319413_Baseline.Designer.cs">
       <DependentUpon>201702210319413_Baseline.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702210338287_CenterStatus.cs" />
-    <Compile Include="Migrations\201702210338287_CenterStatus.Designer.cs">
-      <DependentUpon>201702210338287_CenterStatus.cs</DependentUpon>
+    <Compile Include="Migrations\201704061930548_UpdateTables.cs" />
+    <Compile Include="Migrations\201704061930548_UpdateTables.Designer.cs">
+      <DependentUpon>201704061930548_UpdateTables.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703022245302_ListsAsStrings.cs" />
-    <Compile Include="Migrations\201703022245302_ListsAsStrings.Designer.cs">
-      <DependentUpon>201703022245302_ListsAsStrings.cs</DependentUpon>
+    <Compile Include="Migrations\201704062101418_Valuation.cs" />
+    <Compile Include="Migrations\201704062101418_Valuation.Designer.cs">
+      <DependentUpon>201704062101418_Valuation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\About.aspx.cs">
@@ -504,11 +507,11 @@
     <EmbeddedResource Include="Migrations\201702210319413_Baseline.resx">
       <DependentUpon>201702210319413_Baseline.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702210338287_CenterStatus.resx">
-      <DependentUpon>201702210338287_CenterStatus.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704061930548_UpdateTables.resx">
+      <DependentUpon>201704061930548_UpdateTables.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703022245302_ListsAsStrings.resx">
-      <DependentUpon>201703022245302_ListsAsStrings.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704062101418_Valuation.resx">
+      <DependentUpon>201704062101418_Valuation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

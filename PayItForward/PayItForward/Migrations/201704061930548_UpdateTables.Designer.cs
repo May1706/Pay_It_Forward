@@ -7,13 +7,13 @@ namespace PayItForward.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ListsAsStrings : IMigrationMetadata
+    public sealed partial class UpdateTables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ListsAsStrings));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateTables));
         
         string IMigrationMetadata.Id
         {
-            get { return "201703022245302_ListsAsStrings"; }
+            get { return "201704061930548_UpdateTables"; }
         }
         
         string IMigrationMetadata.Source
