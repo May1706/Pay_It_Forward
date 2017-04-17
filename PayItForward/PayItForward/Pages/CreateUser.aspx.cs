@@ -98,7 +98,9 @@ namespace PayItForward.Pages
 
         static private string Encrypt(string plainText, string keyPart)
         {
-            string EncryptionKey = "MAkv2SPbnI9u212" + keyPart;
+            string added = keyPart.Split('@')[0];
+            string key = "MAkv2SPbnI9u212";
+            string EncryptionKey = key.Substring(added.Length) + added;
             byte[] plainBytes = Encoding.Unicode.GetBytes(plainText);
 
             using (Aes encryptor = Aes.Create())

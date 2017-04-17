@@ -27,8 +27,10 @@ namespace PayItForward.Pages
             using (var db = new DatabaseContext())
             {
                 User u = db.Users.FirstOrDefault(user => user.Username == userEmail);
-                
-                if (u != null && Decrypt(u.Password, u.Username) == userPassword)
+
+                String s = Encrypt(userPassword, userEmail);
+
+                if (u != null && u.Password == s)
                 {
                     Session["activeUser"] = u;
 
@@ -44,7 +46,9 @@ namespace PayItForward.Pages
 
         static private string Decrypt(string cipherText, string keyPart)
         {
-            string EncryptionKey = "MAkv2SPbnI9u212" + keyPart;
+            string added = keyPart.Split('@')[0];
+            string key = "MAkv2SPbnI9u212";
+            string EncryptionKey = key.Substring(added.Length) + keyPart;
             byte[] cipherBytes = Convert.FromBase64String(cipherText);
             using (Aes encryptor = Aes.Create())
             {
@@ -64,6 +68,31 @@ namespace PayItForward.Pages
                 }
             }
             return cipherText;
+        }
+
+        static private string Encrypt(string plainText, string keyPart)
+        {
+            string added = keyPart.Split('@')[0];
+            string key = "MAkv2SPbnI9u212";
+            string EncryptionKey = key.Substring(added.Length) + added;
+            byte[] plainBytes = Encoding.Unicode.GetBytes(plainText);
+
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(plainBytes, 0, plainBytes.Length);
+                        cs.Close();
+                    }
+                    plainText = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return plainText;
         }
     }
 }

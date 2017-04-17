@@ -134,7 +134,13 @@ namespace PayItForward.Classes
                 }
                 return null;
             }
-            set { _centerNames = value.Split(',').ToList(); }
+            set
+            {
+                if (value != null)
+                {
+                    _centerNames = value.Split(',').ToList(); 
+                }
+            }
         }
 
         /**

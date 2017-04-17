@@ -26,9 +26,12 @@ namespace PayItForward.Pages
 
                 userName.Text = user.Username;
 
-                foreach (string s in user.centersAsString.Split(';'))
+                if (user.centersAsString != null)
                 {
-                    userCenters.InnerText += user.centersAsString;
+                    foreach (string s in user.centersAsString.Split(';'))
+                    {
+                        userCenters.InnerText += user.centersAsString;
+                    } 
                 }
 
                 userHistory.InnerText = "No History";
