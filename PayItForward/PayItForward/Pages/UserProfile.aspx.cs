@@ -12,16 +12,17 @@ namespace PayItForward.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["activeUser"] == null)
+            {
+                Response.BufferOutput = true;
+                Response.Redirect("/Pages/Login.aspx");
+            }
+
             userName.Font.Size = 30;
 
             using (var db = new DatabaseContext())
             {
-                User user = db.Users.Find(1);
-
-                if (Session["activeUser"] != null)
-                {
-                    user = (User)Session["activeUser"];
-                }
+                User user = (User)Session["activeUser"];
 
                 userName.Text = user.Username;
 

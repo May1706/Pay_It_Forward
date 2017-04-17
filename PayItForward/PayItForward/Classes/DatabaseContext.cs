@@ -32,5 +32,15 @@ namespace PayItForward.Classes
             this.SaveChanges();
             return user;
         }
+
+        public Item GetItem(string itemName)
+        {
+            return Items.FirstOrDefault(item => item.Name == itemName);
+        }
+
+        public Category GetCategory(string categoryName)
+        {
+            return Categories.FirstOrDefault(c => c.Name == categoryName);
+        }
     }
 }

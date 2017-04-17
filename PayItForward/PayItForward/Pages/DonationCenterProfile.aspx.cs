@@ -11,7 +11,7 @@ namespace PayItForward.Pages
 
             using (var db = new DatabaseContext())
             {
-                DonationCenter dc = db.DonationCenters.Find(1);
+                DonationCenter dc = db.DonationCenters.Find(0);
 
                 if (Session["donationCenter"] != null)
                 {
@@ -32,9 +32,9 @@ namespace PayItForward.Pages
                 fridayHours.Text    = hours[5];
                 saturdayHours.Text  = hours[6];
 
-                foreach (string s in dc.CategoryNames)
+                foreach (string s in dc.CategoryNamesAsString.Split(';'))
                 {
-                    dcItems.InnerText += s + "\n";
+                    dcItems.InnerHtml += s + "<br/>";
                 }
 
                 dcUpdated.Text = dc.LastUpdate.ToString();

@@ -72,7 +72,7 @@ namespace PayItForward
         {
             if (Session["activeUser"] != null)
             {
-                loginText.InnerText = ((User)Session["activeUser"]).Username;
+                loginText.InnerText = "Hi, " + ((User)Session["activeUser"]).Username + "!";
                 loginText.HRef = @"/Pages/UserProfile.aspx";
             }
         }

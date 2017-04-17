@@ -17,7 +17,7 @@
             <asp:Textbox id="Password" TextMode="Password" runat="server" />
             <asp:requiredfieldvalidator id="passwordrequiredvalidator" runat="server"
                                       controltovalidate="password" forecolor="red"
-                                      display="static" errormessage="required" />
+                                      display="static" errormessage="Required" />
          <br />    
         Re-enter password: <br />
             <asp:Textbox id="RePassword" TextMode="Password" runat="server" />
