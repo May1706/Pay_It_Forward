@@ -39,17 +39,24 @@ namespace PayItForward.Classes
 
         public User(string email, string password)
         {
+            setDefaults();
             Username = email;
             Password = password;
         }
 
         public User()
         {
-
+            setDefaults();
         }
 
         #region Methods
 
+        private void setDefaults()
+        {
+            DonationsString = "";
+            _privileges = 0;
+            centersAsString = "";
+        }
         public void addAdminPrivilege(User grantingUser)
         {
             //todo: implement
@@ -78,7 +85,18 @@ namespace PayItForward.Classes
                 == DonationCenterPrivilege;
         }
 
-        public void addDonation() { }
+        /**
+         * Adds a donation to the list of donations attached to this account
+         */
+        public void addDonation(Donation donation)
+        {
+            _donations.Add(donation);
+        }
+
+        /**
+         * Returns a list of the donations this user has made
+         */
+        public List<Donation> getDonations() { return _donations; }
 
         #endregion
 
@@ -118,6 +136,10 @@ namespace PayItForward.Classes
             set { _centerNames = value.Split(',').ToList(); }
         }
 
+        /**
+         * Stores the donations attached to this User in a comma separated
+         * list of the donation ID's
+         */
         public string DonationsString
         {
             get

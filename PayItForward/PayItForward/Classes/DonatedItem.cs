@@ -24,6 +24,46 @@ namespace PayItForward.Classes
             }
         }
 
+        #region Methods
+
+        public override bool Equals(object o)
+        {
+            var other = o as DonatedItem;
+
+            if (o == null) return false;
+
+            // Check if ItemTypes are equal
+            if (this.ItemType == null)
+            {
+                if (other.ItemType != null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.ItemType.Equals(other.ItemType)) return false;
+            }
+
+            // Check if DonationCenters are equal
+            if (this.Center == null)
+            {
+                if (other.Center != null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.Center.Equals(other.Center)) return false;
+            }
+
+            // Check if quantity is equal
+            return this.Quantity == other.Quantity;
+        }
+
+        #endregion
+
         #region Properties
 
         public Item ItemType { get; set; }

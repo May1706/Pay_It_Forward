@@ -44,6 +44,18 @@ namespace PayItForward.Classes
             
         }
 
+        public override bool Equals(object obj)
+        {
+            var other = obj as Item;
+
+            return itemId == other.itemId;
+        }
+
+        public override int GetHashCode()
+        {
+            return itemId.GetHashCode();
+        }
+
         #endregion
 
         #region Properties
