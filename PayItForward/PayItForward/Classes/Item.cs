@@ -37,13 +37,6 @@ namespace PayItForward.Classes
 
         #region Methods
 
-        public Item GetItem(string name)
-        {
-            //build query, query, return
-            throw new NotImplementedException();
-            
-        }
-
         public override bool Equals(object obj)
         {
             var other = obj as Item;

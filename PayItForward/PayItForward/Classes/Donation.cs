@@ -24,23 +24,51 @@ namespace PayItForward.Classes
 
         public void addItem(DonatedItem item)
         {
+            if (_items == null)
+            {
+                _items = new List<DonatedItem>();
+            }
+
             _items.Add(item);
         }
 
         public void addItem(Item item, DonationCenter center, int quantity)
         {
-            _items.Add(new DonatedItem(item, center, quantity));
+            addItem(new DonatedItem(item, center, quantity));
         }
 
-        public void AddItem(int itemId, int centerId, int quantity)
+        public void addItem(int itemId, int centerId, int quantity)
         {
-            _items.Add(new DonatedItem(itemId, centerId, quantity));
+            addItem(new DonatedItem(itemId, centerId, quantity));
+        }
+
+        private string donatedItemToString(DonatedItem item)
+        {
+            StringBuilder itemString = new StringBuilder("");
+
+            // Null check on ItemType, '_' represents null
+            if (item.ItemType == null)
+                itemString.Append("_,");
+            else
+                itemString.Append(item.ItemType.itemId + ",");
+
+            // Add quantity
+            itemString.Append(item.Quantity + ",");
+
+            // Null check on Center, '_' represents null
+            if (item.Center == null)
+                itemString.Append("_");
+            else
+                itemString.Append(item.Center.CenterId);
+
+            return itemString.ToString();
         }
 
         #endregion
 
         #region Properties
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         /**
@@ -60,16 +88,12 @@ namespace PayItForward.Classes
                     StringBuilder itemString = new StringBuilder("");
 
                     // Make a formatted string
-                    itemString.Append(_items[0].ItemType.itemId + ",");
-                    itemString.Append(_items[0].Quantity + ",");
-                    itemString.Append(_items[0].Center.CenterId);
+                    itemString.Append(donatedItemToString(_items[0]));
 
                     for (int i=1; i<_items.Count; i++)
                     {
                         itemString.Append(";");
-                        itemString.Append(_items[i].ItemType.itemId + ",");
-                        itemString.Append(_items[i].Quantity + ",");
-                        itemString.Append(_items[i].Center.CenterId);
+                        itemString.Append(donatedItemToString(_items[i]));
                     }
                     
                     return itemString.ToString();

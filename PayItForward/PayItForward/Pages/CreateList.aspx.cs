@@ -12,6 +12,7 @@ using System.Text;
 using System.IO;
 using System.Web.Services;
 using Newtonsoft.Json;
+using System.Data.Entity;
 
 namespace PayItForward.Pages
 {
@@ -134,6 +135,36 @@ namespace PayItForward.Pages
                 }
 
                 Session["donationItems"] = items;
+
+                // TODO: Move to when the donation summary is created
+                if(Session["activeUser"] != null)
+                {
+                    Donation donation = new Donation();
+
+                    // Add each item to donation
+                    foreach (Item item in items)
+                    {
+                        // TODO: dynamically add donation center
+                        // TODO: dynamically add quantity
+                        donation.addItem(item, null, 1);
+                    }
+
+                    donation.DonationDateTime = DateTime.Now;
+
+                    using (var db = new DatabaseContext())
+                    {
+                        // Write donation to database
+                        db.Donations.Add(donation);
+                        db.SaveChanges();
+
+                        // Add donation to user and update
+                        User currentUser = (User) Session["activeUser"];
+                        currentUser.addDonation(donation);
+                        db.Users.Attach(currentUser);
+                        db.Entry(currentUser).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
 
                 Response.BufferOutput = true;
                 Response.Redirect("/Pages/ViewDonationCenters.aspx");
