@@ -15,6 +15,16 @@ namespace PayItForward.Pages
             updateGridView();
         }
 
+        protected void Accept_Click(object sender, EventArgs e)
+        {
+            //Todo
+        }
+
+        protected void Deny_Click(object sender, EventArgs e)
+        {
+            //Todo
+        }
+
         protected void Generate_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Adding entry!");
@@ -64,12 +74,9 @@ namespace PayItForward.Pages
             DatabaseContext db = new DatabaseContext();
 
             var requests = db.Requests;
-
-            string result = "";
-
+            
             requestsGridView.DataSource = requests.ToList();
             requestsGridView.DataBind();
-            resultLabel.Text = result;
         }
     }
 }
