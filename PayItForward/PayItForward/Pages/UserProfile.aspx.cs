@@ -43,5 +43,13 @@ namespace PayItForward.Pages
             Response.BufferOutput = true;
             Response.Redirect("/Pages/DonationCenterCreate.aspx");
         }
+
+        protected void logoutButton_Click(object sender, EventArgs e)
+        {
+            Session["activeUser"] = null;
+
+            Response.BufferOutput = true;
+            Response.Redirect("/Pages/Home.aspx");
+        }
     }
 }

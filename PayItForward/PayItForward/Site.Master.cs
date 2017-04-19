@@ -70,9 +70,13 @@ namespace PayItForward
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["activeUser"] != null)
+            User user = (User)Session["activeUser"];
+
+            if (user != null)
             {
-                loginText.InnerText = "Hi, " + ((User)Session["activeUser"]).Username + "!";
+                string username = user.Username;
+
+                loginText.InnerText = "Hi, " + username.Split('@')[0] + "!";
                 loginText.HRef = @"/Pages/UserProfile.aspx";
             }
         }
