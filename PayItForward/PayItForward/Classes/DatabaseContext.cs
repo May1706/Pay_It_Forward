@@ -42,5 +42,10 @@ namespace PayItForward.Classes
         {
             return Categories.FirstOrDefault(c => c.Name == categoryName);
         }
+
+        public DonationCenter GetCenter(string dcName)
+        {
+            return DonationCenters.FirstOrDefault(dc => dc.CenterName == dcName);
+        }
     }
 }
