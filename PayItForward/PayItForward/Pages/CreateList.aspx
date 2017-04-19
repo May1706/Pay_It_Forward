@@ -123,6 +123,7 @@
         .categoryselect {
             width: 99.75%;
             margin: 1px;
+            border: 1px solid #50B948;
         }
 
         .sortable {
