@@ -16,15 +16,17 @@
             <div class="col-sm-2">
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
-                    <li><a data-toggle="pill" href="#menu1">Menu 1</a></li>
-                    <li><a data-toggle="pill" href="#menu2">Menu 2</a></li>
-                    <li><a data-toggle="pill" href="#menu3">Menu 3</a></li>
+                    <li><a data-toggle="pill" href="#openRequests">Open Requests</a></li>
+                    <li><a data-toggle="pill" href="#requestHistory">Request History</a></li>
+                    <li><a data-toggle="pill" href="#user">Manage Users</a></li>
+                    <li><a data-toggle="pill" href="#item">Manage Items</a></li>
+                    <li><a data-toggle="pill" href="#category">Manage Categories</a></li>
                 </ul>
             </div>
 
             <div class="col-sm-6">
                 <div class="tab-content">
-
+                    <!-- Home content -->
                     <div id="home" class="tab-pane fade in active">
                         <h3>HOME</h3>
                         <asp:Button ID="Generate" runat="server" Text="Generate Requests" style="width:auto" onclick="Generate_Click" />
@@ -60,18 +62,34 @@
                         </div>
                     </div>
 
-
-                    <div id="menu1" class="tab-pane fade">
-                        <h3>Menu 1</h3>
+                    <!-- Open Requests content -->
+                    <div id="openRequests" class="tab-pane fade">
+                        <h3>Open Requests</h3>
                         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
-                    <div id="menu2" class="tab-pane fade">
-                        <h3>Menu 2</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+
+                    <!-- Request History content -->
+                    <div id="requestHistory" class="tab-pane fade">
+                        <h3>Request History</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
-                    <div id="menu3" class="tab-pane fade">
-                        <h3>Menu 3</h3>
-                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    
+                    <!-- Manage Users content -->
+                    <div id="user" class="tab-pane fade">
+                        <h3>Manage Users</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    
+                    <!-- Manage Items content -->
+                    <div id="item" class="tab-pane fade">
+                        <h3>Manage Items</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+
+                    <!-- Manage Categories content -->
+                    <div id="category" class="tab-pane fade">
+                        <h3>Manage Categories</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                 </div>
             </div>
