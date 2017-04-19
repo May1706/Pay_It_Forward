@@ -120,10 +120,22 @@ namespace PayItForward.Classes
                     {
                         if (idsAsStrings.Count != 3)
                             throw new ArgumentException(idsAsStrings.Count + "");
+
                         int itemId = int.Parse(idsAsStrings[0]);
                         int quantity = int.Parse(idsAsStrings[1]);
-                        int centerId = int.Parse(idsAsStrings[2]);
-                        _items.Add(new DonatedItem(itemId, centerId, quantity));
+                        if (idsAsStrings[2].Equals("_"))
+                        {
+                            using (var db = new DatabaseContext())
+                            {
+                                Item item = db.Items.Where(i => i.itemId == itemId).First();
+                                _items.Add(new DonatedItem(item, null, quantity));
+                            }
+                        }
+                        else
+                        {
+                            int centerId = int.Parse(idsAsStrings[2]);
+                            _items.Add(new DonatedItem(itemId, centerId, quantity));
+                        }
                     }
                     catch (FormatException e)
                     {

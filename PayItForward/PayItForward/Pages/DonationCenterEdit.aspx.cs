@@ -15,7 +15,7 @@ namespace PayItForward.Pages
         {
             
             User u = (User)Session["activeUser"];
-            String centerIdString = Session["donationCenter"];
+            String centerIdString = (string) Session["donationCenter"];
 
             if (u != null && int.TryParse(centerIdString, out centerId))
             {
