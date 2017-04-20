@@ -18,7 +18,6 @@
                     <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
                     <li><a data-toggle="pill" href="#pendingRequests">Pending Requests</a></li>
                     <li><a data-toggle="pill" href="#requestHistory">Request History</a></li>
-                    <li><a data-toggle="pill" href="#user">Manage Users</a></li>
                     <li><a data-toggle="pill" href="#item">Manage Items</a></li>
                     <li><a data-toggle="pill" href="#category">Manage Categories</a></li>
                     <li><a data-toggle="pill" href="#donationCenters">Manage Donation Centers</a></li>
@@ -58,12 +57,6 @@
                             <div id="listHistory" runat="server"/>
                         </div>
                         <!--<asp:GridView ID="requestHistoryGridView" SkinID="Professional" runat="server"></asp:GridView>-->
-                    </div>
-                    
-                    <!-- Manage Users content -->
-                    <div id="user" class="tab-pane fade">
-                        <h3>Manage Users</h3>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                     
                     <!-- Manage Items content -->
