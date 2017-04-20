@@ -12,7 +12,7 @@ namespace PayItForward.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            loadHistoryTable();
+            loadTables();
         }
 
         protected void Accept_Click(object sender, EventArgs e)
@@ -40,12 +40,12 @@ namespace PayItForward.Pages
                     req.MessageInfo = "Testing";
                     req.RequestId = 1;
                     req.Type = "Insert";
-                    req.Status = 1;
+                    req.Status = i % 2;
 
                     dbctx.Requests.Add(req);
                     dbctx.SaveChanges();
                 }
-                loadHistoryTable();
+                loadTables();
             }
         }
 
@@ -63,13 +63,43 @@ namespace PayItForward.Pages
                 }
                 db.SaveChanges();
             }
-            loadHistoryTable();
+            loadTables();
         }
 
-
-        private void loadOpenRequestsTable()
+        private void loadTables()
         {
+            loadHistoryTable();
+            loadPendingRequestsTable();
+        }
 
+        private void loadPendingRequestsTable()
+        {
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                List<Request> requests = (from req in db.Requests
+                                          where req.Status == Classes.Request.PENDING
+                                          select req).ToList();
+
+                listPending.InnerHtml = "";
+                listPending.InnerHtml += "<table class=\"table table-hover table-striped table-bordered\">";
+                listPending.InnerHtml += "<thead><tr>";
+                listPending.InnerHtml += "<th>Type</th>";
+                listPending.InnerHtml += "<th>Time Created</th>";
+                listPending.InnerHtml += "<th>Message</th>";
+                listPending.InnerHtml += "</tr></thead>";
+                listPending.InnerHtml += "<tbody>";
+
+                foreach (Request r in requests)
+                {
+                    listPending.InnerHtml += "<tr>";
+                    listPending.InnerHtml += "<td>" + r.Type + "</td>";
+                    listPending.InnerHtml += "<td>" + r.CreatedTime.ToString() + "</td>";
+                    listPending.InnerHtml += "<td>" + r.MessageInfo + "</td>";
+                    listPending.InnerHtml += "</td></tr>";
+                }
+
+                listPending.InnerHtml += "</tbody></table>";
+            }
         }
 
         private void loadHistoryTable()

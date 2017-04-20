@@ -16,7 +16,7 @@
             <div class="col-sm-2">
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
-                    <li><a data-toggle="pill" href="#openRequests">Open Requests</a></li>
+                    <li><a data-toggle="pill" href="#pendingRequests">Pending Requests</a></li>
                     <li><a data-toggle="pill" href="#requestHistory">Request History</a></li>
                     <li><a data-toggle="pill" href="#user">Manage Users</a></li>
                     <li><a data-toggle="pill" href="#item">Manage Items</a></li>
@@ -39,33 +39,14 @@
                         <!-- Trigger the modal with a button -->
                         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal" role="dialog">
-                            <div class="modal-dialog">
-    
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Modal Header</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Some text in the modal.</p>
-                                    </div>
-                                    <div class="modal-footer" style="text-align: center;">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="Accept_Click">Accept</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="Deny_Click">Deny</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                    </div>
-                                </div>      
-                            </div>
-                        </div>
                     </div>
 
                     <!-- Open Requests content -->
-                    <div id="openRequests" class="tab-pane fade">
-                        <h3>Open Requests</h3>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div id="pendingRequests" class="tab-pane fade">
+                        <h3>Pending Requests</h3>
+                        <div class="table-responsive">
+                            <div id="listPending" runat="server" />
+                        </div>
                     </div>
 
                     <!-- Request History content -->
@@ -100,6 +81,27 @@
     </div>
 
    
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer" style="text-align: center;">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="Accept_Click">Accept</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="Deny_Click">Deny</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>      
+        </div>
+    </div>
 
 
 </asp:Content>
