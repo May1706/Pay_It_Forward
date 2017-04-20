@@ -33,7 +33,7 @@
                         <asp:Button ID="Remove" runat="server" Text="Remove Requests" style="width:auto" onclick="Remove_Click" />
                         <hr />
                         
-                        <asp:GridView ID="requestsGridView" SkinID="Professional" runat="server"></asp:GridView>
+                        <!--<asp:GridView ID="requestsGridView" SkinID="Professional" runat="server"></asp:GridView>-->
 
                         <h2>Modal Example</h2>
                         <!-- Trigger the modal with a button -->
@@ -71,7 +71,10 @@
                     <!-- Request History content -->
                     <div id="requestHistory" class="tab-pane fade">
                         <h3>Request History</h3>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <div class="table-responsive">
+                            <div id="listHistory" runat="server"/>
+                        </div>
+                        <!--<asp:GridView ID="requestHistoryGridView" SkinID="Professional" runat="server"></asp:GridView>-->
                     </div>
                     
                     <!-- Manage Users content -->

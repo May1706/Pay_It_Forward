@@ -12,7 +12,7 @@ namespace PayItForward.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            updateGridView();
+            loadHistoryTable();
         }
 
         protected void Accept_Click(object sender, EventArgs e)
@@ -45,8 +45,7 @@ namespace PayItForward.Pages
                     dbctx.Requests.Add(req);
                     dbctx.SaveChanges();
                 }
-
-                updateGridView();
+                loadHistoryTable();
             }
         }
 
@@ -64,19 +63,47 @@ namespace PayItForward.Pages
                 }
                 db.SaveChanges();
             }
-
-            updateGridView();
+            loadHistoryTable();
         }
 
 
-        private void updateGridView()
+        private void loadOpenRequestsTable()
         {
-            DatabaseContext db = new DatabaseContext();
 
-            var requests = db.Requests;
-            
-            requestsGridView.DataSource = requests.ToList();
-            requestsGridView.DataBind();
+        }
+
+        private void loadHistoryTable()
+        {
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                List<Request> requests = (from req in db.Requests
+                                          where req.Status != Classes.Request.PENDING
+                                          select req).ToList();
+
+                listHistory.InnerHtml = "";
+                listHistory.InnerHtml += "<table class=\"table table-hover table-striped table-bordered\">";
+                listHistory.InnerHtml += "<thead><tr>";
+                listHistory.InnerHtml += "<th>Type</th>";
+                listHistory.InnerHtml += "<th>Time Created</th>";
+                listHistory.InnerHtml += "<th>Last Updated</th>";
+                listHistory.InnerHtml += "<th>Message</th>";
+                listHistory.InnerHtml += "<th>Status</th>";
+                listHistory.InnerHtml += "</tr></thead>";
+                listHistory.InnerHtml += "<tbody>";
+
+                foreach (Request r in requests)
+                {
+                    listHistory.InnerHtml += "<tr>";
+                    listHistory.InnerHtml += "<td>" + r.Type + "</td>";
+                    listHistory.InnerHtml += "<td>" + r.CreatedTime.ToString() + "</td>";
+                    listHistory.InnerHtml += "<td>" + r.LastUpdateTime.ToString() + "</td>";
+                    listHistory.InnerHtml += "<td>" + r.MessageInfo + "</td>";
+                    listHistory.InnerHtml += "<td>" + r.statusToString() + "</td>";
+                    listHistory.InnerHtml += "</td></tr>";
+                }
+
+                listHistory.InnerHtml += "</tbody></table>";
+            }
         }
     }
 }
