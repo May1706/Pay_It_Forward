@@ -27,14 +27,13 @@ namespace PayItForward.Pages
 
                 userName.Text = user.Username;
 
-                if (user.centersAsString != null)
+                List<DonationCenter> centers = db.DonationCenters.Where(c => c.UserId == user.UserID).ToList();
+                String centerText = "";
+                foreach(DonationCenter d in centers)
                 {
-                    foreach (string s in user.centersAsString.Split(';'))
-                    {
-                        userCenters.InnerText += user.centersAsString;
-                    }
+                    centerText = "<a href=\"/Pages/DonationCenterEdit.aspx?center=" + d.CenterId + "\">" + d.CenterName + "</a><br />";
                 }
-
+                userCenters.InnerHtml = centerText;
                 userHistory.InnerHtml = getDonationHistoryText();
             }
         }
