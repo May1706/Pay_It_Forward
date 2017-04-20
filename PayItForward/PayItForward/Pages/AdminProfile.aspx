@@ -21,14 +21,16 @@
                     <li><a data-toggle="pill" href="#user">Manage Users</a></li>
                     <li><a data-toggle="pill" href="#item">Manage Items</a></li>
                     <li><a data-toggle="pill" href="#category">Manage Categories</a></li>
+                    <li><a data-toggle="pill" href="#donationCenters">Manage Donation Centers</a></li>
                 </ul>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-10">
                 <div class="tab-content">
                     <!-- Home content -->
                     <div id="home" class="tab-pane fade in active">
-                        <h3>HOME</h3>
+                        <h3>Home</h3>
+                        <p>Select the action you would like to take using the links on the left.</p>
                         <asp:Button ID="Generate" runat="server" Text="Generate Requests" style="width:auto" onclick="Generate_Click" />
                         <asp:Button ID="Remove" runat="server" Text="Remove Requests" style="width:auto" onclick="Remove_Click" />
                         <hr />
@@ -74,6 +76,12 @@
                     <div id="category" class="tab-pane fade">
                         <h3>Manage Categories</h3>
                         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+
+                    <!-- Manage Donation Centers -->
+                    <div id="donationCenters" class="tab-pane fade">
+                        <h3>Manage Donation Centers</h3>
+                        <p>This feature is not implemented yet.</p>
                     </div>
                 </div>
             </div>
