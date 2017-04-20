@@ -58,13 +58,13 @@ namespace PayItForward.Pages {
         protected global::System.Web.UI.WebControls.CheckBox Pickup;
         
         /// <summary>
-        /// CategoryNamesAsString control.
+        /// Categories control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CategoryNamesAsString;
+        protected global::System.Web.UI.WebControls.CheckBoxList Categories;
         
         /// <summary>
         /// SaveChanges control.

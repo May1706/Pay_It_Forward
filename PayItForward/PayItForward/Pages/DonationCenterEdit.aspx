@@ -22,11 +22,11 @@
             <!--<asp:CheckBox ID="Pickup" class="editCenterField" runat="server" Text="Provides Pickup"></asp:CheckBox>
             <br />
             <br />
-
-            <p>Categories</p>
-            <asp:TextBox ID="CategoryNamesAsString" class="editCenterField" runat="server"></asp:TextBox>
+                -->
+            <p>Types of Accepted Items</p>
+            <asp:CheckBoxList ID="Categories" runat="server"></asp:CheckBoxList>
             <br />
-            <br />-->
+            <br />
             <asp:Button ID="SaveChanges" class="actionButton" Text="Save" OnClick="SaveChanges_Click" runat="server"/>
             <asp:Label ID="ErrMsg" ForeColor="red" runat="server"/>
         </asp:Panel>
