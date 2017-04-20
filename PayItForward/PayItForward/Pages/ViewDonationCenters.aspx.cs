@@ -148,7 +148,7 @@ namespace PayItForward.Pages
                         dcItems.Text += "<em>" + i.Name + "</em>";
                         dcItems.Text += ", ";
                     }
-                    dcItems.Text = centerDisplay.InnerHtml.Substring(0, centerDisplay.InnerHtml.Length - 2);
+                   dcItems.Text = dcItems.Text.Substring(0, dcItems.Text.Length - 2);
                 }
                 else
                 {
