@@ -55,7 +55,7 @@ namespace PayItForward.Pages
 
             using (var db = new DatabaseContext())
             {
-                var query = from b in db.Requests orderby b.RequestId select b;
+                var query = from b in db.Requests select b;
 
                 foreach (var r in query)
                 {
@@ -78,10 +78,10 @@ namespace PayItForward.Pages
             {
                 List<Request> requests = (from req in db.Requests
                                           where req.Status == Classes.Request.PENDING
-                                          select req).ToList();
+                                          orderby req.CreatedTime select req).ToList();
 
                 listPending.InnerHtml = "";
-                listPending.InnerHtml += "<table class=\"table table-hover table-striped table-bordered\">";
+                listPending.InnerHtml += "<table id=\"pendingRequestTable\" class=\"table table-hover table-striped table-bordered\">";
                 listPending.InnerHtml += "<thead><tr>";
                 listPending.InnerHtml += "<th>Type</th>";
                 listPending.InnerHtml += "<th>Time Created</th>";
@@ -108,7 +108,9 @@ namespace PayItForward.Pages
             {
                 List<Request> requests = (from req in db.Requests
                                           where req.Status != Classes.Request.PENDING
-                                          select req).ToList();
+                                          orderby req.LastUpdateTime select req).ToList();
+                requests = requests.OrderByDescending(x => x.CreatedTime).ToList();
+
 
                 listHistory.InnerHtml = "";
                 listHistory.InnerHtml += "<table class=\"table table-hover table-striped table-bordered\">";

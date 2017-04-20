@@ -74,7 +74,11 @@
                     <!-- Manage Donation Centers -->
                     <div id="donationCenters" class="tab-pane fade">
                         <h3>Manage Donation Centers</h3>
-                        <p>This feature is not implemented yet.</p>
+                        <p>Activate or deactivate donation centers by clicking on the donation center in the table.</p>
+                        <H4>Not yet implemented</H4>
+                        <div class="table-responsive">
+                            <div id="listDonationCenter" runat="server"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,14 +99,26 @@
                 <div class="modal-body">
                     <p>Some text in the modal.</p>
                 </div>
-                <div class="modal-footer" style="text-align: center;">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="Accept_Click">Accept</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="Deny_Click">Deny</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                </div>
+                <div class="modal-footer" style="text-align: center;"/>
             </div>      
         </div>
     </div>
 
+    <script>
+        $('#pendingRequestTable').find('tr').click(function () {
+            var old = $(this).find('td:first').text();
+            var row = $(this);
 
+            $(".modal-header").empty().append("<h3>" + row.find('td:eq(0)').text() + "</h3>");
+            $(".modal-body").empty().append("<p>" + row.find('td:eq(2)').text() + "</p>");
+
+            var acceptButton = '<button type="button" class="btn btn-default" data-dismiss="modal" onclick="Accept_Click">Accept</button>';
+            var denyButton = '<button type="button" class="btn btn-default" data-dismiss="modal" onclick="Deny_Click">Deny</button>';
+            var cancelButton = '<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>';
+
+            $(".modal-footer").empty().append(acceptButton, denyButton, cancelButton);
+
+            $("#myModal").modal();
+        });
+    </script>
 </asp:Content>
