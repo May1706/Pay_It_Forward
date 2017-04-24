@@ -31,6 +31,15 @@ namespace PayItForward {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// loginText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor loginText;
+        
+        /// <summary>
         /// FeaturedContent control.
         /// </summary>
         /// <remarks>

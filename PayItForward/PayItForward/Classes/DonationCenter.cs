@@ -45,6 +45,17 @@ namespace PayItForward.Classes
             throw new NotImplementedException();
         }
 
+        public override bool Equals(object obj)
+        {
+            var other = obj as DonationCenter;
+
+            return CenterId == other.CenterId;
+        }
+
+        public override int GetHashCode()
+        {
+            return CenterId.GetHashCode();
+        }
         #endregion
 
         #region Properties

@@ -9,45 +9,7 @@
     Custom area below
 */
 
-#navbar-pif.navbar-default .navbar-brand {
-    color: rgba(255, 255, 255, 1);
-    font-size: 24px;
-}
-#navbar-pif.navbar-default {
-    font-size: 16px;
-    background-color: rgba(80, 185, 72, 1);
-    border-width: 0px;
-    border-radius: 0px;
-}
-#navbar-pif.navbar-default .navbar-nav > li > a {
-    color: rgba(255, 255, 255, 1);
-    background-color: rgba(248, 248, 248, 0);
-}
-#navbar-pif.navbar-default .navbar-nav > li > a:hover,
-#navbar-pif.navbar-default .navbar-nav > li > a:focus {
-    color: #333;
-    background-color: rgba(132, 201, 127, 1);
-}
-#navbar-pif.navbar-default .navbar-nav > .active > a,
-#navbar-pif.navbar-default .navbar-nav > .active > a:hover,
-#navbar-pif.navbar-default .navbar-nav > .active > a:focus {
-    color: rgba(255, 255, 255, 1);
-    background-color: rgba(64, 156, 58, 1);
-}
-#navbar-pif.navbar-default .navbar-toggle {
-    border-color: #409c3a;
-}
-#navbar-pif.navbar-default .navbar-toggle:hover,
-#navbar-pif.navbar-default .navbar-toggle:focus {
-    background-color: #409c3a;
-}
-#navbar-pif.navbar-default .navbar-toggle .icon-bar {
-    background-color: #ffffff;
-}
-#navbar-pif.navbar-default .navbar-toggle:hover .icon-bar,
-#navbar-pif.navbar-default .navbar-toggle:focus .icon-bar {
-    background-color: #ffffff;
-}
+
 
 /*
     End of custom area ^^

@@ -26,6 +26,7 @@
         <br />
 
         <asp:Button id="createCenter" class="actionButton" Text="Register a Donation Center" OnClick="createCenter_Click" runat="server"/>
+        <asp:Button id="logoutButton" class="actionButton" Text="Logout" OnClick="logoutButton_Click" runat="server"/>
     </div>
 
     <style>

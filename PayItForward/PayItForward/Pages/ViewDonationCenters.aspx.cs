@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using PayItForward.Classes;
+using System.Web.UI.WebControls;
+using System.Web.UI;
 
 namespace PayItForward.Pages
 {
@@ -11,6 +13,17 @@ namespace PayItForward.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             GenerateContent();
+        }
+
+        protected void imageClick(object sender, CommandEventArgs e)
+        {
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                Session["donationCenter"] = db.GetCenter(e.CommandArgument.ToString());
+            }
+            
+            Response.BufferOutput = true;
+            Response.Redirect("/Pages/DonationCenterProfile.aspx");
         }
 
         protected void GenerateContent()
@@ -62,10 +75,8 @@ namespace PayItForward.Pages
             Create_Table();
         }
 
-        //TODO: Need to make each box lead to the specific donation center profile page by setting a session variable accordingly
         protected void Create_Table()
         {
-            /* there's probably a better way to do this */
             centerDisplay.InnerHtml = "";
 
             foreach (DonationCenter c in centerItems.Keys)
@@ -73,44 +84,87 @@ namespace PayItForward.Pages
                 //TODO: Need to programmatically grab this
                 string dcImage = "/Images/DefaultDCImage.png";
 
-                centerDisplay.InnerHtml += "<div class='dcBox'>";
-                centerDisplay.InnerHtml += "<img class='dcThumb dcStuff' src='" + dcImage + "' onclick='location.href=\"/Pages/DonationCenterProfile.aspx\"'/>";
-                centerDisplay.InnerHtml += "<div class='dcInfo dcStuff'>";
-                centerDisplay.InnerHtml += "<table>";
-                centerDisplay.InnerHtml += "<tr><td><strong>";
-                centerDisplay.InnerHtml += c.CenterName;
-                centerDisplay.InnerHtml += "</strong></td></tr>";
+                // Image
+                Table centerInfo = new Table();
+                ImageButton imageButton = new ImageButton();
+                imageButton.CssClass = "dcThumb dcStuff";
+                imageButton.Command += new CommandEventHandler(imageClick);
+                imageButton.CommandArgument = c.CenterName;
+                imageButton.ImageUrl = dcImage;
 
+                // Donation Center Information
+                centerInfo.CssClass = "dcInfo dcStuff";
+
+                // Name
+                TableRow nameRow = new TableRow();
+                TableCell dcName = new TableCell();
+                dcName.Text = c.CenterName;
+                dcName.Font.Bold = true;
+                nameRow.Cells.Add(dcName);
+                centerInfo.Rows.Add(nameRow);
+
+                // Address
+                TableRow addressRow = new TableRow();
+                TableCell dcAddress = new TableCell();
                 if (c.Address != null)
                 {
-                    centerDisplay.InnerHtml += "<tr><td><a href=\"http://maps.google.com/?q=" + c.Address + "\" target=\"_blank\">" + c.Address + "</a></td></tr>";
+                    dcAddress.Text = "<a href =\"http://maps.google.com/?q=" + c.Address + "\" target=\"_blank\">" + c.Address + "</a>";
                 }
+                else
+                {
+                    dcAddress.Text = "NO ADDRESS";
+                }
+                addressRow.Cells.Add(dcAddress);
+                centerInfo.Rows.Add(addressRow);
 
+                // Hours
+                TableRow hoursRow = new TableRow();
+                TableCell dcHours = new TableCell();
                 if (c.Hours != null)
                 {
-                    centerDisplay.InnerHtml += "<tr><td>" + c.Hours.Split(';')[(int)DateTime.Now.DayOfWeek] + "</td></tr>";
+                    dcHours.Text = c.Hours.Split(';')[(int)DateTime.Now.DayOfWeek];
                 }
+                else
+                {
+                    dcHours.Text = "NO HOURS";
+                }
+                hoursRow.Cells.Add(dcHours);
+                centerInfo.Rows.Add(hoursRow);
 
-                centerDisplay.InnerHtml += "<tr><td>Accepts: ";
+                // "Accepts"
+                TableRow aRow = new TableRow();
+                TableCell dcA = new TableCell();
+                dcA.Text = "Accepts:";
+                aRow.Cells.Add(dcA);
+                centerInfo.Rows.Add(aRow);
+
+                // Accepted Items
+                TableRow itemsRow = new TableRow();
+                TableCell dcItems = new TableCell();
                 if (centerItems[c].Count > 0)
                 {
                     foreach (Item i in centerItems[c])
                     {
-                        centerDisplay.InnerHtml += "<em>" + i.Name + "</em>";
-                        centerDisplay.InnerHtml += ", ";
+                        dcItems.Text += "<em>" + i.Name + "</em>";
+                        dcItems.Text += ", ";
                     }
-                    centerDisplay.InnerHtml = centerDisplay.InnerHtml.Substring(0, centerDisplay.InnerHtml.Length - 2);
+                   dcItems.Text = dcItems.Text.Substring(0, dcItems.Text.Length - 2);
                 }
                 else
                 {
-                    centerDisplay.InnerHtml += "<em>" + c.CategoryNamesAsString.Replace(",", ", ") + "</em>";
+                    dcItems.Text += "<em>" + c.CategoryNamesAsString.Replace(";", ", ") + "</em>";
                 }
+                itemsRow.Cells.Add(dcItems);
+                centerInfo.Rows.Add(itemsRow);
 
-                centerDisplay.InnerHtml += "</td></tr>";
+                // Container
+                Panel dcPanel = new Panel();
+                dcPanel.CssClass = "dcBox";
+                dcPanel.Controls.Add(imageButton);
+                dcPanel.Controls.Add(centerInfo);
 
-                centerDisplay.InnerHtml += "</table>";
-
-                centerDisplay.InnerHtml += "</div></div>";
+                // Add to page
+                centerDisplay.Controls.Add(dcPanel);
             }
         }
     }

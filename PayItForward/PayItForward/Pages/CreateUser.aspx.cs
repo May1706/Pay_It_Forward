@@ -1,5 +1,8 @@
 ﻿using PayItForward.Classes;
 using System;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web.UI.WebControls;
 
 
@@ -7,12 +10,15 @@ namespace PayItForward.Pages
 {
     public partial class CreateUser : System.Web.UI.Page
     {
-        protected String createStatus = "not doing anything";
+        private const int KEY_SIZE = 15; //bytes  
+
+        protected String createStatus = "";
         protected String userEmail = "";
         protected Boolean valid;
         private String userPassword1 = "";
         private String userPassword2 = "";
         private User newUser;
+        private static String key = "";
 
         protected void Button_Click(object sender, EventArgs e)
         {
@@ -65,12 +71,17 @@ namespace PayItForward.Pages
             {
                 //check that userPassword is the correct format
                 //TODO
+                if (userPassword1.Length < 6)
+                {
+                    valid = false;
+                    createStatus = "Password is too short";
+                }
             }
             if (valid)
             {
 
                 //add user to db
-                newUser = new User(userEmail, userPassword1);
+                newUser = new User(userEmail, Encrypt(userPassword1, userEmail), key);
                 DatabaseContext db = new DatabaseContext();
                 db.AddUser(newUser);
 
@@ -84,5 +95,31 @@ namespace PayItForward.Pages
             ErrorMsg.Text = createStatus;
 
         }
+
+        static private string Encrypt(string plainText, string keyPart)
+        {
+            string added = keyPart.Split('@')[0];
+            string key = "MAkv2SPbnI9u212";
+            string EncryptionKey = key.Substring(added.Length) + added;
+            byte[] plainBytes = Encoding.Unicode.GetBytes(plainText);
+
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(plainBytes, 0, plainBytes.Length);
+                        cs.Close();
+                    }
+                    plainText = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return plainText;
+        }
+
     }
 }
