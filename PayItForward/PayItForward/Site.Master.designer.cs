@@ -13,13 +13,13 @@ namespace PayItForward {
     public partial class SiteMaster {
         
         /// <summary>
-        /// loginText control.
+        /// headerButtons control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor loginText;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl headerButtons;
         
         /// <summary>
         /// MainContent control.
