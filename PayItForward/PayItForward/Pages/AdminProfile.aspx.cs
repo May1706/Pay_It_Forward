@@ -18,6 +18,8 @@ namespace PayItForward.Pages
         protected void Accept_Click(object sender, EventArgs e)
         {
             //Todo
+            //int i = Convert.ToInt32(uid.InnerText);
+            Console.Out.WriteLine("Accepted!");
         }
 
         protected void Deny_Click(object sender, EventArgs e)
@@ -83,6 +85,8 @@ namespace PayItForward.Pages
                 listPending.InnerHtml = "";
                 listPending.InnerHtml += "<table id=\"pendingRequestTable\" class=\"table table-hover table-striped table-bordered\">";
                 listPending.InnerHtml += "<thead><tr>";
+                listPending.InnerHtml += "<th style=\"display:none\">RequestId</th>";
+                listPending.InnerHtml += "<th style=\"display:none\">CallingId</th>";
                 listPending.InnerHtml += "<th>Type</th>";
                 listPending.InnerHtml += "<th>Time Created</th>";
                 listPending.InnerHtml += "<th>Message</th>";
@@ -92,6 +96,8 @@ namespace PayItForward.Pages
                 foreach (Request r in requests)
                 {
                     listPending.InnerHtml += "<tr>";
+                    listPending.InnerHtml += "<td style=\"display:none\">" + r.RequestId + "</td>";
+                    listPending.InnerHtml += "<td style=\"display:none\">" + r.CallingId + "</td>";
                     listPending.InnerHtml += "<td>" + r.Type + "</td>";
                     listPending.InnerHtml += "<td>" + r.CreatedTime.ToString() + "</td>";
                     listPending.InnerHtml += "<td>" + r.MessageInfo + "</td>";

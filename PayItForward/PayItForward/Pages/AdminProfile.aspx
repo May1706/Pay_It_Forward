@@ -108,15 +108,19 @@
         $('#pendingRequestTable').find('tr').click(function () {
             var old = $(this).find('td:first').text();
             var row = $(this);
+            //var reqId = '<div id="uid" runat="server" style="display:none">' + row.find('td:eq(0)').text() + '</div>';
 
-            $(".modal-header").empty().append("<h3>" + row.find('td:eq(0)').text() + "</h3>");
-            $(".modal-body").empty().append("<p>" + row.find('td:eq(2)').text() + "</p>");
+            var close = '<button type="button" class="close" data-dismiss="modal">&times;</button>';
+            var type = "<h3>" + row.find('td:eq(2)').text() + "</h3>";
+            var message = "<p>" + row.find('td:eq(4)').text() + "</p>";
 
-            var acceptButton = '<button type="button" class="btn btn-default" data-dismiss="modal" onclick="Accept_Click">Accept</button>';
-            var denyButton = '<button type="button" class="btn btn-default" data-dismiss="modal" onclick="Deny_Click">Deny</button>';
-            var cancelButton = '<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>';
+            $(".modal-header").empty().append(close, type);
+            $(".modal-body").empty().append(message);//, reqId);
 
-            $(".modal-footer").empty().append(acceptButton, denyButton, cancelButton);
+            var acceptButton = '<asp:Button ID="Accept" runat="server" Text="Accept" CssClass="btn btn-default" onclick="Accept_Click"/>';
+            var denyButton = '<asp:Button ID="Deny" runat="server" CssClass="btn btn-default" data-dismiss="modal" onclick="Deny_Click" Text="Deny" />';
+
+            $(".modal-footer").empty().append(acceptButton, denyButton);
 
             $("#myModal").modal();
         });
