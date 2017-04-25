@@ -93,7 +93,7 @@
                         <br />
                         <br />
                         <!-- Needs elaboration -->
-                        <p id="errorText" visible="false" runat="server">Incorrect Fields</p>
+                        <p id="itemErrorText" class="errorText" visible="false" runat="server">Incorrect Fields</p>
 
                         <asp:Button id="addItemButton" OnClick="addItemButton_Click" Text="Add Item" runat="server"/>
                     </div>
@@ -101,7 +101,15 @@
                     <!-- Manage Categories content -->
                     <div id="category" class="tab-pane fade">
                         <h3>Manage Categories</h3>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        
+                        <p>Name</p>
+                        <asp:TextBox id="categoryName" runat="server"/>
+
+                        <br />
+                        <br />
+                        <p id="categoryErrorText" class="errorText" visible="false" runat="server">Incorrect Fields</p>
+
+                        <asp:Button ID="addCategoryButton" OnClick="addCategoryButton_Click" Text="Add Category" runat="server"/>
                     </div>
 
                     <!-- Manage Donation Centers -->
@@ -160,7 +168,11 @@
     </script>
 
     <style>
-        #<%=errorText.ClientID%> {
+        #<%=itemErrorText.ClientID%> {
+            color: red;
+        }
+
+        #<%=categoryErrorText.ClientID%> {
             color: red;
         }
     </style>

@@ -112,13 +112,13 @@ namespace PayItForward.Pages {
         protected global::System.Web.UI.WebControls.TextBox itemHigh;
         
         /// <summary>
-        /// errorText control.
+        /// itemErrorText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorText;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemErrorText;
         
         /// <summary>
         /// addItemButton control.
@@ -128,6 +128,33 @@ namespace PayItForward.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button addItemButton;
+        
+        /// <summary>
+        /// categoryName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox categoryName;
+        
+        /// <summary>
+        /// categoryErrorText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categoryErrorText;
+        
+        /// <summary>
+        /// addCategoryButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addCategoryButton;
         
         /// <summary>
         /// listDonationCenter control.

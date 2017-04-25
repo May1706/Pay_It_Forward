@@ -40,6 +40,13 @@ namespace PayItForward.Classes
             return item;
         }
 
+        public Category AddCategory(Category category)
+        {
+            this.Categories.Add(category);
+            this.SaveChanges();
+            return category;
+        }
+
         public Item GetItem(string itemName)
         {
             return Items.FirstOrDefault(item => item.Name == itemName);

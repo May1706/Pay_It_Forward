@@ -187,11 +187,11 @@ namespace PayItForward.Pages
             }
             if (flag)
             {
-                errorText.Visible = true;
+                itemErrorText.Visible = true;
                 return;
             }
 
-            errorText.Visible = false;
+            itemErrorText.Visible = false;
 
             using (DatabaseContext db = new DatabaseContext())
             {
@@ -212,6 +212,34 @@ namespace PayItForward.Pages
                 db.Categories.Attach(c);
                 db.Entry(c).Property(x => x.itemString).IsModified = true;
                 db.SaveChanges();
+            }
+        }
+
+        protected void addCategoryButton_Click(object sender, EventArgs e)
+        {
+            bool flag = false;
+
+            if (categoryName.Text == null || categoryName.Text.Length <= 0 || !categoryName.Text.Trim().All(char.IsLetterOrDigit))
+            {
+                flag = true;
+            }
+            if (flag)
+            {
+                categoryErrorText.Visible = true;
+                return;
+            }
+
+            categoryErrorText.Visible = false;
+
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                Category newCategory = new Category();
+
+                newCategory.Name = categoryName.Text.Trim();
+                newCategory.ItemNames = new List<string>();
+                newCategory.Items = new List<Item>();
+
+                db.AddCategory(newCategory);
             }
         }
     }
