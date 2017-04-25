@@ -104,7 +104,16 @@ namespace PayItForward.Pages
             {
                 items = (from category in db.Categories
                          where category.Name == c
-                         select category.itemString).ToList()[0].Split(';').ToList();
+                         select category.itemString).ToList();
+
+                if (items[0] != null)
+                {
+                    items = items[0].Split(';').ToList();
+                }
+                else
+                {
+                    items = null;
+                }
             }
 
             return JsonConvert.SerializeObject(items);
