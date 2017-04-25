@@ -13,6 +13,7 @@ namespace PayItForward.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             loadTables();
+            loadDropdowns();
         }
 
         protected void Accept_Click(object sender, EventArgs e)
@@ -72,6 +73,22 @@ namespace PayItForward.Pages
         {
             loadHistoryTable();
             loadPendingRequestsTable();
+        }
+
+        private void loadDropdowns()
+        {
+            // Category list in "Manage Items"
+            using (var db = new DatabaseContext())
+            {
+                itemCategory.Items.Clear();
+
+                List<string> categories = (from c in db.Categories select c.Name).ToList();
+
+                foreach (string c in categories)
+                {
+                    itemCategory.Items.Add(new ListItem(c));
+                }
+            }
         }
 
         private void loadPendingRequestsTable()
@@ -141,6 +158,60 @@ namespace PayItForward.Pages
                 }
 
                 listHistory.InnerHtml += "</tbody></table>";
+            }
+        }
+
+        protected void addItemButton_Click(object sender, EventArgs e)
+        {
+            bool flag = false;
+
+            float weight = 0.0f;
+            float low    = 0.0f;
+            float high   = 0.0f;
+
+            if (itemName.Text   == null || itemName.Text.Length <= 0    || !itemName.Text.Trim().All(char.IsLetterOrDigit))
+            {
+                flag = true;
+            }
+            if (itemWeight.Text == null || itemWeight.Text.Length <= 0  || !float.TryParse(itemWeight.Text.Trim(), out weight))
+            {
+                flag = true;
+            }
+            if (itemLow.Text    == null || itemLow.Text.Length <= 0     || !float.TryParse(itemLow.Text.Trim(), out low))
+            {
+                flag = true;
+            }
+            if (itemHigh.Text   == null || itemHigh.Text.Length <= 0    || !float.TryParse(itemHigh.Text.Trim(), out high))
+            {
+                flag = true;
+            }
+            if (flag)
+            {
+                errorText.Visible = true;
+                return;
+            }
+
+            errorText.Visible = false;
+
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                Item newItem = new Item();
+
+                newItem.Name              = itemName.Text.Trim();
+                newItem.Weight            = weight;
+                newItem.StringCategory    = itemCategory.SelectedItem.Text.Trim();
+                newItem.Category          = db.GetCategory(newItem.StringCategory);
+                newItem.LowPrice          = low;
+                newItem.HighPrice         = high;
+
+                db.AddItem(newItem);
+
+                Category c = newItem.Category;
+                c.itemString += ";" + newItem.Name;
+
+                db.Categories.Attach(c);
+                db.Entry(c).Property(x => x.itemString).IsModified = true;
+                db.SaveChanges();
             }
         }
     }

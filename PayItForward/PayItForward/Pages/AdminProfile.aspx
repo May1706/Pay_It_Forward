@@ -62,7 +62,40 @@
                     <!-- Manage Items content -->
                     <div id="item" class="tab-pane fade">
                         <h3>Manage Items</h3>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                        <p>Name</p>
+                        <asp:TextBox id="itemName" runat="server"/>
+
+                        <br />
+                        <br />
+
+                        <p>Weight</p>
+                        <asp:TextBox id="itemWeight" runat="server"/>
+
+                        <br />
+                        <br />
+
+                        <p>Category</p>
+                        <asp:DropDownList id="itemCategory" runat="server"/>
+
+                        <br />
+                        <br />
+
+                        <p>Low Price</p>
+                        <asp:TextBox id="itemLow" runat="server"/>
+
+                        <br />
+                        <br />
+
+                        <p>High Price</p>
+                        <asp:TextBox id="itemHigh" runat="server"/>
+
+                        <br />
+                        <br />
+                        <!-- Needs elaboration -->
+                        <p id="errorText" visible="false" runat="server">Incorrect Fields</p>
+
+                        <asp:Button id="addItemButton" OnClick="addItemButton_Click" Text="Add Item" runat="server"/>
                     </div>
 
                     <!-- Manage Categories content -->
@@ -125,4 +158,10 @@
             $("#myModal").modal();
         });
     </script>
+
+    <style>
+        #<%=errorText.ClientID%> {
+            color: red;
+        }
+    </style>
 </asp:Content>
