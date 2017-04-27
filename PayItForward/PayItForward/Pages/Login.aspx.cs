@@ -21,7 +21,7 @@ namespace PayItForward.Pages
 
         protected void LoginB_Click(object sender, EventArgs e)
         {
-            string userEmail    = Email.Text;
+            string userEmail    = Email.Text.ToLower();
             string userPassword = Password.Text;
             
             using (var db = new DatabaseContext())
