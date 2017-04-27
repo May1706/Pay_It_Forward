@@ -76,24 +76,6 @@ namespace PayItForward.Pages {
         protected global::System.Web.UI.WebControls.TextBox Website;
         
         /// <summary>
-        /// dcImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image dcImage;
-        
-        /// <summary>
-        /// ImageUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload ImageUpload;
-        
-        /// <summary>
         /// SundayHours control.
         /// </summary>
         /// <remarks>
@@ -101,6 +83,7 @@ namespace PayItForward.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox SundayHours;
+        
         
         /// <summary>
         /// MondayHours control.
@@ -164,6 +147,24 @@ namespace PayItForward.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox Pickup;
+        
+        /// <summary>
+        /// dcImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image dcImage;
+        
+        /// <summary>
+        /// ImageUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImageUpload;
         
         /// <summary>
         /// Categories control.

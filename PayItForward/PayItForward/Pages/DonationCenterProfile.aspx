@@ -80,6 +80,9 @@
 
             <asp:Label Text="Information Last Updated:" runat="server" /><br />
             <asp:Label id="dcUpdated" Text="[Date]" runat="server" />
+
+            <br />
+            <br />
         </div>
 
         <div class="dcPanel dcImageAndMap">
@@ -93,13 +96,19 @@
             position: relative;
             width: 100%;
             min-height: 850px;
+            display: inline-block;
         }
 
         .dcPanel {
-            position: absolute;
             width: 49%;
             height: 100%;
             display: inline-block;
+        }
+
+        .dcInfo {
+            width: 400px;
+            margin-right: 100px;
+            float: left;
         }
 
         #dcHours {
@@ -123,14 +132,6 @@
             float: right;
             object-fit: contain;
             border: 2px solid #50B948;
-        }
-
-        .dcImageAndMap {
-            right: 0px;
-        }
-
-        .dcInfo {
-            left: 0px;
         }
     </style>
 

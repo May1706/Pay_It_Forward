@@ -10,30 +10,34 @@
 
             <br />
             <br />
+
             <p>Address</p>
             <asp:TextBox ID="Address" class="field editCenterField" runat="server"></asp:TextBox>
 
             <br />
             <br />
+
             <p>Phone Number</p>
-            <asp:TextBox ID="PhoneNumber" class="editCenterField" runat="server"></asp:TextBox>
+            <asp:TextBox ID="PhoneNumber" class="field editCenterField" runat="server"></asp:TextBox>
+            
             <br />
             <br />
+
             <p>Description</p>
-            <asp:TextBox ID="Description" class="editCenterField" runat="server"></asp:TextBox>
+            <asp:TextBox ID="Description" class="field editCenterField" runat="server"></asp:TextBox>
+            
             <br />
             <br />
+
             <p>Public Contact Email Address</p>
-            <asp:TextBox ID="Email" class="editCenterField" runat="server"></asp:TextBox>
+            <asp:TextBox ID="Email" class="field editCenterField" runat="server"></asp:TextBox>
+            
             <br />
             <br />
+
             <p>Website</p>
-            <asp:TextBox ID="Website" class="editCenterField" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            <p>Image</p>
-            <asp:Image CssClass="dcImage" ImageUrl="/Images/DefaultDCImage.png" ID="dcImage" runat="server"/>
-            <asp:FileUpload ID="ImageUpload" runat="server" />
+            <asp:TextBox ID="Website" class="field editCenterField" runat="server"></asp:TextBox>
+            
             <br />
             <br />
 
@@ -60,6 +64,13 @@
         -->
 
         <div class="side right">
+            <p>Image</p>
+            <asp:Image CssClass="dcImage" ImageUrl="/Images/DefaultDCImage.png" ID="dcImage" runat="server"/>
+            <asp:FileUpload ID="ImageUpload" runat="server" />
+            
+            <br />
+            <br />
+
             <p>Types of Accepted Items</p>
             <asp:CheckBoxList ID="Categories" runat="server"></asp:CheckBoxList>
         </div>
