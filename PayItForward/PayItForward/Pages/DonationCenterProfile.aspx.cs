@@ -20,6 +20,8 @@ namespace PayItForward.Pages
 
                 dcName.Text         = dc.CenterName;
                 dcAddress.Text      = dc.Address;
+                if (dc.ImageURL != null)
+                    dcImage.ImageUrl = dc.ImageURL;
                 dcPhone.Text        = "No Phone";
                 dcDescription.Text  = "No Description";
 
