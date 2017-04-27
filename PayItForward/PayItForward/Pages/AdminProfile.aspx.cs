@@ -59,16 +59,17 @@ namespace PayItForward.Pages
                     //{
                     //    var dc = db2.DonationCenters.Single(d => d.CenterId == result.CallingId);
 
-                    //    //Todo Change visibility
+                    //    //Todo Remove from table if type is create
+                    //    //Todo Change dc to invisible
                     //    db2.SaveChanges();
 
                     //}
                     result.LastUpdateTime = DateTime.Now;
+                    result.Status = Classes.Request.DENIED;
                     db.SaveChanges();
+                    return JsonConvert.SerializeObject(result.LastUpdateTime.ToString());
                 }
             }
-
-            Console.Out.WriteLine("Accepted!");
             return "";
         }
 

@@ -143,7 +143,7 @@
                     <p id="uid" style="display: none"></p>
 
                     <input id="Accept" value="Accept" type="button" class="btn btn-default" onclick="acceptRequest()"/>
-                    <asp:Button ID="Deny" runat="server" CssClass="btn btn-default" data-dismiss="modal" Text="Deny" />
+                    <input id="Deny" value=" Deny " type="button" class="btn btn-default" onclick="denyRequest()"/>
                 </div>
             </div>      
         </div>
@@ -197,6 +197,33 @@
             });
         }
         
+        function denyRequest() {
+            $.ajax({
+                type: "POST",
+                url: "AdminProfile.aspx/DenyRequest",
+                data: '{"type":"' + $('#type').text() + '","uid":"' + $("#uid").text() + '"}',
+                contentType: "application/json",
+                dataType: "json",
+                success:
+                    function (data) {
+                        var row = $(".selectedRow");
+                        var type = row.find('td:eq(2)').text();
+                        var timeCreated = row.find('td:eq(3)').text();
+                        var message = row.find('td:eq(4)').text();
+
+                        lastUpdated = JSON.parse(data.d);
+                        if (data === "") {
+                            alert("Request failed, please try again!");
+                        } else {
+                            $('#myModal').modal('toggle');
+                            //Remove row from pending and add to history table
+                            $('<tr><td>' + type + '</td><td>' + timeCreated + '</td><td>' + lastUpdated + '</td><td>' + message + '</td><td>Denied</td>')
+                                .insertBefore('#historyRequestTable > tbody > tr:first');
+                            row.remove();
+                        }
+                    }
+            });
+        }
     </script>
 
     <style>
