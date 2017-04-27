@@ -140,6 +140,12 @@ namespace PayItForward.Classes
             get { return _contactEmail; }
             set { _contactEmail = value; }
         }
+
+        public int Status
+        {
+            get { return _status; }
+            set { _status = value; }
+        }
         #endregion
 
     }
