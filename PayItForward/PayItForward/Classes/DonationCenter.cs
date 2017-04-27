@@ -15,6 +15,11 @@ namespace PayItForward.Classes
         private string _hours;
         private string _address;
         private string _pickup;
+        private string _phoneNumber;
+        private string _description;
+        private string _website;
+        private string _imageURL;
+        private string _contactEmail;
         private DateTime _lastUpdate;
         private int _status;
 
@@ -110,7 +115,31 @@ namespace PayItForward.Classes
             get { return string.Join(",", CategoryNames); }
             set { CategoryNames = value.Split(',').ToList(); }
         }
-
+        public string PhoneNumber
+        {
+            get { return _phoneNumber; }
+            set { _phoneNumber = value; }
+        }
+        public string Description
+        {
+            get { return _description; }
+            set { _description = value; }
+        }
+        public string Website
+        {
+            get { return _website; }
+            set { _website = value; }
+        }
+        public string ImageURL
+        {
+            get { return _imageURL; }
+            set { _imageURL = value; }
+        }
+        public string ContactEmail
+        {
+            get { return _contactEmail; }
+            set { _contactEmail = value; }
+        }
         #endregion
 
     }
