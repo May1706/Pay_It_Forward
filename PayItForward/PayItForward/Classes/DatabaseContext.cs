@@ -54,7 +54,7 @@ namespace PayItForward.Classes
 
         public Category GetCategory(string categoryName)
         {
-            return Categories.FirstOrDefault(c => c.Name == categoryName);
+            return Categories.AsNoTracking().FirstOrDefault(c => c.Name == categoryName);
         }
 
         public DonationCenter GetCenter(string dcName)

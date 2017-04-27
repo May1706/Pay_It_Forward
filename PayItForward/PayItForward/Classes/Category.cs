@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +13,7 @@ namespace PayItForward.Classes
         #region Properties
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public string Name { get; set; }
 
@@ -24,16 +26,18 @@ namespace PayItForward.Classes
 
         public string itemString
         {
-            get { return ItemNames != null ? string.Join(",", ItemNames) : null; }
+            get { return ItemNames != null ? string.Join(";", ItemNames) : null; }
             set {
                 if (value != null && !value.Equals(""))
-                    ItemNames = value.Split(',').ToList();
+                    ItemNames = value.Split(';').ToList();
                 else
                     ItemNames = null;
             }
         }
 
         #endregion
+
+        #region Constructors
 
         public Category(int id, string name, List<Item> items)
         {
@@ -51,5 +55,21 @@ namespace PayItForward.Classes
         {
 
         }
+
+        #endregion
+
+        #region Methods
+
+        public void addItem(Item item)
+        {
+            if (ItemNames == null)
+            {
+                ItemNames = new List<string>();
+            }
+
+            ItemNames.Add(item.Name);
+        }
+
+        #endregion
     }
 }
