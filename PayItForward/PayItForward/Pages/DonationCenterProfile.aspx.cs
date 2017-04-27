@@ -46,7 +46,7 @@ namespace PayItForward.Pages
                 fridayHours.Text    = hours[5];
                 saturdayHours.Text  = hours[6];
 
-                foreach (string s in dc.CategoryNamesAsString.Split(';'))
+                foreach (string s in dc.ItemNamesAsString.Split(';'))
                 {
                     dcItems.InnerHtml += s + "<br/>";
                 }

@@ -26,10 +26,10 @@ namespace PayItForward.Classes
         private int _status;
 
         // Lazy instantiation
-        private List<Category> _categories;
+        private List<Item> _items;
 
         // Auto-populated from the concatenated string stored in DB
-        private List<string> _categoryNames;
+        private List<string> _itemNames;
 
         #endregion
 
@@ -106,16 +106,16 @@ namespace PayItForward.Classes
             set { _lastUpdate = value; }
         }
 
-        public List<string> CategoryNames
+        public List<string> ItemNames
         {
-            get { return _categoryNames; }
-            set { _categoryNames = value; }
+            get { return _itemNames; }
+            set { _itemNames = value; }
         }
 
-        public string CategoryNamesAsString
+        public string ItemNamesAsString
         {
-            get { return string.Join(",", CategoryNames); }
-            set { CategoryNames = value.Split(',').ToList(); }
+            get { return string.Join(",", ItemNames); }
+            set { ItemNames = (value != null)?value.Split(',').ToList():new List<string>(); }
         }
         public string PhoneNumber
         {

@@ -53,7 +53,7 @@ namespace PayItForward.Pages
                     {
                         foreach (DonationCenter c in db.DonationCenters)
                         {
-                            if (!c.CategoryNames.Contains(i.Category.Name) || c.Status != DonationCenter.VISIBLE)
+                            if (!c.ItemNames.Contains(i.Name) || c.Status != DonationCenter.VISIBLE)
                             {
                                 continue;
                             }
@@ -160,7 +160,7 @@ namespace PayItForward.Pages
                 }
                 else
                 {
-                    dcItems.Text += "<em>" + c.CategoryNamesAsString.Replace(";", ", ") + "</em>";
+                    dcItems.Text += "<em>" + c.ItemNamesAsString.Replace(";", ", ") + "</em>";
                 }
                 itemsRow.Cells.Add(dcItems);
                 centerInfo.Rows.Add(itemsRow);

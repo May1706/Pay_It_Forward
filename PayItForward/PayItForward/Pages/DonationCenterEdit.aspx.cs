@@ -39,11 +39,11 @@ namespace PayItForward.Pages
                             Website.Text = center.Website;
                             if (center.ImageURL != null)
                                 dcImage.ImageUrl = center.ImageURL;
-                            foreach (Category c in db.Categories)
+                            foreach (Item i in db.Items)
                             {
-                                ListItem i = new ListItem(c.Name, c.Name, true);
-                                i.Selected = center.CategoryNames.Contains(c.Name);
-                                Categories.Items.Add(i);
+                                ListItem li = new ListItem(i.Name, i.Name, true);
+                                li.Selected = center.ItemNames.Contains(i.Name);
+                                Items.Items.Add(li);
                             }
                             
                             //Pickup.Checked = Int32.Parse(center.Pickup) > 0; // why is center.Pickup a string???
@@ -140,16 +140,16 @@ namespace PayItForward.Pages
                         center.Website = Website.Text;
                         requestMessage += "website, ";
                     }
-                    List<String> tempCats = new List<string>();
-                    foreach(ListItem i in Categories.Items)
+                    List<String> tempItems = new List<string>();
+                    foreach(ListItem i in Items.Items)
                     {
                         if(i.Selected)
-                            tempCats.Add(i.Text);
+                            tempItems.Add(i.Text);
                     }
-                    if(tempCats != center.CategoryNames)
+                    if(tempItems != center.ItemNames)
                     {
-                        center.CategoryNames = tempCats;
-                        requestMessage += "categories, ";
+                        center.ItemNames = tempItems;
+                        requestMessage += "items, ";
                     }
                     //remove the trailing comma space
                     requestMessage = requestMessage.Substring(0, requestMessage.Length - 2);
