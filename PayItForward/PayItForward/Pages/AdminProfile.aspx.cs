@@ -37,6 +37,7 @@ namespace PayItForward.Pages
 
                     //}
                     result.LastUpdateTime = DateTime.Now;
+                    result.Status = Classes.Request.APPROVED;
                     db.SaveChanges();
                     return JsonConvert.SerializeObject(result.LastUpdateTime.ToString());
                 }
@@ -179,7 +180,7 @@ namespace PayItForward.Pages
 
 
                 listHistory.InnerHtml = "";
-                listHistory.InnerHtml += "<table id=\"historyRequestTable\" class=\"table table-hover table-striped table-bordered\">";
+                listHistory.InnerHtml += "<table id=\"historyRequestTable\" class=\"table table-striped table-bordered\">";
                 listHistory.InnerHtml += "<thead><tr>";
                 listHistory.InnerHtml += "<th>Type</th>";
                 listHistory.InnerHtml += "<th>Time Created</th>";

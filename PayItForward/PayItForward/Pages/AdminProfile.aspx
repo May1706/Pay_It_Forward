@@ -161,7 +161,7 @@
             var message = "<p>" + row.find('td:eq(4)').text() + "</p>";
 
             $(".modal-header").empty().append(close, type);
-            $(".modal-body").empty().append(message);//, reqId);
+            $(".modal-body").empty().append(message);
 
             $("#uid").text(row.find('td:eq(0)').text());
 
@@ -183,16 +183,20 @@
                         var timeCreated = row.find('td:eq(3)').text();
                         var message = row.find('td:eq(4)').text();
 
-
-                        $('#myModal').modal('toggle');
                         lastUpdated = JSON.parse(data.d);
-                        //Remove row from pending and add to history
-                        $('<tr><td>' + type + '</td><td>' + timeCreated + '</td><td>' + lastUpdated + '</td><td>' + message + '</td><td>Approved</td>')
-                            .insertBefore('#historyRequestTable > tbody > tr:first');
-                        row.remove();
+                        if (data === "") {
+                            alert("Request failed, please try again!");
+                        } else {
+                            $('#myModal').modal('toggle');
+                            //Remove row from pending and add to history
+                            $('<tr><td>' + type + '</td><td>' + timeCreated + '</td><td>' + lastUpdated + '</td><td>' + message + '</td><td>Approved</td>')
+                                .insertBefore('#historyRequestTable > tbody > tr:first');
+                            row.remove();
+                        }
                     }
             });
         }
+        
     </script>
 
     <style>
