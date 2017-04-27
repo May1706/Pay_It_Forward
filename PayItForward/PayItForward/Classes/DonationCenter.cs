@@ -8,6 +8,9 @@ namespace PayItForward.Classes
 {
     public class DonationCenter
     {
+        private readonly int VISIBLE = 1;
+        private readonly int INVISIBLE = 0;
+        
         #region Fields
 
         private int _centerId;
@@ -16,11 +19,6 @@ namespace PayItForward.Classes
         private string _address;
         private string _phoneNumber;
         private string _pickup;
-        private string _phoneNumber;
-        private string _description;
-        private string _website;
-        private string _imageURL;
-        private string _contactEmail;
         private string _description;
         private string _website;
         private string _imageURL;
@@ -28,6 +26,8 @@ namespace PayItForward.Classes
         private DateTime _lastUpdate;
         private List<string> _categories;
         private int _status;
+
+        private string _categoryNamesAsString;
 
         // Lazy instantiation
         //private List<Category> _categories;
@@ -51,9 +51,12 @@ namespace PayItForward.Classes
             _phoneNumber = phone;
             _pickup = pickup;
             _categories = categories;
+
+            _categoryNamesAsString = String.Join(";", categories.ToArray());
+
             UserId = requestorId;
             updateTime();
-            _status = 0;
+            _status = INVISIBLE;
         }
 
         #region Methods

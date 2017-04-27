@@ -42,31 +42,31 @@ namespace PayItForward.Pages
                 string sat = "closed;";
                 if (!DropDownList1.SelectedValue.Equals(-1) && !DropDownList2.SelectedValue.Equals(-1))
                 {
-                    sun = DropDownList1.Text + "AM - " + DropDownList2.Text + "PM;";
+                    sun = DropDownList1.Text + " - " + DropDownList2.Text + ";";
                 }
                 if (!DropDownList3.SelectedValue.Equals(-1) && !DropDownList4.SelectedValue.Equals(-1))
                 {
-                    mon = DropDownList3.Text + "AM - " + DropDownList4.Text + "PM;";
+                    mon = DropDownList3.Text + " - " + DropDownList4.Text + ";";
                 }
                 if (!DropDownList5.SelectedValue.Equals(-1) && !DropDownList6.SelectedValue.Equals(-1))
                 {
-                    tue = DropDownList5.Text + "AM - " + DropDownList6.Text + "PM;";
+                    tue = DropDownList5.Text + " - " + DropDownList6.Text + ";";
                 }
                 if (!DropDownList7.SelectedValue.Equals(-1) && !DropDownList8.SelectedValue.Equals(-1))
                 {
-                    wed = DropDownList7.Text + "AM - " + DropDownList8.Text + "PM;";
+                    wed = DropDownList7.Text + " - " + DropDownList8.Text + ";";
                 }
                 if (!DropDownList9.SelectedValue.Equals(-1) && !DropDownList10.SelectedValue.Equals(-1))
                 {
-                    thu = DropDownList9.Text + "AM - " + DropDownList10.Text + "PM;";
+                    thu = DropDownList9.Text + " - " + DropDownList10.Text + ";";
                 }
                 if (!DropDownList11.SelectedValue.Equals(-1) && !DropDownList12.SelectedValue.Equals(-1))
                 {
-                    fri = DropDownList11.Text + "AM - " + DropDownList12.Text + "PM;";
+                    fri = DropDownList11.Text + " - " + DropDownList12.Text + ";";
                 }
                 if (!DropDownList13.SelectedValue.Equals(-1) && !DropDownList14.SelectedValue.Equals(-1))
                 {
-                    sat = DropDownList13.Text + "AM - " + DropDownList14.Text + "PM;";
+                    sat = DropDownList13.Text + " - " + DropDownList14.Text + ";";
                 }
 
                 string hours = sun + mon + tue + wed + thu + fri + sat;
@@ -83,6 +83,9 @@ namespace PayItForward.Pages
                     }
                 }
                 DonationCenter center = new DonationCenter(u.UserID, centerName, hours, address, phone, pickup, categories);
+                u.addDonationCenter(center);
+                //redirect to user profile
+                Response.Redirect("UserProfile.aspx");
             }
         }
 

@@ -22,7 +22,6 @@ namespace PayItForward.Classes
         private int _userID;
         private String _username;
         private String _password;
-        private String _key;
 
         // Bitwise tracking of privileges user has
         private int _privileges;
@@ -73,9 +72,8 @@ namespace PayItForward.Classes
             return (_privileges & AdminPrivilege) == AdminPrivilege;
         }
 
-        public void addDonationCenter(User grantingUser, DonationCenter center)
+        public void addDonationCenter(DonationCenter center)
         {
-            //todo:  Check if grantingUser is admin or also has privilege for that center
             _centers.Add(center);
             _privileges = _privileges | DonationCenterPrivilege;
         }
