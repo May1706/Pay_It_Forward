@@ -40,6 +40,52 @@ namespace PayItForward.Pages {
         protected global::System.Web.UI.WebControls.TextBox Address;
         
         /// <summary>
+        /// PhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PhoneNumber;
+        
+        /// <summary>
+        /// Description control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Description;
+        
+        /// <summary>
+        /// Email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Email;
+        
+        /// <summary>
+        /// Website control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Website;
+        
+        /// <summary>
+        /// SundayHours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox SundayHours;
+        
+        
+        /// <summary>
         /// MondayHours control.
         /// </summary>
         /// <remarks>
@@ -94,15 +140,6 @@ namespace PayItForward.Pages {
         protected global::System.Web.UI.WebControls.TextBox SaturdayHours;
         
         /// <summary>
-        /// SundayHours control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SundayHours;
-        
-        /// <summary>
         /// Pickup control.
         /// </summary>
         /// <remarks>
@@ -110,6 +147,24 @@ namespace PayItForward.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox Pickup;
+        
+        /// <summary>
+        /// dcImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image dcImage;
+        
+        /// <summary>
+        /// ImageUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImageUpload;
         
         /// <summary>
         /// Categories control.

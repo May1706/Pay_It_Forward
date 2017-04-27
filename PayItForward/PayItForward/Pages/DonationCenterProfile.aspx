@@ -20,7 +20,14 @@
 
             <br />
             <br />
+            <asp:Label id="dcEmail" Text="[Contact Email]" runat="server" />
 
+            <br />
+            <br />
+            <asp:Label id="dcWebsite" Text="[Website]" runat="server" />
+
+            <br />
+            <br />
             <asp:Label id="dcDescription" Text="[Description]" runat="server" />
 
             <br />
@@ -73,11 +80,14 @@
 
             <asp:Label Text="Information Last Updated:" runat="server" /><br />
             <asp:Label id="dcUpdated" Text="[Date]" runat="server" />
+
+            <br />
+            <br />
         </div>
 
         <div class="dcPanel dcImageAndMap">
             <asp:Image CssClass="dcImage" ImageUrl="/Images/DefaultDCImage.png" ID="dcImage" runat="server"/>
-            <img class="dcImage" src="/Images/DefaultMap.jpg"/>
+            <iframe id="dcMapsFrame" runat="server" class="dcImage" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -86,13 +96,19 @@
             position: relative;
             width: 100%;
             min-height: 850px;
+            display: inline-block;
         }
 
         .dcPanel {
-            position: absolute;
             width: 49%;
             height: 100%;
             display: inline-block;
+        }
+
+        .dcInfo {
+            width: 400px;
+            margin-right: 100px;
+            float: left;
         }
 
         #dcHours {
@@ -116,14 +132,6 @@
             float: right;
             object-fit: contain;
             border: 2px solid #50B948;
-        }
-
-        .dcImageAndMap {
-            right: 0px;
-        }
-
-        .dcInfo {
-            left: 0px;
         }
     </style>
 

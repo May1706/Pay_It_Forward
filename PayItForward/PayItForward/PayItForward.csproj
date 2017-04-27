@@ -277,7 +277,6 @@
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Site.Mobile.Master" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Web.Debug.config">
@@ -401,6 +400,10 @@
     <Compile Include="Migrations\201704271821206_AdditionalDonationCenterFields.Designer.cs">
       <DependentUpon>201704271821206_AdditionalDonationCenterFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704272136453_StatusToDonationCenter.cs" />
+    <Compile Include="Migrations\201704272136453_StatusToDonationCenter.Designer.cs">
+      <DependentUpon>201704272136453_StatusToDonationCenter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -491,13 +494,6 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Site.Mobile.Master.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.designer.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
-    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -522,6 +518,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704271821206_AdditionalDonationCenterFields.resx">
       <DependentUpon>201704271821206_AdditionalDonationCenterFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704272136453_StatusToDonationCenter.resx">
+      <DependentUpon>201704272136453_StatusToDonationCenter.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
