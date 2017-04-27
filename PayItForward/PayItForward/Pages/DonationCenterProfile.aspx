@@ -3,14 +3,14 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <br />
+    
+    <asp:Label id="dcName" Text="[Donation Center Name]" runat="server"/>
+
+    <br />
+    <br />
 
     <div class="dcContent">
-        <div class="dcPanel dcInfo">
-            <asp:Label id="dcName" Text="[Donation Center Name]" runat="server"/>
-
-            <br />
-            <br />
-            
+        <div class="dcPanel dcInfo">            
             <asp:Label id="dcAddress" Text="[Address]" runat="server"/>
 
             <br />
@@ -96,10 +96,6 @@
     </div>
 
     <style>
-        .dcContent {
-            background-color: red;
-        }
-
         .dcInfo {
             width: 300px;
             margin-right: 50px;

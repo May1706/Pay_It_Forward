@@ -65,10 +65,12 @@
         </div>
 
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+            
+
             <footer style="clear:both;">
+                <hr />
                 <p>&copy; <%: DateTime.Now.Year %> - Pay It Forward</p>
             </footer>
         </div>
