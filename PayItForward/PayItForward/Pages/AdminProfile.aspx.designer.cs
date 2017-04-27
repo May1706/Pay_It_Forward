@@ -58,15 +58,6 @@ namespace PayItForward.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl listHistory;
         
         /// <summary>
-        /// requestHistoryGridView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView requestHistoryGridView;
-        
-        /// <summary>
         /// itemName control.
         /// </summary>
         /// <remarks>
@@ -166,24 +157,6 @@ namespace PayItForward.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl listDonationCenter;
         
         /// <summary>
-        /// uid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uid;
-        
-        /// <summary>
-        /// Accept control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Accept;
-        
-        /// <summary>
         /// Deny control.
         /// </summary>
         /// <remarks>
@@ -191,5 +164,14 @@ namespace PayItForward.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Deny;
+        
+        /// <summary>
+        /// uid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uid;
     }
 }

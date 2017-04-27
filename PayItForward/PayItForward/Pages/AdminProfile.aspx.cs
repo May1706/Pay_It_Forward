@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Services;
 
 namespace PayItForward.Pages
 {
@@ -16,16 +17,12 @@ namespace PayItForward.Pages
             loadDropdowns();
         }
 
-        protected void Accept_Click(object sender, EventArgs e)
+        [WebMethod]
+        public static String AcceptRequest(String type, String uid)
         {
-            //Todo
             //int i = Convert.ToInt32(uid.InnerText);
             Console.Out.WriteLine("Accepted!");
-        }
-
-        protected void Deny_Click(object sender, EventArgs e)
-        {
-            //Todo
+            return "";
         }
 
         protected void Generate_Click(object sender, EventArgs e)

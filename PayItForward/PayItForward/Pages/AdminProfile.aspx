@@ -56,7 +56,6 @@
                         <div class="table-responsive">
                             <div id="listHistory" runat="server"/>
                         </div>
-                        <!--<asp:GridView ID="requestHistoryGridView" SkinID="Professional" runat="server"></asp:GridView>-->
                     </div>
                     
                     <!-- Manage Items content -->
@@ -140,7 +139,12 @@
                 <div class="modal-body">
                     <p>Some text in the modal.</p>
                 </div>
-                <div class="modal-footer" style="text-align: center;"/>
+                <div class="modal-footer" style="text-align: center;">
+                    <p id="uid" style="display: none"></p>
+
+                    <input id="Accept" value="Accept" type="button" class="btn btn-default" onclick="acceptRequest()"/>
+                    <asp:Button ID="Deny" runat="server" CssClass="btn btn-default" data-dismiss="modal" Text="Deny" />
+                </div>
             </div>      
         </div>
     </div>
@@ -152,19 +156,35 @@
             //var reqId = '<div id="uid" runat="server" style="display:none">' + row.find('td:eq(0)').text() + '</div>';
 
             var close = '<button type="button" class="close" data-dismiss="modal">&times;</button>';
-            var type = "<h3>" + row.find('td:eq(2)').text() + "</h3>";
+            var type = "<h3 id='type'>" + row.find('td:eq(2)').text() + "</h3>";
             var message = "<p>" + row.find('td:eq(4)').text() + "</p>";
 
             $(".modal-header").empty().append(close, type);
             $(".modal-body").empty().append(message);//, reqId);
 
-            var acceptButton = '<asp:Button ID="Accept" runat="server" Text="Accept" CssClass="btn btn-default" onclick="Accept_Click"/>';
-            var denyButton = '<asp:Button ID="Deny" runat="server" CssClass="btn btn-default" data-dismiss="modal" onclick="Deny_Click" Text="Deny" />';
+            $("#uid").text(row.find('td:eq(0)').text());
 
-            $(".modal-footer").empty().append(acceptButton, denyButton);
 
             $("#myModal").modal();
         });
+
+        function acceptRequest() {
+            $.ajax({
+                type: "POST",
+                url: "AdminProfile.aspx/AcceptRequest",
+                data: '{"type":"' + $('#type').text() + '","uid":"' + $("#uid").text() + '"}',
+                contentType: "application/json",
+                dataType: "json",
+                success:
+                    function (data) {
+                        alert("Request was accepted succesfully!");
+                    },
+                error: function (req, textStatus, errorThrown) {
+                    //this is going to happen when you send something different from a 200 OK HTTP
+                    alert('Ooops, something happened: ' + textStatus + ' ' + errorThrown);
+                }
+            })
+        }
     </script>
 
     <style>
