@@ -14,7 +14,7 @@ namespace PayItForward.Classes
         private string _centerName;
         private string _hours;
         private string _address;
-        private string _phone;
+        private string _phoneNumber;
         private string _pickup;
         private List<string> _categories;
         private DateTime _lastUpdate;
@@ -39,7 +39,7 @@ namespace PayItForward.Classes
             _centerName = name;
             _hours = hours;
             _address = address;
-            _phone = phone;
+            _phoneNumber = phone;
             _pickup = pickup;
             _categories = categories;
             UserId = requestorId;
