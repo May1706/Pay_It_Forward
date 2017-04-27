@@ -22,8 +22,10 @@ namespace PayItForward.Pages
                 dcAddress.Text      = dc.Address;
                 if (dc.ImageURL != null)
                     dcImage.ImageUrl = dc.ImageURL;
-                dcPhone.Text        = "No Phone";
-                dcDescription.Text  = "No Description";
+                dcPhone.Text        = (dc.PhoneNumber != null)? dc.PhoneNumber : "No Phone";
+                dcDescription.Text = (dc.Description != null) ? dc.Description : "No Description";
+                dcWebsite.Text = (dc.Website != null) ? "<a href=\""+dc.Website+"\">" + dc.Website + "</a>" : "No Description";
+                dcEmail.Text = (dc.ContactEmail != null) ? "<a href=\"mailto:" + dc.ContactEmail + "\">" + dc.ContactEmail + "</a>" : "No Description";
 
                 string[] hours = dc.Hours.Split(';');
                 sundayHours.Text    = hours[0];

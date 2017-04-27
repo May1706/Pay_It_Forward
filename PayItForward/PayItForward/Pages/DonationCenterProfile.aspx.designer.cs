@@ -40,6 +40,24 @@ namespace PayItForward.Pages {
         protected global::System.Web.UI.WebControls.Label dcPhone;
         
         /// <summary>
+        /// dcEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label dcEmail;
+        
+        /// <summary>
+        /// dcWebsite control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label dcWebsite;
+        
+        /// <summary>
         /// dcDescription control.
         /// </summary>
         /// <remarks>

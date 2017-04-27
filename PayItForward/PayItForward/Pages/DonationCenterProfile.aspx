@@ -20,7 +20,14 @@
 
             <br />
             <br />
+            <asp:Label id="dcEmail" Text="[Contact Email]" runat="server" />
 
+            <br />
+            <br />
+            <asp:Label id="dcWebsite" Text="[Website]" runat="server" />
+
+            <br />
+            <br />
             <asp:Label id="dcDescription" Text="[Description]" runat="server" />
 
             <br />
