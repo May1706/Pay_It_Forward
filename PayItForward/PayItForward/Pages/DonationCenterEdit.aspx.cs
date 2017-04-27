@@ -38,10 +38,7 @@ namespace PayItForward.Pages
                             }
                             
                             //Pickup.Checked = Int32.Parse(center.Pickup) > 0; // why is center.Pickup a string???
-                            
                         }
-
-
                     }
                     else
                     {
@@ -61,14 +58,15 @@ namespace PayItForward.Pages
             }
            
         }
+
         protected void CenterNotFound()
         {
             EditPanel.Visible = false;
             NotFoundPanel.Visible = true;
         }
+
         protected void SaveChanges_Click(object sender, EventArgs e)
         {
-            
             using (var db = new DatabaseContext())
             {
                 DonationCenter center = db.DonationCenters.FirstOrDefault(c => c.CenterId == centerId);
@@ -92,14 +90,13 @@ namespace PayItForward.Pages
                     ErrMsg.Text = "Error Saving Changes";
                 }
             }
-                
-                
 
            // Response.Redirect(Request.RawUrl);
         }
+
         protected void SetHoursText(String hours)
         {
-            TextBox[] boxes = { MondayHours, TuesdayHours, WednesdayHours, ThursdayHours, FridayHours, SaturdayHours, SundayHours };
+            TextBox[] boxes = { SundayHours, MondayHours, TuesdayHours, WednesdayHours, ThursdayHours, FridayHours, SaturdayHours };
             List<String> days = hours.Split(';').ToList();
             
             // iterate through the count of the shorter of the two.
@@ -110,9 +107,10 @@ namespace PayItForward.Pages
                 boxes[i].Text = days[i];
             }
         }
+
         protected String GetHoursText()
         {
-            return MondayHours.Text + ";" + TuesdayHours.Text + ";" + WednesdayHours.Text + ";" + ThursdayHours.Text + ";" + FridayHours.Text + ";" + SaturdayHours.Text + ";" + SundayHours.Text;
+            return SundayHours.Text + ";" + MondayHours.Text + ";" + TuesdayHours.Text + ";" + WednesdayHours.Text + ";" + ThursdayHours.Text + ";" + FridayHours.Text + ";" + SaturdayHours.Text;
         }
     }
    
