@@ -8,7 +8,9 @@
             <asp:TextBox ID="CenterName" class="editCenterField" runat="server"></asp:TextBox>
             <br />
             <br />
-
+            <p>Image</p>
+            <asp:Image CssClass="dcImage" ImageUrl="/Images/DefaultDCImage.png" ID="dcImage" runat="server"/>
+            <asp:FileUpload ID="ImageUpload" runat="server" />
             <p>Address</p>
             <asp:TextBox ID="Address" class="editCenterField" runat="server"></asp:TextBox>
             <br />

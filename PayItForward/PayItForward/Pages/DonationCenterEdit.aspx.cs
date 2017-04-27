@@ -1,7 +1,9 @@
 ﻿using PayItForward.Classes;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -10,6 +12,7 @@ namespace PayItForward.Pages
 {
     public partial class DonationCenterEdit : System.Web.UI.Page
     {
+        public const int ImageMinimumBytes = 512;
         int centerId;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,7 +33,9 @@ namespace PayItForward.Pages
                             CenterName.Text = center.CenterName;
                             SetHoursText(center.Hours);
                             Address.Text = center.Address;
-                            foreach(Category c in db.Categories)
+                            if (center.ImageURL != null)
+                                dcImage.ImageUrl = center.ImageURL;
+                            foreach (Category c in db.Categories)
                             {
                                 ListItem i = new ListItem(c.Name, c.Name, true);
                                 i.Selected = center.CategoryNames.Contains(c.Name);
@@ -68,12 +73,25 @@ namespace PayItForward.Pages
         }
         protected void SaveChanges_Click(object sender, EventArgs e)
         {
-            
+            ErrMsg.Text = "";
             using (var db = new DatabaseContext())
             {
                 DonationCenter center = db.DonationCenters.FirstOrDefault(c => c.CenterId == centerId);
                 if(center != null)
                 {
+                    if (ImageUpload.HasFile)
+                    {
+                        if (!IsImage(ImageUpload.PostedFile))
+                        {
+                            ErrMsg.Text = "File uploaded is not an image. Changes not saved.";
+                            return;
+                        }
+                        string fileExt = System.IO.Path.GetExtension(ImageUpload.PostedFile.FileName);
+                        ImageUpload.SaveAs(Server.MapPath("~/Images/") + center.CenterName + fileExt );
+                        center.ImageURL = "/Images/" + center.CenterName + fileExt;
+                        if (center.ImageURL != null)
+                            dcImage.ImageUrl = center.ImageURL;
+                    }
                     center.CenterName = CenterName.Text;
                     System.Diagnostics.Debug.WriteLine(CenterName.Text);
                     center.Hours = GetHoursText();
@@ -113,6 +131,73 @@ namespace PayItForward.Pages
         protected String GetHoursText()
         {
             return MondayHours.Text + ";" + TuesdayHours.Text + ";" + WednesdayHours.Text + ";" + ThursdayHours.Text + ";" + FridayHours.Text + ";" + SaturdayHours.Text + ";" + SundayHours.Text;
+        }
+        protected bool IsImage(HttpPostedFile postedFile)
+        {
+            // Based off:
+            //http://stackoverflow.com/questions/11063900/determine-if-uploaded-file-is-image-any-format-on-mvc
+            
+            if (postedFile.ContentType.ToLower() != "image/jpg" &&
+                        postedFile.ContentType.ToLower() != "image/jpeg" &&
+                        postedFile.ContentType.ToLower() != "image/pjpeg" &&
+                        postedFile.ContentType.ToLower() != "image/gif" &&
+                        postedFile.ContentType.ToLower() != "image/x-png" &&
+                        postedFile.ContentType.ToLower() != "image/png")
+            {
+                return false;
+            }
+            
+            if (Path.GetExtension(postedFile.FileName).ToLower() != ".jpg"
+                && Path.GetExtension(postedFile.FileName).ToLower() != ".png"
+                && Path.GetExtension(postedFile.FileName).ToLower() != ".gif"
+                && Path.GetExtension(postedFile.FileName).ToLower() != ".jpeg")
+            {
+                return false;
+            }
+            
+            try
+            {
+                if (!postedFile.InputStream.CanRead)
+                {
+                    return false;
+                }
+
+                if (postedFile.ContentLength < ImageMinimumBytes)
+                {
+                    return false;
+                }
+
+                byte[] buffer = new byte[512];
+                postedFile.InputStream.Read(buffer, 0, 512);
+                string content = System.Text.Encoding.UTF8.GetString(buffer);
+                if (Regex.IsMatch(content, @"<script|<html|<head|<title|<body|<pre|<table|<a\s+href|<img|<plaintext|<cross\-domain\-policy",
+                    RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Multiline))
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
+
+            try
+            {
+                using (var bitmap = new System.Drawing.Bitmap(postedFile.InputStream))
+                {
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                postedFile.InputStream.Position = 0;
+            }
+
+            return true;
         }
     }
    
