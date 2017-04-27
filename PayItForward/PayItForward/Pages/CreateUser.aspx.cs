@@ -31,7 +31,7 @@ namespace PayItForward.Pages
             valid = true;
 
             //attempt to create user
-            userEmail = Email.Text;
+            userEmail = Email.Text.ToLower();
             userPassword1 = Password.Text;
             userPassword2 = RePassword.Text;
 
