@@ -10,9 +10,9 @@ namespace PayItForward.Classes
     {
         #region Constants
         // Used for determining request status
-        public const int Approved = 0;
-        public const int Pending = 1;
-        public const int Denied = 2;
+        public const int PENDING = 0;
+        public const int APPROVED = 1;
+        public const int DENIED = 2;
 
         #endregion
 
@@ -42,7 +42,24 @@ namespace PayItForward.Classes
         }
 
         #region Methods
+        public String statusToString()
+        {
+            switch(_status)
+            {
+                case 0:
+                    return "Pending";
 
+                case 1:
+                    return "Approved";
+
+                case 2:
+                    return "Denied";
+
+                default:
+                    return "Status not recognized";
+
+            }
+        }
         #endregion
 
         #region Properties

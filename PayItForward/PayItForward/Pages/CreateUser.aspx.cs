@@ -35,7 +35,6 @@ namespace PayItForward.Pages
             userPassword1 = Password.Text;
             userPassword2 = RePassword.Text;
 
-
             //check if username is valid
             try
             {
@@ -46,6 +45,7 @@ namespace PayItForward.Pages
                 valid = false;
                 createStatus = "Email is not a valid format";
             }
+
             if (valid)
             {
                 //check if userName is already in db
@@ -58,6 +58,7 @@ namespace PayItForward.Pages
                     }
                 }
             }
+
             if (valid)
             {
                 //check if userPasswords match
@@ -67,6 +68,7 @@ namespace PayItForward.Pages
                     createStatus = "Password entries do not match";
                 }
             }
+
             if (valid)
             {
                 //check that userPassword is the correct format
@@ -77,23 +79,26 @@ namespace PayItForward.Pages
                     createStatus = "Password is too short";
                 }
             }
+
             if (valid)
             {
-
                 //add user to db
                 newUser = new User(userEmail, Encrypt(userPassword1, userEmail), key);
                 DatabaseContext db = new DatabaseContext();
                 db.AddUser(newUser);
-
 
                 createStatus = "New user created";
                 Email.Text = "";
                 Password.Text = "";
                 RePassword.Text = "";
 
-            }
-            ErrorMsg.Text = createStatus;
+                Session["activeUser"] = newUser;
 
+                Response.BufferOutput = true;
+                Response.Redirect("/Pages/Home.aspx");
+            }
+
+            ErrorMsg.Text = createStatus;
         }
 
         static private string Encrypt(string plainText, string keyPart)
@@ -118,6 +123,7 @@ namespace PayItForward.Pages
                     plainText = Convert.ToBase64String(ms.ToArray());
                 }
             }
+
             return plainText;
         }
 

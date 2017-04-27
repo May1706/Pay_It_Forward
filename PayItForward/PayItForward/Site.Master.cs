@@ -74,10 +74,20 @@ namespace PayItForward
 
             if (user != null)
             {
-                string username = user.Username;
+                string headerButtonsText = @"<li><a href='/Pages/Home'>Home</a></li>
+                                            <li><a href='/Pages/About'>About Us</a></li>
+                                            <li><a href='http://www.cityofames.org'>City of Ames</a></li>";
 
-                loginText.InnerText = "Hi, " + username.Split('@')[0] + "!";
-                loginText.HRef = @"/Pages/UserProfile.aspx";
+                //headerButtonsText = "<li><a href='/Pages/DonationCenterCreate.aspx'>Register Center</a></li>";
+
+                if (user.isAdmin())
+                {
+                    headerButtonsText += "<li><a href='/Pages/AdminProfile.aspx'>Admin Tools</a></li>";
+                }
+
+                headerButtonsText += "<li><a href='/Pages/UserProfile.aspx'>Hi, " + user.Username.Split('@')[0] + "!</a></li>";
+
+                headerButtons.InnerHtml = headerButtonsText;
             }
         }
 

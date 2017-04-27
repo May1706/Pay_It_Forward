@@ -54,11 +54,11 @@
                     </button>
                 </div>
                 <div class="collapse navbar-collapse navbar-menubuilder">
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul id="headerButtons" class="nav navbar-nav navbar-right" runat="server">
                         <li><a href="/Pages/Home">Home</a></li>
                         <li><a href="/Pages/About">About Us</a></li>
                         <li><a href="http://www.cityofames.org">City of Ames</a></li>
-                        <li><a id="loginText" runat="server" href="/Pages/Login">Login</a></li>
+                        <li><a href="/Pages/Login">Login</a></li>
                     </ul>
                 </div>
             </div>

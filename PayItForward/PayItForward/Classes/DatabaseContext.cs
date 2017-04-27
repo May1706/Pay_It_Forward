@@ -33,6 +33,20 @@ namespace PayItForward.Classes
             return user;
         }
 
+        public Item AddItem(Item item)
+        {
+            this.Items.Add(item);
+            this.SaveChanges();
+            return item;
+        }
+
+        public Category AddCategory(Category category)
+        {
+            this.Categories.Add(category);
+            this.SaveChanges();
+            return category;
+        }
+
         public Item GetItem(string itemName)
         {
             return Items.FirstOrDefault(item => item.Name == itemName);
