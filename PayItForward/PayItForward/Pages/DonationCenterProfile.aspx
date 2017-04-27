@@ -76,7 +76,7 @@
         </div>
 
         <div class="dcPanel dcImageAndMap">
-            <img class="dcImage" src="/Images/DefaultDCImage.png"/>
+            <asp:Image CssClass="dcImage" ImageUrl="/Images/DefaultDCImage.png" ID="dcImage" runat="server"/>
             <img class="dcImage" src="/Images/DefaultMap.jpg"/>
         </div>
     </div>

@@ -24,22 +24,14 @@ namespace PayItForward.Classes
 
         public string itemString
         {
-            get
-            {
-                if (ItemNames != null)
-                {
-                    return string.Join(",", ItemNames);
-                }
-                else
-                {
-                    return null;
-                }
-            }
+            get { return ItemNames != null ? string.Join(",", ItemNames) : null; }
             set
-            {   if (value != null)
-                {
-                    ItemNames = value.Split(',').ToList(); 
-                } }
+            {
+                if (value != null && !value.Equals(""))
+                    ItemNames = value.Split(',').ToList();
+                else
+                    ItemNames = null;
+            }
         }
 
         #endregion

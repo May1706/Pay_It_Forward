@@ -82,7 +82,7 @@ namespace PayItForward.Pages
             foreach (DonationCenter c in centerItems.Keys)
             {
                 //TODO: Need to programmatically grab this
-                string dcImage = "/Images/DefaultDCImage.png";
+                string dcImage = (c.ImageURL != null)? c.ImageURL : "/Images/DefaultDCImage.png";
 
                 // Image
                 Table centerInfo = new Table();
