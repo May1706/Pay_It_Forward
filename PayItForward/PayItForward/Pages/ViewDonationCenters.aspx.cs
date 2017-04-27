@@ -36,8 +36,12 @@ namespace PayItForward.Pages
                 {
                     foreach (DonationCenter c in db.DonationCenters)
                     {
-                        List<Item> temp = new List<Item>();
-                        centerItems.Add(c, temp);
+                        if(c.Status == DonationCenter.VISIBLE)
+                        {
+                            List<Item> temp = new List<Item>();
+                            centerItems.Add(c, temp);
+
+                        }
                     }
                 }
             }
@@ -49,7 +53,7 @@ namespace PayItForward.Pages
                     {
                         foreach (DonationCenter c in db.DonationCenters)
                         {
-                            if (!c.CategoryNames.Contains(i.Category.Name))
+                            if (!c.CategoryNames.Contains(i.Category.Name) || c.Status != DonationCenter.VISIBLE)
                             {
                                 continue;
                             }
@@ -81,6 +85,10 @@ namespace PayItForward.Pages
 
             foreach (DonationCenter c in centerItems.Keys)
             {
+                if(c.Status != DonationCenter.VISIBLE)
+                {
+                    continue;
+                }
                 //TODO: Need to programmatically grab this
                 string dcImage = (c.ImageURL != null)? c.ImageURL : "/Images/DefaultDCImage.png";
 
