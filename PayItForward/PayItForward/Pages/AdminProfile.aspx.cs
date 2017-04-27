@@ -177,7 +177,7 @@ namespace PayItForward.Pages
                 List<Request> requests = (from req in db.Requests
                                           where req.Status != Classes.Request.PENDING
                                           orderby req.LastUpdateTime select req).ToList();
-                requests = requests.OrderByDescending(x => x.CreatedTime).ToList();
+                requests = requests.OrderByDescending(x => x.LastUpdateTime).ToList();
 
 
                 listHistory.InnerHtml = "";
