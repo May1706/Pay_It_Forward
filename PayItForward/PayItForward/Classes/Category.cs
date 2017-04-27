@@ -70,6 +70,16 @@ namespace PayItForward.Classes
             ItemNames.Add(item.Name);
         }
 
+        public void removeItem(Item item)
+        {
+            if (ItemNames == null) return;
+
+            if (ItemNames.Contains(item.Name))
+            {
+                ItemNames.Remove(item.Name);
+            }
+        }
+
         #endregion
     }
 }
