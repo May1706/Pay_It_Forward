@@ -14,6 +14,7 @@ namespace PayItForward.Classes
         private string _centerName;
         private string _hours;
         private string _address;
+        private string _phone;
         private string _pickup;
         private List<string> _categories;
         private DateTime _lastUpdate;
@@ -33,14 +34,17 @@ namespace PayItForward.Classes
             UserId = requestorId;
         }
 
-        public DonationCenter(int requestorId, string name, string hours, string address, string pickup, List<string> categories)
+        public DonationCenter(int requestorId, string name, string hours, string address, string phone, string pickup, List<string> categories)
         {
             _centerName = name;
             _hours = hours;
             _address = address;
+            _phone = phone;
             _pickup = pickup;
             _categories = categories;
-            
+            UserId = requestorId;
+            updateTime();
+            _status = 0;
         }
 
         #region Methods

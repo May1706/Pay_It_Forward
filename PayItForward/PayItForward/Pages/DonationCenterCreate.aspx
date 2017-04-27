@@ -24,6 +24,11 @@
             <br />
             <br />
 
+            <p>Phone Number</p>
+            <asp:TextBox ID="PhoneNumber" runat="server" />
+            <br />
+            <br />
+
             <p>Hours</p>
             <asp:Label runat="server" CssClass="col-md-2 control-label">Sunday:</asp:Label>
 
@@ -444,20 +449,16 @@
 
 
 
-
-            <asp:TextBox ID="PickupTextBox" class="addCenterField" runat="server" Text="Provides Pickup"></asp:TextBox>
+            <p>Pickup</p>
+            <asp:TextBox ID="PickupTextBox" class="addCenterField" runat="server" Text=""></asp:TextBox>
             <br />
             <br /> 
 
-            <p>Categories</p>
-            <asp:TextBox ID="CategoryNamesAsString" class="addCenterField" runat="server"></asp:TextBox>
-            <br />
-            <br />
 
             <p>Categories Accepted</p>
-            <asp:CheckBox ID="Categories" runat="server"></asp:CheckBox>
+            <asp:CheckBoxList ID="CheckBoxList" runat="server"/>
 
-            <asp:Button ID="SaveChanges" class="actionButton" Text="Save" OnClick="CreateCenter_Click" runat="server"/>
+            <asp:Button ID="SaveChanges" class="actionButton" Text="Submit for Review" OnClick="CreateCenter_Click" runat="server"/>
             <asp:Label ID="ErrMsg" ForeColor="red" runat="server"/>
         </asp:Panel>
         

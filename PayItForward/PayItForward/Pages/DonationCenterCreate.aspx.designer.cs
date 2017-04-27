@@ -49,6 +49,15 @@ namespace PayItForward.Pages {
         protected global::System.Web.UI.WebControls.TextBox Address;
         
         /// <summary>
+        /// PhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PhoneNumber;
+        
+        /// <summary>
         /// DropDownList1 control.
         /// </summary>
         /// <remarks>
@@ -184,22 +193,13 @@ namespace PayItForward.Pages {
         protected global::System.Web.UI.WebControls.TextBox PickupTextBox;
         
         /// <summary>
-        /// CategoryNamesAsString control.
+        /// CheckBoxList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CategoryNamesAsString;
-        
-        /// <summary>
-        /// Categories control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Categories;
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList;
         
         /// <summary>
         /// SaveChanges control.

@@ -30,6 +30,7 @@ namespace PayItForward.Pages
                             CenterName.Text = center.CenterName;
                             Hours.Text = center.Hours;
                             Address.Text = center.Address;
+                            Pickup.Text = center.Pickup;
                             //Pickup.Checked = Int32.Parse(center.Pickup) > 0; // why is center.Pickup a string???
 
                             //CategoryNamesAsString.Text = center.CategoryNames.ToString(); //not sure how to do this yet
@@ -47,7 +48,7 @@ namespace PayItForward.Pages
             else if (u == null)
             {
                 //Can't edit if not logged in.
-                //Response.Redirect("Login.aspx");
+                Response.Redirect("Login.aspx");
             }
             else
             {
