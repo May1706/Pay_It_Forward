@@ -9,6 +9,8 @@ namespace PayItForward.Classes
     public class DonationCenter
     {
         #region Fields
+        public const int VISIBLE = 1;
+        public const int INVISIBLE = 0;
 
         private int _centerId;
         private string _centerName;
