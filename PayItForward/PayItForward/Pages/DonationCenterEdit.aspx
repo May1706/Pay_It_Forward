@@ -8,22 +8,41 @@
             <asp:TextBox ID="CenterName" class="editCenterField" runat="server"></asp:TextBox>
             <br />
             <br />
-            <p>Image</p>
-            <asp:Image CssClass="dcImage" ImageUrl="/Images/DefaultDCImage.png" ID="dcImage" runat="server"/>
-            <asp:FileUpload ID="ImageUpload" runat="server" />
             <p>Address</p>
             <asp:TextBox ID="Address" class="editCenterField" runat="server"></asp:TextBox>
             <br />
             <br />
+            <p>Phone Number</p>
+            <asp:TextBox ID="PhoneNumber" class="editCenterField" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <p>Description</p>
+            <asp:TextBox ID="Description" class="editCenterField" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <p>Public Contact Email Address</p>
+            <asp:TextBox ID="Email" class="editCenterField" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <p>Website</p>
+            <asp:TextBox ID="Website" class="editCenterField" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <p>Image</p>
+            <asp:Image CssClass="dcImage" ImageUrl="/Images/DefaultDCImage.png" ID="dcImage" runat="server"/>
+            <asp:FileUpload ID="ImageUpload" runat="server" />
+            <br />
+            <br />
 
             <p>Hours</p>
+            Sunday: <asp:TextBox ID="SundayHours" class="editCenterField" runat="server"></asp:TextBox><br />
             Monday: <asp:TextBox ID="MondayHours" class="editCenterField" runat="server"></asp:TextBox><br />
             Tuesday: <asp:TextBox ID="TuesdayHours" class="editCenterField" runat="server"></asp:TextBox><br />
             Wednesday: <asp:TextBox ID="WednesdayHours" class="editCenterField" runat="server"></asp:TextBox><br />
             Thursday: <asp:TextBox ID="ThursdayHours" class="editCenterField" runat="server"></asp:TextBox><br />
             Friday: <asp:TextBox ID="FridayHours" class="editCenterField" runat="server"></asp:TextBox><br />
             Saturday: <asp:TextBox ID="SaturdayHours" class="editCenterField" runat="server"></asp:TextBox><br />
-            Sunday: <asp:TextBox ID="SundayHours" class="editCenterField" runat="server"></asp:TextBox><br />
+            
 
             <br />
             <br />

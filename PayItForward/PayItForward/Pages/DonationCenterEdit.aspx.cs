@@ -33,6 +33,10 @@ namespace PayItForward.Pages
                             CenterName.Text = center.CenterName;
                             SetHoursText(center.Hours);
                             Address.Text = center.Address;
+                            PhoneNumber.Text = center.PhoneNumber;
+                            Description.Text = center.Description;
+                            Email.Text = center.ContactEmail;
+                            Website.Text = center.Website;
                             if (center.ImageURL != null)
                                 dcImage.ImageUrl = center.ImageURL;
                             foreach (Category c in db.Categories)
@@ -96,6 +100,10 @@ namespace PayItForward.Pages
                     System.Diagnostics.Debug.WriteLine(CenterName.Text);
                     center.Hours = GetHoursText();
                     center.Address = Address.Text;
+                    center.PhoneNumber = PhoneNumber.Text;
+                    center.Description = Description.Text;
+                    center.ContactEmail = Email.Text;
+                    center.Website = Website.Text;
                     center.CategoryNames = new List<string>();
                     foreach(ListItem i in Categories.Items)
                     {
@@ -117,7 +125,7 @@ namespace PayItForward.Pages
         }
         protected void SetHoursText(String hours)
         {
-            TextBox[] boxes = { MondayHours, TuesdayHours, WednesdayHours, ThursdayHours, FridayHours, SaturdayHours, SundayHours };
+            TextBox[] boxes = { SundayHours, MondayHours, TuesdayHours, WednesdayHours, ThursdayHours, FridayHours, SaturdayHours};
             List<String> days = hours.Split(';').ToList();
             
             // iterate through the count of the shorter of the two.
@@ -130,7 +138,7 @@ namespace PayItForward.Pages
         }
         protected String GetHoursText()
         {
-            return MondayHours.Text + ";" + TuesdayHours.Text + ";" + WednesdayHours.Text + ";" + ThursdayHours.Text + ";" + FridayHours.Text + ";" + SaturdayHours.Text + ";" + SundayHours.Text;
+            return SundayHours.Text + ";" + MondayHours.Text + ";" + TuesdayHours.Text + ";" + WednesdayHours.Text + ";" + ThursdayHours.Text + ";" + FridayHours.Text + ";" + SaturdayHours.Text;
         }
         protected bool IsImage(HttpPostedFile postedFile)
         {
