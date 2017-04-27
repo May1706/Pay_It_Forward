@@ -84,6 +84,7 @@ namespace PayItForward.Pages {
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox SundayHours;
         
+        
         /// <summary>
         /// MondayHours control.
         /// </summary>
