@@ -47,7 +47,7 @@ namespace PayItForward.Pages
             else if (u == null)
             {
                 //Can't edit if not logged in.
-                Response.Redirect("Login.aspx");
+                //Response.Redirect("Login.aspx");
             }
             else
             {

@@ -15,11 +15,12 @@ namespace PayItForward.Classes
         private string _hours;
         private string _address;
         private string _pickup;
+        private List<string> _categories;
         private DateTime _lastUpdate;
         private int _status;
 
         // Lazy instantiation
-        private List<Category> _categories;
+        //private List<Category> _categories;
 
         // Auto-populated from the concatenated string stored in DB
         private List<string> _categoryNames;
@@ -32,9 +33,14 @@ namespace PayItForward.Classes
             UserId = requestorId;
         }
 
-        public DonationCenter()
+        public DonationCenter(int requestorId, string name, string hours, string address, string pickup, List<string> categories)
         {
-
+            _centerName = name;
+            _hours = hours;
+            _address = address;
+            _pickup = pickup;
+            _categories = categories;
+            
         }
 
         #region Methods
@@ -55,6 +61,12 @@ namespace PayItForward.Classes
         public override int GetHashCode()
         {
             return CenterId.GetHashCode();
+        }
+
+        public DateTime updateTime()
+        {
+            _lastUpdate = DateTime.Now; 
+            return _lastUpdate;
         }
         #endregion
 
