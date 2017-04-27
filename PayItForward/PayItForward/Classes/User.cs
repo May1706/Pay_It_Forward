@@ -23,9 +23,6 @@ namespace PayItForward.Classes
         private String _username;
         private String _password;
 
-        // Bitwise tracking of privileges user has
-        private int _privileges;
-
         // List of donation centers for which user has edit privileges
         private List<DonationCenter> _centers;
 
@@ -54,7 +51,7 @@ namespace PayItForward.Classes
         private void setDefaults()
         {
             DonationsString = "";
-            _privileges = 0;
+            Privilege = 0;
             centersAsString = "";
         }
         public void addAdminPrivilege(User grantingUser)
@@ -69,18 +66,18 @@ namespace PayItForward.Classes
 
         public bool isAdmin()
         {
-            return (_privileges & AdminPrivilege) == AdminPrivilege;
+            return (Privilege & AdminPrivilege) == AdminPrivilege;
         }
 
         public void addDonationCenter(DonationCenter center)
         {
             _centers.Add(center);
-            _privileges = _privileges | DonationCenterPrivilege;
+            Privilege = Privilege | DonationCenterPrivilege;
         }
 
         public bool hasDonationCenterPrivilege()
         {
-            return (_privileges & DonationCenterPrivilege) 
+            return (Privilege & DonationCenterPrivilege) 
                 == DonationCenterPrivilege;
         }
 
@@ -114,6 +111,7 @@ namespace PayItForward.Classes
             set { _username = value; }
         }
 
+        public int Privilege { get; set; }
 
         // TODO: Make util for checking password w/ attempt counter
         public String Password

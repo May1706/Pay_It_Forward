@@ -111,14 +111,16 @@ namespace PayItForward.Pages
                     }
                     db.Entry(center).State = System.Data.Entity.EntityState.Modified;
                     int l = db.SaveChanges();
+
+                    Session["donationCenter"] = center;
+                    Response.BufferOutput = true;
+                    Response.Redirect("/Pages/DonationCenterProfile.aspx");
                 }
                 else
                 {
                     ErrMsg.Text = "Error Saving Changes";
                 }
             }
-
-           // Response.Redirect(Request.RawUrl);
         }
 
         protected void SetHoursText(String hours)
