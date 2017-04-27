@@ -151,9 +151,10 @@
 
     <script>
         $('#pendingRequestTable').find('tr').click(function () {
+            $(".selectedRow").removeClass("selectedRow");
             var old = $(this).find('td:first').text();
             var row = $(this);
-            //var reqId = '<div id="uid" runat="server" style="display:none">' + row.find('td:eq(0)').text() + '</div>';
+            row.addClass("selectedRow");
 
             var close = '<button type="button" class="close" data-dismiss="modal">&times;</button>';
             var type = "<h3 id='type'>" + row.find('td:eq(2)').text() + "</h3>";
@@ -177,13 +178,20 @@
                 dataType: "json",
                 success:
                     function (data) {
-                        alert("Request was accepted succesfully!");
-                    },
-                error: function (req, textStatus, errorThrown) {
-                    //this is going to happen when you send something different from a 200 OK HTTP
-                    alert('Ooops, something happened: ' + textStatus + ' ' + errorThrown);
-                }
-            })
+                        var row = $(".selectedRow");
+                        var type = row.find('td:eq(2)').text();
+                        var timeCreated = row.find('td:eq(3)').text();
+                        var message = row.find('td:eq(4)').text();
+
+
+                        $('#myModal').modal('toggle');
+                        lastUpdated = JSON.parse(data.d);
+                        //Remove row from pending and add to history
+                        $('<tr><td>' + type + '</td><td>' + timeCreated + '</td><td>' + lastUpdated + '</td><td>' + message + '</td><td>Approved</td>')
+                            .insertBefore('#historyRequestTable > tbody > tr:first');
+                        row.remove();
+                    }
+            });
         }
     </script>
 
