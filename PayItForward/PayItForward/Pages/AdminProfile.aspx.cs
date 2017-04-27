@@ -2,9 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Services;
+using Newtonsoft.Json;
 
 namespace PayItForward.Pages
 {
@@ -16,16 +19,59 @@ namespace PayItForward.Pages
             loadDropdowns();
         }
 
-        protected void Accept_Click(object sender, EventArgs e)
+        [WebMethod]
+        public static String AcceptRequest(String type, String uid)
         {
-            //Todo
-            //int i = Convert.ToInt32(uid.InnerText);
-            Console.Out.WriteLine("Accepted!");
+            int id = Convert.ToInt32(uid);
+
+            using (var db = new DatabaseContext())
+            {
+                var result = db.Requests.Single(r => r.RequestId == id);
+                if (result != null)
+                {
+                    //using (var db2 = new DatabaseContext())
+                    //{
+                    //    var dc = db2.DonationCenters.Single(d => d.CenterId == result.CallingId);
+
+                    //    //Todo Change visibility
+                    //    db2.SaveChanges();
+
+                    //}
+                    result.LastUpdateTime = DateTime.Now;
+                    result.Status = Classes.Request.APPROVED;
+                    db.SaveChanges();
+                    return JsonConvert.SerializeObject(result.LastUpdateTime.ToString());
+                }
+            }
+            return "";
         }
 
-        protected void Deny_Click(object sender, EventArgs e)
+        [WebMethod]
+        public static String DenyRequest(String type, String uid)
         {
-            //Todo
+            int id = Convert.ToInt32(uid);
+
+            using (var db = new DatabaseContext())
+            {
+                var result = db.Requests.Single(r => r.RequestId == id);
+                if (result != null)
+                {
+                    //using (var db2 = new DatabaseContext())
+                    //{
+                    //    var dc = db2.DonationCenters.Single(d => d.CenterId == result.CallingId);
+
+                    //    //Todo Remove from table if type is create
+                    //    //Todo Change dc to invisible
+                    //    db2.SaveChanges();
+
+                    //}
+                    result.LastUpdateTime = DateTime.Now;
+                    result.Status = Classes.Request.DENIED;
+                    db.SaveChanges();
+                    return JsonConvert.SerializeObject(result.LastUpdateTime.ToString());
+                }
+            }
+            return "";
         }
 
         protected void Generate_Click(object sender, EventArgs e)
@@ -132,11 +178,11 @@ namespace PayItForward.Pages
                 List<Request> requests = (from req in db.Requests
                                           where req.Status != Classes.Request.PENDING
                                           orderby req.LastUpdateTime select req).ToList();
-                requests = requests.OrderByDescending(x => x.CreatedTime).ToList();
+                requests = requests.OrderByDescending(x => x.LastUpdateTime).ToList();
 
 
                 listHistory.InnerHtml = "";
-                listHistory.InnerHtml += "<table class=\"table table-hover table-striped table-bordered\">";
+                listHistory.InnerHtml += "<table id=\"historyRequestTable\" class=\"table table-striped table-bordered\">";
                 listHistory.InnerHtml += "<thead><tr>";
                 listHistory.InnerHtml += "<th>Type</th>";
                 listHistory.InnerHtml += "<th>Time Created</th>";
@@ -169,19 +215,19 @@ namespace PayItForward.Pages
             float low    = 0.0f;
             float high   = 0.0f;
 
-            if (itemName.Text   == null || itemName.Text.Length <= 0    || !itemName.Text.Trim().All(char.IsLetterOrDigit))
+            if (itemName.Text   == null || itemName.Text.Trim().Length <= 0    || !(new Regex("^[A-Za-z0-9() ]+$").IsMatch(itemName.Text.Trim())))
             {
                 flag = true;
             }
-            if (itemWeight.Text == null || itemWeight.Text.Length <= 0  || !float.TryParse(itemWeight.Text.Trim(), out weight))
+            if (itemWeight.Text == null || itemWeight.Text.Trim().Length <= 0  || !float.TryParse(itemWeight.Text.Trim(), out weight))
             {
                 flag = true;
             }
-            if (itemLow.Text    == null || itemLow.Text.Length <= 0     || !float.TryParse(itemLow.Text.Trim(), out low))
+            if (itemLow.Text    == null || itemLow.Text.Trim().Length <= 0     || !float.TryParse(itemLow.Text.Trim(), out low))
             {
                 flag = true;
             }
-            if (itemHigh.Text   == null || itemHigh.Text.Length <= 0    || !float.TryParse(itemHigh.Text.Trim(), out high))
+            if (itemHigh.Text   == null || itemHigh.Text.Trim().Length <= 0    || !float.TryParse(itemHigh.Text.Trim(), out high))
             {
                 flag = true;
             }
@@ -207,7 +253,7 @@ namespace PayItForward.Pages
                 db.AddItem(newItem);
 
                 Category c = newItem.Category;
-                c.itemString += ";" + newItem.Name;
+                c.addItem(newItem);
 
                 db.Categories.Attach(c);
                 db.Entry(c).Property(x => x.itemString).IsModified = true;
