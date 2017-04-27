@@ -397,6 +397,10 @@
     <Compile Include="Migrations\201704062101418_Valuation.Designer.cs">
       <DependentUpon>201704062101418_Valuation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704271821206_AdditionalDonationCenterFields.cs" />
+    <Compile Include="Migrations\201704271821206_AdditionalDonationCenterFields.Designer.cs">
+      <DependentUpon>201704271821206_AdditionalDonationCenterFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -515,6 +519,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704062101418_Valuation.resx">
       <DependentUpon>201704062101418_Valuation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704271821206_AdditionalDonationCenterFields.resx">
+      <DependentUpon>201704271821206_AdditionalDonationCenterFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

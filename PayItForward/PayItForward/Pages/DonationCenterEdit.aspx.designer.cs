@@ -40,13 +40,67 @@ namespace PayItForward.Pages {
         protected global::System.Web.UI.WebControls.TextBox Address;
         
         /// <summary>
-        /// Hours control.
+        /// MondayHours control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Hours;
+        protected global::System.Web.UI.WebControls.TextBox MondayHours;
+        
+        /// <summary>
+        /// TuesdayHours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TuesdayHours;
+        
+        /// <summary>
+        /// WednesdayHours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox WednesdayHours;
+        
+        /// <summary>
+        /// ThursdayHours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ThursdayHours;
+        
+        /// <summary>
+        /// FridayHours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FridayHours;
+        
+        /// <summary>
+        /// SaturdayHours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox SaturdayHours;
+        
+        /// <summary>
+        /// SundayHours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox SundayHours;
         
         /// <summary>
         /// Pickup control.

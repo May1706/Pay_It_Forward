@@ -15,7 +15,14 @@
             <br />
 
             <p>Hours</p>
-            <asp:TextBox ID="Hours" class="editCenterField" runat="server" TextMode="MultiLine" Columns="50" Rows="7"></asp:TextBox>
+            Monday: <asp:TextBox ID="MondayHours" class="editCenterField" runat="server"></asp:TextBox><br />
+            Tuesday: <asp:TextBox ID="TuesdayHours" class="editCenterField" runat="server"></asp:TextBox><br />
+            Wednesday: <asp:TextBox ID="WednesdayHours" class="editCenterField" runat="server"></asp:TextBox><br />
+            Thursday: <asp:TextBox ID="ThursdayHours" class="editCenterField" runat="server"></asp:TextBox><br />
+            Friday: <asp:TextBox ID="FridayHours" class="editCenterField" runat="server"></asp:TextBox><br />
+            Saturday: <asp:TextBox ID="SaturdayHours" class="editCenterField" runat="server"></asp:TextBox><br />
+            Sunday: <asp:TextBox ID="SundayHours" class="editCenterField" runat="server"></asp:TextBox><br />
+
             <br />
             <br />
 

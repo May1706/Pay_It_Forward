@@ -28,7 +28,7 @@ namespace PayItForward.Pages
                         {
                             // fill in the data if we didn't just press the button
                             CenterName.Text = center.CenterName;
-                            Hours.Text = center.Hours;
+                            SetHoursText(center.Hours);
                             Address.Text = center.Address;
                             foreach(Category c in db.Categories)
                             {
@@ -76,7 +76,7 @@ namespace PayItForward.Pages
                 {
                     center.CenterName = CenterName.Text;
                     System.Diagnostics.Debug.WriteLine(CenterName.Text);
-                    center.Hours = Hours.Text;
+                    center.Hours = GetHoursText();
                     center.Address = Address.Text;
                     center.CategoryNames = new List<string>();
                     foreach(ListItem i in Categories.Items)
@@ -97,5 +97,23 @@ namespace PayItForward.Pages
 
            // Response.Redirect(Request.RawUrl);
         }
+        protected void SetHoursText(String hours)
+        {
+            TextBox[] boxes = { MondayHours, TuesdayHours, WednesdayHours, ThursdayHours, FridayHours, SaturdayHours, SundayHours };
+            List<String> days = hours.Split(';').ToList();
+            
+            // iterate through the count of the shorter of the two.
+            // This prevents problems if only the first few hours are there or there is a trailing semicolon
+            int count = (days.Count < boxes.Length) ? days.Count : boxes.Length;
+            for (int i = 0; i < count; i++)
+            {
+                boxes[i].Text = days[i];
+            }
+        }
+        protected String GetHoursText()
+        {
+            return MondayHours.Text + ";" + TuesdayHours.Text + ";" + WednesdayHours.Text + ";" + ThursdayHours.Text + ";" + FridayHours.Text + ";" + SaturdayHours.Text + ";" + SundayHours.Text;
+        }
     }
+   
 }
