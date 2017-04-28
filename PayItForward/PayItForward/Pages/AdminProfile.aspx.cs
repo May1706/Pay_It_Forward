@@ -17,6 +17,7 @@ namespace PayItForward.Pages
         {
             loadTables();
             loadDropdowns();
+            loadDonationCenterTable();
         }
 
         [WebMethod]
@@ -287,6 +288,13 @@ namespace PayItForward.Pages
 
                 db.AddCategory(newCategory);
             }
+        }
+
+        private void loadDonationCenterTable()
+        {
+            DatabaseContext db = new DatabaseContext();
+            dcGrid.DataSource = (from d in db.DonationCenters select new { d.CenterName, d.CenterId}).ToList();
+            dcGrid.DataBind();
         }
     }
 }

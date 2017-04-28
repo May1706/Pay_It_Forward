@@ -115,9 +115,8 @@
                     <div id="donationCenters" class="tab-pane fade">
                         <h3>Manage Donation Centers</h3>
                         <p>Activate or deactivate donation centers by clicking on the donation center in the table.</p>
-                        <H4>Not yet implemented</H4>
                         <div class="table-responsive">
-                            <div id="listDonationCenter" runat="server"/>
+                            <asp:GridView runat="server" ID="dcGrid" CssClass="table table-striped table-bordered" />
                         </div>
                     </div>
                 </div>
@@ -144,6 +143,26 @@
 
                     <input id="Accept" value="Accept" type="button" class="btn btn-default" onclick="acceptRequest()"/>
                     <input id="Deny" value=" Deny " type="button" class="btn btn-default" onclick="denyRequest()"/>
+                </div>
+            </div>      
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body" />
+                <div class="modal-footer" style="text-align: center;">
+                    <p id="dcId" style="display: none"></p>
+
+                    <input id="Visible" value="Accept" type="button" class="btn btn-default" onclick="acceptRequest()"/>
+                    <input id="Invisible" value=" Deny " type="button" class="btn btn-default" onclick="denyRequest()"/>
                 </div>
             </div>      
         </div>
@@ -224,6 +243,25 @@
                     }
             });
         }
+    
+        $('#MainContent_dcGrid').find('tr').click(function () {
+            $(".selectedDcRow").removeClass("selectedDcRow");
+            var old = $(this).find('td:first').text();
+            var row = $(this);
+            row.addClass("selectedDcRow");
+
+            var close = '<button type="button" class="close" data-dismiss="modal">&times;</button>';
+            var type = "<h3 id='type'>" + row.find('td:eq(2)').text() + "</h3>";
+            var message = "<p>" + row.find('td:eq(4)').text() + "</p>";
+
+            $(".modal-header").empty().append(close, type);
+            $(".modal-body").empty().append(message);
+
+            $("#uid").text(row.find('td:eq(0)').text());
+
+
+            $("#myModal").modal();
+        });
     </script>
 
     <style>
