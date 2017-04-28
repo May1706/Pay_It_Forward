@@ -37,7 +37,7 @@ namespace PayItForward.Pages
                     {
                         var dc = db2.DonationCenters.Single(d => d.CenterId == result.CallingId);
 
-                        //Todo Change visibility
+                        //Change visibility
                         dc.Status = Classes.DonationCenter.VISIBLE;
                         dc.LastUpdate = DateTime.Now;
                         db2.SaveChanges();
