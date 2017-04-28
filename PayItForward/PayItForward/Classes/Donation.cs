@@ -127,16 +127,9 @@ namespace PayItForward.Classes
                         {
                             using (var db = new DatabaseContext())
                             {
-                                Item item = null;
-                                try
-                                {
-                                    item = db.Items.Where(i => i.itemId == itemId).First();
-                                }
-                                catch (Exception)
-                                {
-
-                                     throw;
-                                }
+       
+                                Item item = db.Items.Where(i => i.itemId == itemId).First();
+                                
                                 _items.Add(new DonatedItem(item, null, quantity));
                             }
                         }
