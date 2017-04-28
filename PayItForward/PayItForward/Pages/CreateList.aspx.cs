@@ -143,19 +143,44 @@ namespace PayItForward.Pages
                     }
                 }
 
+                items.Sort((x, y) => x.Name.CompareTo(y.Name));
                 Session["donationItems"] = items;
 
                 // TODO: Move to when the donation summary is created
-                if(Session["activeUser"] != null)
+                if (Session["activeUser"] != null)
                 {
                     Donation donation = new Donation();
 
                     // Add each item to donation
-                    foreach (Item item in items)
+                    if (items.Capacity == 1)
                     {
-                        // TODO: dynamically add donation center
-                        // TODO: dynamically add quantity
-                        donation.addItem(item, null, 1);
+                        donation.addItem(items[0], null, 1);
+                    }
+                    else if (items.Capacity > 0)
+                    {
+                        Item lastItem = items[0];
+                        int count = 1;
+
+                        for (int i = 1; i < items.Capacity; i++)
+                        {
+                            // TODO: dynamically add donation center
+                            Item thisItem = items[i];
+                            if (lastItem.Name.Equals(thisItem.Name))
+                            {
+                                count++;
+                            }
+                            else
+                            {
+                                donation.addItem(lastItem, null, count);
+                                lastItem = thisItem;
+                                count = 1;
+                            }
+
+                            if (i + 1 >= items.Capacity)
+                            {
+                                donation.addItem(thisItem, null, count);
+                            }
+                        }
                     }
 
                     donation.DonationDateTime = DateTime.Now;

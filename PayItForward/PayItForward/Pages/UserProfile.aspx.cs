@@ -92,7 +92,7 @@ namespace PayItForward.Pages
                     retVal.Append(item.Quantity + "x " + item.ItemType.Name + "<br/>");
 
                     //    - Estimated Value <Low>-<High>
-                    retVal.AppendFormat("&emsp;- Estimated Value = {0:C}-{1:C}", item.ItemType.LowPrice, item.ItemType.HighPrice);
+                    retVal.AppendFormat("&emsp;- Estimated Value = {0:C}-{1:C}", item.ItemType.LowPrice * item.Quantity, item.ItemType.HighPrice * item.Quantity);
 
                     // Will always indicate no center specified because there needs to be a way to implement specifying center
                     //    - <Donation Center>
