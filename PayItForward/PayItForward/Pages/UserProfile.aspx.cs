@@ -33,7 +33,7 @@ namespace PayItForward.Pages
                 {
                     centerText += "<a href=\"/Pages/DonationCenterEdit.aspx?center=" + d.CenterId + "\">" + d.CenterName + "</a><br />";
                 }
-                userCenters.InnerHtml = centerText;
+                userCenters.InnerHtml = (centerText.Length > 0) ? centerText : "No Donation Centers";
                 userHistory.InnerHtml = getDonationHistoryText();
             }
         }
@@ -63,14 +63,39 @@ namespace PayItForward.Pages
             }
 
             StringBuilder retVal = new StringBuilder();
+            decimal totalLow = 0;
+            decimal totalHigh = 0;
 
             foreach (Donation d in donations)
             {
-                retVal.AppendLine(d.DonationDateTime.ToShortDateString() + "<br />");
+                // Append Date
+                retVal.Append(d.DonationDateTime.ToShortDateString());
+
+                // Get sum of items in this donation and append
                 List<DonatedItem> items = d.Items;
+                decimal lowSum = 0;
+                decimal highSum = 0;
+                foreach (DonatedItem item in items)
+                {
+                    lowSum += item.ItemType.LowPrice * item.Quantity;
+                    highSum += item.ItemType.HighPrice * item.Quantity;
+                }
+                retVal.AppendFormat("- Estimated value = {0:C}-{1:C}", lowSum, highSum);
+                retVal.Append("<br/>");
+                totalLow += lowSum;
+                totalHigh += highSum;
+
+                // Create item descriptions
                 foreach(DonatedItem item in items)
                 {
-                    retVal.Append(item.Quantity + "x " + item.ItemType.Name + " - ");
+                    // <Quantity> x <Name>
+                    retVal.Append(item.Quantity + "x " + item.ItemType.Name + "<br/>");
+
+                    //    - Estimated Value <Low>-<High>
+                    retVal.AppendFormat("&emsp;- Estimated Value = {0:C}-{1:C}", item.ItemType.LowPrice, item.ItemType.HighPrice);
+                    retVal.Append("<br/>&emsp;-");
+
+                    //    - <Donation Center>
                     if (item.Center == null)
                     {
                         retVal.Append("Donation center not specified at time of donation");
@@ -84,7 +109,9 @@ namespace PayItForward.Pages
                 retVal.Append("<br/>");
             }
 
-            return retVal.ToString();
+            // Prepend total estimation
+            string firstLine = new StringBuilder().AppendFormat("Total Donation History = {0:C} to {1:C}", totalLow, totalHigh).Append("<br/>").ToString();
+            return  firstLine + retVal.ToString();
         }
     }
 }

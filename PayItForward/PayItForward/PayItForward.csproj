@@ -213,6 +213,7 @@
     <Content Include="Pages\About.aspx" />
     <Content Include="Pages\AdminProfile.aspx" />
     <Content Include="Pages\CreateList.aspx" />
+    <Content Include="Pages\EditUser.aspx" />
     <Content Include="Pages\CreateUser.aspx" />
     <Content Include="Pages\DonationCenterCreate.aspx" />
     <Content Include="Pages\DonationCenterEdit.aspx" />
@@ -408,6 +409,14 @@
     <Compile Include="Migrations\201704272231242_ChangeDonationCenterCategoriesToItems.Designer.cs">
       <DependentUpon>201704272231242_ChangeDonationCenterCategoriesToItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704280203299_ValuesAsDecimals.cs" />
+    <Compile Include="Migrations\201704280203299_ValuesAsDecimals.Designer.cs">
+      <DependentUpon>201704280203299_ValuesAsDecimals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704280238367_centerKey.cs" />
+    <Compile Include="Migrations\201704280238367_centerKey.Designer.cs">
+      <DependentUpon>201704280238367_centerKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -429,6 +438,13 @@
     </Compile>
     <Compile Include="Pages\CreateList.aspx.designer.cs">
       <DependentUpon>CreateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditUser.aspx.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditUser.aspx.designer.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CreateUser.aspx.cs">
       <DependentUpon>CreateUser.aspx</DependentUpon>
@@ -528,6 +544,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704272231242_ChangeDonationCenterCategoriesToItems.resx">
       <DependentUpon>201704272231242_ChangeDonationCenterCategoriesToItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704280203299_ValuesAsDecimals.resx">
+      <DependentUpon>201704280203299_ValuesAsDecimals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704280238367_centerKey.resx">
+      <DependentUpon>201704280238367_centerKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

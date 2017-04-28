@@ -22,7 +22,6 @@ namespace PayItForward.Classes
         private int _userID;
         private String _username;
         private String _password;
-        private String _key;
 
         // List of donation centers for which user has edit privileges
         private List<DonationCenter> _centers;
@@ -70,9 +69,8 @@ namespace PayItForward.Classes
             return (Privilege & AdminPrivilege) == AdminPrivilege;
         }
 
-        public void addDonationCenter(User grantingUser, DonationCenter center)
+        public void addDonationCenter(DonationCenter center)
         {
-            //todo:  Check if grantingUser is admin or also has privilege for that center
             _centers.Add(center);
             Privilege = Privilege | DonationCenterPrivilege;
         }

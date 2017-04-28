@@ -13,8 +13,6 @@ namespace PayItForward.Classes
 
         private int _itemId;
         private string _name;
-        private double _low_value;
-        private double _high_value;
         private double _weight;
         private Category _category; //do we want a singular catagory for an item?
 
@@ -23,12 +21,12 @@ namespace PayItForward.Classes
         public Item()
         {
             Name = "";
-            LowPrice = 0.0;
-            HighPrice = 0.0;
+            LowPrice = 0;
+            HighPrice = 0;
             Weight = 0.0;
         }
 
-        public Item(string name, double lowValue, double highValue, double weight)
+        public Item(string name, decimal lowValue, decimal highValue, double weight)
         {
             Name = name;
             LowPrice = lowValue;
@@ -67,16 +65,14 @@ namespace PayItForward.Classes
             set { _name = value; }
         }
 
-        public double LowPrice
+        public decimal LowPrice
         {
-            get { return _low_value; }
-            set { _low_value = value; }
+            get; set;
         }
 
-        public double HighPrice
+        public decimal HighPrice
         {
-            get { return _high_value; }
-            set { _high_value = value; }
+            get; set;
         }
 
         public double Weight

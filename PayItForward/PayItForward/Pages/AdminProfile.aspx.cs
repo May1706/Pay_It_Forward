@@ -16,8 +16,11 @@ namespace PayItForward.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             loadTables();
-            loadDropdowns();
             loadDonationCenterTable();
+            if (!Page.IsPostBack)
+            {
+                loadDropdowns();
+            }
         }
 
         [WebMethod]
@@ -265,8 +268,9 @@ namespace PayItForward.Pages
             bool flag = false;
 
             float weight = 0.0f;
-            float low = 0.0f;
-            float high = 0.0f;
+
+            decimal low    = 0;
+            decimal high   = 0;
 
             if (itemName.Text == null || itemName.Text.Trim().Length <= 0 || !(new Regex("^[A-Za-z0-9()' ]+$").IsMatch(itemName.Text.Trim())))
             {
@@ -276,11 +280,12 @@ namespace PayItForward.Pages
             {
                 flag = true;
             }
-            if (itemLow.Text == null || itemLow.Text.Trim().Length <= 0 || !float.TryParse(itemLow.Text.Trim(), out low))
+
+            if (itemLow.Text    == null || itemLow.Text.Trim().Length <= 0     || !decimal.TryParse(itemLow.Text.Trim(), out low))
             {
                 flag = true;
             }
-            if (itemHigh.Text == null || itemHigh.Text.Trim().Length <= 0 || !float.TryParse(itemHigh.Text.Trim(), out high))
+            if (itemHigh.Text   == null || itemHigh.Text.Trim().Length <= 0    || !decimal.TryParse(itemHigh.Text.Trim(), out high))
             {
                 flag = true;
             }
@@ -297,12 +302,13 @@ namespace PayItForward.Pages
 
                 Item newItem = new Item();
 
-                newItem.Name = itemName.Text.Trim();
-                newItem.Weight = weight;
-                newItem.StringCategory = itemCategory.SelectedItem.Text.Trim();
-                newItem.Category = db.GetCategory(newItem.StringCategory);
-                newItem.LowPrice = low;
-                newItem.HighPrice = high;
+
+                newItem.Name              = itemName.Text.Trim();
+                newItem.Weight            = weight;
+                newItem.StringCategory    = itemCategory.SelectedItem.ToString().Trim();
+                newItem.Category          = db.GetCategory(newItem.StringCategory);
+                newItem.LowPrice          = low;
+                newItem.HighPrice         = high;
 
                 var existingEntity = db.Items.Where(c => c.Name == newItem.Name).AsQueryable().FirstOrDefault();
                 if (existingEntity == null)
