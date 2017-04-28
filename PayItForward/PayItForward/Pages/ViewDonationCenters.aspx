@@ -11,7 +11,7 @@
     <style>
         .dcBox {
             position: relative;
-            width: 500px;
+            width: 100%;
             border: 2px solid #50B948;
             margin: 10px;
             display: inline-block;
@@ -24,7 +24,8 @@
         }
 
         .dcThumb {
-            width: 30%;
+            max-width: 30%;
+            max-height: 200px;
             overflow: hidden;
             object-fit: cover;
             vertical-align: top;
