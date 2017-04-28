@@ -16,7 +16,10 @@ namespace PayItForward.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             loadTables();
-            loadDropdowns();
+            if (!Page.IsPostBack)
+            {
+                loadDropdowns();
+            }
         }
 
         [WebMethod]
@@ -246,7 +249,7 @@ namespace PayItForward.Pages
 
                 newItem.Name              = itemName.Text.Trim();
                 newItem.Weight            = weight;
-                newItem.StringCategory    = itemCategory.SelectedItem.Text.Trim();
+                newItem.StringCategory    = itemCategory.SelectedItem.ToString().Trim();
                 newItem.Category          = db.GetCategory(newItem.StringCategory);
                 newItem.LowPrice          = low;
                 newItem.HighPrice         = high;
