@@ -3,37 +3,43 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <br />
+    
+    <asp:Label id="dcName" Text="[Donation Center Name]" runat="server"/>
+
+    <br />
+    <br />
 
     <div class="dcContent">
-        <div class="dcPanel dcInfo">
-            <asp:Label id="dcName" Text="[Donation Center Name]" runat="server"/>
-
-            <br />
-            <br />
-
+        <div class="dcPanel dcInfo">            
             <asp:Label id="dcAddress" Text="[Address]" runat="server"/>
 
             <br />
             <br />
 
-            <asp:Label id="dcPhone" Text="[Phone Number]" runat="server" />
-
-            <br />
-            <br />
-            <asp:Label id="dcEmail" Text="[Contact Email]" runat="server" />
-
-            <br />
-            <br />
-            <asp:Label id="dcWebsite" Text="[Website]" runat="server" />
-
-            <br />
-            <br />
             <asp:Label id="dcDescription" Text="[Description]" runat="server" />
 
             <br />
             <br />
 
-            <asp:Label Text="Hours:" runat="server" />
+            <asp:Label Text="Phone:" class="bolded" runat="server" /><br />
+            <asp:Label id="dcPhone" Text="[Phone Number]" runat="server" />
+
+            <br />
+            <br />
+
+            <asp:Label Text="Email:" class="bolded" runat="server" /><br />
+            <asp:Label id="dcEmail" Text="[Contact Email]" runat="server" />
+
+            <br />
+            <br />
+
+            <asp:Label Text="Website:" class="bolded" runat="server" /><br />
+            <asp:Label id="dcWebsite" Text="[Website]" runat="server" />
+
+            <br />
+            <br />
+
+            <asp:Label Text="Hours:" class="bolded" runat="server" />
             <div id="dcHours">
                 <asp:Label class="hours" Text="Sunday" runat="server" />
                 <asp:Label id="sundayHours" class="hours time" Text="[Hours]" runat="server" />
@@ -71,14 +77,12 @@
 
             <br />
 
-            <asp:Label Text="Accepted Items:" runat="server" />
-            <div id="dcItems" runat="server">
-
-            </div>
+            <asp:Label Text="Accepted Items:" class="bolded" runat="server" />
+            <div id="dcItems" runat="server"/>
 
             <br />
 
-            <asp:Label Text="Information Last Updated:" runat="server" /><br />
+            <asp:Label Text="Information Last Updated:" class="bolded" runat="server" /><br />
             <asp:Label id="dcUpdated" Text="[Date]" runat="server" />
 
             <br />
@@ -87,28 +91,25 @@
 
         <div class="dcPanel dcImageAndMap">
             <asp:Image CssClass="dcImage" ImageUrl="/Images/DefaultDCImage.png" ID="dcImage" runat="server"/>
-            <iframe id="dcMapsFrame" runat="server" class="dcImage" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe id="dcMapsFrame" class="dcImage" frameborder="0" allowfullscreen="true" runat="server"></iframe>
         </div>
     </div>
 
     <style>
-        .dcContent {
-            position: relative;
-            width: 100%;
-            min-height: 850px;
-            display: inline-block;
-        }
-
-        .dcPanel {
-            width: 49%;
-            height: 100%;
-            display: inline-block;
-        }
-
         .dcInfo {
-            width: 400px;
-            margin-right: 100px;
+            width: 300px;
+            margin-right: 50px;
             float: left;
+        }
+        
+        .dcImage {
+            height: 400px;
+            width: 400px;
+            overflow: hidden;
+            margin: 5px;
+            float: left;
+            object-fit: contain;
+            border: 2px solid #50B948;
         }
 
         #dcHours {
@@ -123,15 +124,8 @@
             float: right;
         }
 
-        .dcImage {
-            position: static;
-            height: 400px;
-            width: 400px;
-            overflow: hidden;
-            margin: 5px;
-            float: right;
-            object-fit: contain;
-            border: 2px solid #50B948;
+        .bolded {
+            font-weight: bold;
         }
     </style>
 
