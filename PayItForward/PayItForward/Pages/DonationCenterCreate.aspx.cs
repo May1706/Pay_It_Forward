@@ -19,7 +19,7 @@ namespace PayItForward.Pages
             {
                 //load page normally
                 LoadCategories();
-            }
+             }
             else
             {
                 //Must be logged in
