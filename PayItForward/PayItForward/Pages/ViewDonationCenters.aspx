@@ -24,7 +24,8 @@
         }
 
         .dcThumb {
-            width: 30%;
+            max-width: 30%;
+            max-height: 200px;
             overflow: hidden;
             object-fit: cover;
             vertical-align: top;
