@@ -8,32 +8,28 @@ namespace PayItForward.Classes
 {
     public class DonationCenter
     {
-        private readonly int VISIBLE = 1;
-        private readonly int INVISIBLE = 0;
-        
         #region Fields
+        public const int VISIBLE = 1;
+        public const int INVISIBLE = 0;
 
         private int _centerId;
         private string _centerName;
         private string _hours;
         private string _address;
-        private string _phoneNumber;
         private string _pickup;
+        private string _phoneNumber;
         private string _description;
         private string _website;
         private string _imageURL;
         private string _contactEmail;
         private DateTime _lastUpdate;
-        private List<string> _categories;
         private int _status;
 
-        private string _categoryNamesAsString;
-
         // Lazy instantiation
-        //private List<Category> _categories;
+        private List<Item> _items;
 
         // Auto-populated from the concatenated string stored in DB
-        private List<string> _categoryNames;
+        private List<string> _itemNames;
 
         #endregion
 
@@ -43,20 +39,9 @@ namespace PayItForward.Classes
             UserId = requestorId;
         }
 
-        public DonationCenter(int requestorId, string name, string description, string hours, string address, string phone, string pickup, List<string> categories)
+        public DonationCenter()
         {
-            _centerName = name;
-            _hours = hours;
-            _address = address;
-            _phoneNumber = phone;
-            _pickup = pickup;
-            _categories = categories;
-            _description = Description;
-            _categoryNamesAsString = String.Join(";", categories.ToArray());
 
-            UserId = requestorId;
-            updateTime();
-            _status = INVISIBLE;
         }
 
         #region Methods
@@ -77,12 +62,6 @@ namespace PayItForward.Classes
         public override int GetHashCode()
         {
             return CenterId.GetHashCode();
-        }
-
-        public DateTime updateTime()
-        {
-            _lastUpdate = DateTime.Now; 
-            return _lastUpdate;
         }
         #endregion
 
@@ -127,16 +106,16 @@ namespace PayItForward.Classes
             set { _lastUpdate = value; }
         }
 
-        public List<string> CategoryNames
+        public List<string> ItemNames
         {
-            get { return _categoryNames; }
-            set { _categoryNames = value; }
+            get { return _itemNames; }
+            set { _itemNames = value; }
         }
 
-        public string CategoryNamesAsString
+        public string ItemNamesAsString
         {
-            get { return string.Join(",", CategoryNames); }
-            set { CategoryNames = value.Split(',').ToList(); }
+            get { return string.Join(",", ItemNames); }
+            set { ItemNames = (value != null)?value.Split(',').ToList():new List<string>(); }
         }
         public string PhoneNumber
         {
@@ -169,7 +148,6 @@ namespace PayItForward.Classes
             get { return _status; }
             set { _status = value; }
         }
-
         #endregion
 
     }

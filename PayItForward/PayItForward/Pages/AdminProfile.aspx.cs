@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -214,19 +215,19 @@ namespace PayItForward.Pages
             float low    = 0.0f;
             float high   = 0.0f;
 
-            if (itemName.Text   == null || itemName.Text.Length <= 0    || !itemName.Text.Trim().All(char.IsLetterOrDigit))
+            if (itemName.Text   == null || itemName.Text.Trim().Length <= 0    || !(new Regex("^[A-Za-z0-9()' ]+$").IsMatch(itemName.Text.Trim())))
             {
                 flag = true;
             }
-            if (itemWeight.Text == null || itemWeight.Text.Length <= 0  || !float.TryParse(itemWeight.Text.Trim(), out weight))
+            if (itemWeight.Text == null || itemWeight.Text.Trim().Length <= 0  || !float.TryParse(itemWeight.Text.Trim(), out weight))
             {
                 flag = true;
             }
-            if (itemLow.Text    == null || itemLow.Text.Length <= 0     || !float.TryParse(itemLow.Text.Trim(), out low))
+            if (itemLow.Text    == null || itemLow.Text.Trim().Length <= 0     || !float.TryParse(itemLow.Text.Trim(), out low))
             {
                 flag = true;
             }
-            if (itemHigh.Text   == null || itemHigh.Text.Length <= 0    || !float.TryParse(itemHigh.Text.Trim(), out high))
+            if (itemHigh.Text   == null || itemHigh.Text.Trim().Length <= 0    || !float.TryParse(itemHigh.Text.Trim(), out high))
             {
                 flag = true;
             }
@@ -240,6 +241,7 @@ namespace PayItForward.Pages
 
             using (DatabaseContext db = new DatabaseContext())
             {
+                
                 Item newItem = new Item();
 
                 newItem.Name              = itemName.Text.Trim();
@@ -249,13 +251,41 @@ namespace PayItForward.Pages
                 newItem.LowPrice          = low;
                 newItem.HighPrice         = high;
 
-                db.AddItem(newItem);
+                var existingEntity = db.Items.Where(c => c.Name == newItem.Name).AsQueryable().FirstOrDefault();
+                if (existingEntity == null)
+                {
+                    db.AddItem(newItem);
 
-                Category c = newItem.Category;
-                c.itemString += ";" + newItem.Name;
+                    Category c = newItem.Category;
+                    c.addItem(newItem);
 
-                db.Categories.Attach(c);
-                db.Entry(c).Property(x => x.itemString).IsModified = true;
+                    db.Categories.Attach(c);
+                    db.Entry(c).Property(x => x.itemString).IsModified = true;
+                }
+                else
+                {
+                    // If we change the category
+                    if (!newItem.StringCategory.Equals(existingEntity.StringCategory))
+                    {
+                        // Remove this item from old category
+                        Category oldCat = existingEntity.Category;
+                        oldCat.removeItem(existingEntity);
+
+                        db.Categories.Attach(oldCat);
+                        db.Entry(oldCat).Property(x => x.itemString).IsModified = true;
+
+                        // Add this item to the new category
+                        Category newCat = newItem.Category;
+                        newCat.addItem(newItem);
+
+                        db.Categories.Attach(newCat);
+                        db.Entry(newCat).Property(x => x.itemString).IsModified = true;
+                    }
+
+                    newItem.itemId = existingEntity.itemId;
+                    db.Entry(existingEntity).CurrentValues.SetValues(newItem);
+                }
+
                 db.SaveChanges();
             }
         }

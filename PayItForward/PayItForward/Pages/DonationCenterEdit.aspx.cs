@@ -39,11 +39,11 @@ namespace PayItForward.Pages
                             Website.Text = center.Website;
                             if (center.ImageURL != null)
                                 dcImage.ImageUrl = center.ImageURL;
-                            foreach (Category c in db.Categories)
+                            foreach (Item i in db.Items)
                             {
-                                ListItem i = new ListItem(c.Name, c.Name, true);
-                                i.Selected = center.CategoryNames.Contains(c.Name);
-                                Categories.Items.Add(i);
+                                ListItem li = new ListItem(i.Name, i.Name, true);
+                                li.Selected = center.ItemNames.Contains(i.Name);
+                                Items.Items.Add(li);
                             }
                             
                             //Pickup.Checked = Int32.Parse(center.Pickup) > 0; // why is center.Pickup a string???
@@ -80,8 +80,18 @@ namespace PayItForward.Pages
             using (var db = new DatabaseContext())
             {
                 DonationCenter center = db.DonationCenters.FirstOrDefault(c => c.CenterId == centerId);
-                if(center != null)
+                if (center != null)
                 {
+                    center.LastUpdate = DateTime.Now;
+                    String requestMessage = "Edited: ";
+
+                    if (center.CenterName != CenterName.Text)
+                    {
+                        center.CenterName = CenterName.Text;
+                        requestMessage += "center name, ";
+
+                    }
+
                     if (ImageUpload.HasFile)
                     {
                         if (!IsImage(ImageUpload.PostedFile))
@@ -90,26 +100,73 @@ namespace PayItForward.Pages
                             return;
                         }
                         string fileExt = System.IO.Path.GetExtension(ImageUpload.PostedFile.FileName);
-                        ImageUpload.SaveAs(Server.MapPath("~/Images/") + center.CenterName + fileExt );
+                        ImageUpload.SaveAs(Server.MapPath("~/Images/") + center.CenterName + fileExt);
                         center.ImageURL = "/Images/" + center.CenterName + fileExt;
                         if (center.ImageURL != null)
                             dcImage.ImageUrl = center.ImageURL;
+                        requestMessage += "image, ";
                     }
-                    center.CenterName = CenterName.Text;
-                    System.Diagnostics.Debug.WriteLine(CenterName.Text);
-                    center.Hours = GetHoursText();
-                    center.Address = Address.Text;
-                    center.PhoneNumber = PhoneNumber.Text;
-                    center.Description = Description.Text;
-                    center.ContactEmail = Email.Text;
-                    center.Website = Website.Text;
-                    center.CategoryNames = new List<string>();
-                    foreach(ListItem i in Categories.Items)
+
+
+
+                    String hoursText = GetHoursText();
+                    if (center.Hours != hoursText)
+                    {
+                        center.Hours = hoursText;
+                        requestMessage += "hours, ";
+                    }
+                    if (center.Address != Address.Text)
+                    {
+                        center.Address = Address.Text;
+                        requestMessage += "address, ";
+                    }
+                    if (center.PhoneNumber != PhoneNumber.Text)
+                    {
+                        center.PhoneNumber = PhoneNumber.Text;
+                        requestMessage += "phone number, ";
+                    }
+                    if (center.Description != Description.Text)
+                    {
+                        center.Description = Description.Text;
+                        requestMessage += "description, ";
+                    }
+                    if (center.ContactEmail != Email.Text)
+                    {
+                        center.ContactEmail = Email.Text;
+                        requestMessage += "contact email, ";
+                    }
+                    if (center.Website != Website.Text)
+                    {
+                        center.Website = Website.Text;
+                        requestMessage += "website, ";
+                    }
+                    List<String> tempItems = new List<string>();
+                    foreach(ListItem i in Items.Items)
                     {
                         if(i.Selected)
-                            center.CategoryNames.Add(i.Text);
+                            tempItems.Add(i.Text);
                     }
+                    if(tempItems != center.ItemNames)
+                    {
+                        center.ItemNames = tempItems;
+                        requestMessage += "items, ";
+                    }
+                    //remove the trailing comma space
+                    requestMessage = requestMessage.Substring(0, requestMessage.Length - 2);
+
                     db.Entry(center).State = System.Data.Entity.EntityState.Modified;
+                    Request req = new Request();
+
+                    // Add info to req
+                    req.CreatedTime = DateTime.Now;
+                    req.LastUpdateTime = DateTime.Now;
+                    req.Type = "Edit";
+                    req.Status = Classes.Request.PENDING;
+                    req.CallingId = center.CenterId;
+
+                    req.MessageInfo = requestMessage;
+
+                    db.Requests.Add(req);
                     int l = db.SaveChanges();
 
                     Session["donationCenter"] = center;

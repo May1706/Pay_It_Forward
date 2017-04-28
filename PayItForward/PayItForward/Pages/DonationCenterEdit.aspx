@@ -71,8 +71,8 @@
             <br />
             <br />
 
-            <p>Types of Accepted Items</p>
-            <asp:CheckBoxList ID="Categories" runat="server"></asp:CheckBoxList>
+            <p>Accepted Items</p>
+            <asp:CheckBoxList ID="Items" runat="server"></asp:CheckBoxList>
         </div>
 
         <br />
