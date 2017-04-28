@@ -29,8 +29,11 @@
 
     <br />
 
-    <asp:Button id="submitButton" class="actionButton" Text="Find Accepting Donation Centers" OnClientClick="submitClick()" OnClick="submitButton_Click" runat="server"/>
-
+    <asp:Button id="submitButton" class="actionButton" Text="Find Accepting Donation Centers" OnClientClick="submitClick()" OnClick="submitButton_Click" runat="server" />
+    <br />
+    <asp:UpdatePanel ID="saveButtonShow" runat="server" UpdateMode="Conditional">
+        <ContentTemplate><asp:Button id="saveButton" class="actionButton" Text="Save Donation List" OnClientClick="submitClick()" OnClick="saveButton_Click" runat="server"/></ContentTemplate>
+    </asp:UpdatePanel>
     <script src="/Scripts/Sortable.js"></script>
     <script>
         // Selecting a new category updates the available items box
