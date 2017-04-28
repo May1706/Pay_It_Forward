@@ -25,6 +25,7 @@ namespace PayItForward.Pages
             //Response.Cache.SetExpires(DateTime.MinValue);
 
             //cart.InnerHtml = "";
+            saveButtonShow.Visible = Session["activeUser"] != null;
 
             if (Session["donationItems"] != null)
             {
@@ -143,14 +144,45 @@ namespace PayItForward.Pages
                     }
                 }
 
-                items.Sort((x, y) => x.Name.CompareTo(y.Name));
                 Session["donationItems"] = items;
 
-                // TODO: Move to when the donation summary is created
+                Response.BufferOutput = true;
+                Response.Redirect("/Pages/ViewDonationCenters.aspx");
+            }
+            else
+            {
+                string message = "You must add at least one item to your donation cart!";
+                Response.Write("<script language='javascript'>alert('" + message + "');</script>");
+            }
+        }
+
+        protected void saveButton_Click(object sender, EventArgs e)
+        {
+            Session["donationItems"] = null;
+            if (cartText.Text != null && cartText.Text.Length > 0)
+            {
+                List<Item> items = new List<Item>();
+
+                string ditems = cartText.Text;
+
+                string[] strings = Regex.Split(ditems, ";");
+
+                foreach (string s in strings)
+                {
+                    if (s.Trim() != "✖" && s.Trim().Length > 0)
+                    {
+                        using (var db = new DatabaseContext())
+                        {
+                            items.Add(db.GetItem(s.Trim()));
+                        }
+                    }
+                }
+                
                 if (Session["activeUser"] != null)
                 {
                     Donation donation = new Donation();
 
+                    items.Sort((x, y) => x.Name.CompareTo(y.Name));
                     // Add each item to donation
                     if (items.Capacity == 1)
                     {
@@ -192,14 +224,14 @@ namespace PayItForward.Pages
                         db.SaveChanges();
 
                         // Add donation to user and update
-                        User currentUser = (User) Session["activeUser"];
+                        User currentUser = (User)Session["activeUser"];
                         currentUser.addDonation(donation);
                         db.Users.Attach(currentUser);
                         db.Entry(currentUser).State = EntityState.Modified;
                         db.SaveChanges();
                     }
                 }
-
+                Session["donationItems"] = items;
                 Response.BufferOutput = true;
                 Response.Redirect("/Pages/ViewDonationCenters.aspx");
             }
