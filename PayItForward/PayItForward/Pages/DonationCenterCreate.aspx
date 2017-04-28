@@ -21,6 +21,8 @@
 
             <p>Description</p>
             <asp:TextBox ID="Description" runat="server"></asp:TextBox>
+            <br />
+            <br />
 
             <p>Address</p>
             <asp:TextBox ID="Address" class="addCenterField" runat="server"></asp:TextBox>

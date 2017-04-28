@@ -47,6 +47,13 @@ namespace PayItForward.Classes
             return category;
         }
 
+        public DonationCenter AddCenter(DonationCenter center)
+        {
+            this.DonationCenters.Add(center);
+            this.SaveChanges();
+            return center;
+        }
+
         public Item GetItem(string itemName)
         {
             return Items.FirstOrDefault(item => item.Name == itemName);

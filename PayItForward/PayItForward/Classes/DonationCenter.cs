@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PayItForward.Classes
 {
@@ -25,6 +26,8 @@ namespace PayItForward.Classes
         private DateTime _lastUpdate;
         private int _status;
 
+        private List<string> categories;
+
         // Lazy instantiation
         private List<Item> _items;
 
@@ -42,6 +45,20 @@ namespace PayItForward.Classes
         public DonationCenter()
         {
 
+        }
+
+        public DonationCenter(int requestorID, string name, string description, string hours, string address, string phone, string pickup, List<string> categories)
+        {
+            UserId = requestorID;
+            _centerName = name;
+            _description = description;
+            _hours = hours;
+            _address = address;
+            _phoneNumber = phone;
+            _pickup = pickup;
+            this.categories = categories;
+            _status = INVISIBLE;
+            _lastUpdate = DateTime.Now;
         }
 
         #region Methods
@@ -67,7 +84,7 @@ namespace PayItForward.Classes
 
         #region Properties
 
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CenterId
         {
             get { return _centerId; }
@@ -114,7 +131,16 @@ namespace PayItForward.Classes
 
         public string ItemNamesAsString
         {
-            get { return string.Join(",", ItemNames); }
+            get
+            {
+                if (ItemNames != null)
+                {
+                    return string.Join(",", ItemNames);  
+                }
+                else {
+                    return null;
+                }
+            }
             set { ItemNames = (value != null)?value.Split(',').ToList():new List<string>(); }
         }
         public string PhoneNumber

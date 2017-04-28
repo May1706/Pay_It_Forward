@@ -84,6 +84,8 @@ namespace PayItForward.Pages
                     }
                 }
                 DonationCenter center = new DonationCenter(u.UserID, centerName, description, hours, address, phone, pickup, categories);
+                center = db.AddCenter(center);
+
                 u.addDonationCenter(center);
 
                 db.Entry(center).State = System.Data.Entity.EntityState.Modified;
