@@ -63,14 +63,29 @@ namespace PayItForward.Pages
             }
 
             StringBuilder retVal = new StringBuilder();
+            decimal totalLow = 0;
+            decimal totalHigh = 0;
 
             foreach (Donation d in donations)
             {
-                retVal.AppendLine(d.DonationDateTime.ToShortDateString() + "<br />");
+                retVal.Append(d.DonationDateTime.ToShortDateString());
                 List<DonatedItem> items = d.Items;
+                decimal lowSum = 0;
+                decimal highSum = 0;
+                foreach (DonatedItem item in items)
+                {
+                    lowSum += Convert.ToDecimal(item.ItemType.LowPrice * item.Quantity);
+                    highSum += Convert.ToDecimal(item.ItemType.HighPrice * item.Quantity);
+                }
+                retVal.AppendFormat("- Estimated value = {0:C} to {0:C}", lowSum, highSum);
+                retVal.Append("<br/>");
+                totalLow += lowSum;
+                totalHigh += highSum;
+
                 foreach(DonatedItem item in items)
                 {
-                    retVal.Append(item.Quantity + "x " + item.ItemType.Name + " - ");
+                    retVal.Append(item.Quantity + "x " + item.ItemType.Name + " = ");
+                    retVal.AppendFormat(" {0:C}-{0:C} - ", item.ItemType.LowPrice, item.ItemType.HighPrice);
                     if (item.Center == null)
                     {
                         retVal.Append("Donation center not specified at time of donation");
@@ -84,7 +99,8 @@ namespace PayItForward.Pages
                 retVal.Append("<br/>");
             }
 
-            return retVal.ToString();
+            string firstLine = new StringBuilder().AppendFormat("Total Donation History = {0:C} to {0:C}", totalLow, totalHigh).Append("<br/>").ToString();
+            return  firstLine + retVal.ToString();
         }
     }
 }
