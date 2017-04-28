@@ -137,7 +137,7 @@ namespace PayItForward.Classes
             }
             set
             {
-                if (value != null)
+                if (value != null || !value.Equals(""))
                 {
                     _centerNames = value.Split(',').ToList(); 
                 }
