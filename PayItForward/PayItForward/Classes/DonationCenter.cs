@@ -63,6 +63,19 @@ namespace PayItForward.Classes
 
         #region Methods
 
+        public string statusToString()
+        {
+            switch(_status)
+            {
+                case INVISIBLE:
+                    return "invisible";
+                case VISIBLE:
+                    return "visible";
+                default:
+                    return "Error occured on Donation Center status";
+            }
+        }
+
         public Item GetCenter(string name)
         {
             //build query, query, return

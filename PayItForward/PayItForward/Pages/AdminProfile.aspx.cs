@@ -16,6 +16,7 @@ namespace PayItForward.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             loadTables();
+            loadDonationCenterTable();
             if (!Page.IsPostBack)
             {
                 loadDropdowns();
@@ -72,6 +73,58 @@ namespace PayItForward.Pages
                     result.Status = Classes.Request.DENIED;
                     db.SaveChanges();
                     return JsonConvert.SerializeObject(result.LastUpdateTime.ToString());
+                }
+            }
+            return "";
+        }
+
+        [WebMethod]
+        public static String CheckVisibility(String id)
+        {
+            int i = Convert.ToInt32(id);
+            using (var db = new DatabaseContext())
+            {
+                var result = db.DonationCenters.Single(d => d.CenterId == i);
+                if(result != null)
+                {
+                    var vis = result.statusToString();
+                    return JsonConvert.SerializeObject(vis);
+                }
+            }
+            return "";
+        }
+
+        [WebMethod]
+        public static String MakeVisible(String id)
+        {
+            int i = Convert.ToInt32(id);
+            using (var db = new DatabaseContext())
+            {
+                var result = db.DonationCenters.Single(d => d.CenterId == i);
+                if(result != null)
+                {
+                    result.Status = Classes.DonationCenter.VISIBLE;
+                    result.LastUpdate = DateTime.Now;
+                    db.SaveChanges();
+                    return JsonConvert.SerializeObject("true");
+                }
+            }
+            return "";
+        }
+
+        [WebMethod]
+        public static String MakeInvisible(String id)
+        {
+            int i = Convert.ToInt32(id);
+            using (var db = new DatabaseContext())
+            {
+                var result = db.DonationCenters.Single(d => d.CenterId == i);
+                if (result != null)
+                {
+                    result.Status = Classes.DonationCenter.INVISIBLE;
+                    result.LastUpdate = DateTime.Now;
+                    db.SaveChanges();
+                    return JsonConvert.SerializeObject("true");
                 }
             }
             return "";
@@ -215,17 +268,19 @@ namespace PayItForward.Pages
             bool flag = false;
 
             float weight = 0.0f;
+
             decimal low    = 0;
             decimal high   = 0;
 
-            if (itemName.Text   == null || itemName.Text.Trim().Length <= 0    || !(new Regex("^[A-Za-z0-9()' ]+$").IsMatch(itemName.Text.Trim())))
+            if (itemName.Text == null || itemName.Text.Trim().Length <= 0 || !(new Regex("^[A-Za-z0-9()' ]+$").IsMatch(itemName.Text.Trim())))
             {
                 flag = true;
             }
-            if (itemWeight.Text == null || itemWeight.Text.Trim().Length <= 0  || !float.TryParse(itemWeight.Text.Trim(), out weight))
+            if (itemWeight.Text == null || itemWeight.Text.Trim().Length <= 0 || !float.TryParse(itemWeight.Text.Trim(), out weight))
             {
                 flag = true;
             }
+
             if (itemLow.Text    == null || itemLow.Text.Trim().Length <= 0     || !decimal.TryParse(itemLow.Text.Trim(), out low))
             {
                 flag = true;
@@ -244,8 +299,9 @@ namespace PayItForward.Pages
 
             using (DatabaseContext db = new DatabaseContext())
             {
-                
+
                 Item newItem = new Item();
+
 
                 newItem.Name              = itemName.Text.Trim();
                 newItem.Weight            = weight;
@@ -319,6 +375,13 @@ namespace PayItForward.Pages
 
                 db.AddCategory(newCategory);
             }
+        }
+
+        private void loadDonationCenterTable()
+        {
+            DatabaseContext db = new DatabaseContext();
+            dcGrid.DataSource = (from d in db.DonationCenters select new { d.CenterId, d.CenterName}).ToList();
+            dcGrid.DataBind();
         }
     }
 }
