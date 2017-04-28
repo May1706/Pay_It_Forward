@@ -4,8 +4,7 @@
     <br />
 
     <div class="userContent">
-        <asp:Label id="userName" Text="[First Last]" runat="server" />
-
+        <asp:Label id="userName" Text="[First Last]" runat="server" /> (<a href="/Pages/EditUser.aspx">Edit</a>)
         <br />
         <br />
 

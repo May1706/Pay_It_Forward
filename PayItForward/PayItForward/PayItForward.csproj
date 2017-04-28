@@ -213,6 +213,7 @@
     <Content Include="Pages\About.aspx" />
     <Content Include="Pages\AdminProfile.aspx" />
     <Content Include="Pages\CreateList.aspx" />
+    <Content Include="Pages\EditUser.aspx" />
     <Content Include="Pages\CreateUser.aspx" />
     <Content Include="Pages\DonationCenterCreate.aspx" />
     <Content Include="Pages\DonationCenterEdit.aspx" />
@@ -429,6 +430,13 @@
     </Compile>
     <Compile Include="Pages\CreateList.aspx.designer.cs">
       <DependentUpon>CreateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditUser.aspx.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditUser.aspx.designer.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CreateUser.aspx.cs">
       <DependentUpon>CreateUser.aspx</DependentUpon>
