@@ -93,17 +93,18 @@ namespace PayItForward.Pages
 
                     //    - Estimated Value <Low>-<High>
                     retVal.AppendFormat("&emsp;- Estimated Value = {0:C}-{1:C}", item.ItemType.LowPrice, item.ItemType.HighPrice);
-                    retVal.Append("<br/>&emsp;-");
 
+                    // Will always indicate no center specified because there needs to be a way to implement specifying center
                     //    - <Donation Center>
-                    if (item.Center == null)
-                    {
-                        retVal.Append("Donation center not specified at time of donation");
-                    }
-                    else
-                    {
-                        retVal.Append("Donated to " + item.Center.CenterName);
-                    }
+//                    retVal.Append("<br/>&emsp;-");
+//                    if (item.Center == null)
+//                    {
+//                        retVal.Append("Donation center not specified at time of donation");
+//                    }
+//                    else
+//                    {
+//                        retVal.Append("Donated to " + item.Center.CenterName);
+//                    }
                     retVal.Append("<br />");
                 }
                 retVal.Append("<br/>");
