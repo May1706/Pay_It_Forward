@@ -74,10 +74,10 @@ namespace PayItForward.Pages
                 decimal highSum = 0;
                 foreach (DonatedItem item in items)
                 {
-                    lowSum += Convert.ToDecimal(item.ItemType.LowPrice * item.Quantity);
-                    highSum += Convert.ToDecimal(item.ItemType.HighPrice * item.Quantity);
+                    lowSum += item.ItemType.LowPrice * item.Quantity;
+                    highSum += item.ItemType.HighPrice * item.Quantity;
                 }
-                retVal.AppendFormat("- Estimated value = {0:C} to {0:C}", lowSum, highSum);
+                retVal.AppendFormat("- Estimated value = {0:C} to {1:C}", lowSum, highSum);
                 retVal.Append("<br/>");
                 totalLow += lowSum;
                 totalHigh += highSum;
@@ -85,7 +85,7 @@ namespace PayItForward.Pages
                 foreach(DonatedItem item in items)
                 {
                     retVal.Append(item.Quantity + "x " + item.ItemType.Name + " = ");
-                    retVal.AppendFormat(" {0:C}-{0:C} - ", item.ItemType.LowPrice, item.ItemType.HighPrice);
+                    retVal.AppendFormat(" {0:C}-{1:C} - ", item.ItemType.LowPrice, item.ItemType.HighPrice);
                     if (item.Center == null)
                     {
                         retVal.Append("Donation center not specified at time of donation");
@@ -99,7 +99,7 @@ namespace PayItForward.Pages
                 retVal.Append("<br/>");
             }
 
-            string firstLine = new StringBuilder().AppendFormat("Total Donation History = {0:C} to {0:C}", totalLow, totalHigh).Append("<br/>").ToString();
+            string firstLine = new StringBuilder().AppendFormat("Total Donation History = {0:C} to {1:C}", totalLow, totalHigh).Append("<br/>").ToString();
             return  firstLine + retVal.ToString();
         }
     }
