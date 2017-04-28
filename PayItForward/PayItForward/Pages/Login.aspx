@@ -6,7 +6,8 @@
             <div class="centerText">
                 <h1>Pay It Forward</h1>
             </div>
-
+            <br />
+            <p>To save your donation history or register for a new donation center, please log in or <a href="/Pages/CreateUser.aspx">create an account</a>!</p>
             <br />
 
             <p>Email:</p>
@@ -31,7 +32,7 @@
 
                 <br />
                 <br />
-
+                
                 <a href="/Pages/CreateUser.aspx">I'm a new user!</a>
             </div>
         </div>

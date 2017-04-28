@@ -25,7 +25,7 @@ namespace PayItForward.Pages
             //Response.Cache.SetExpires(DateTime.MinValue);
 
             //cart.InnerHtml = "";
-            saveButtonShow.Visible = Session["activeUser"] != null;
+           
 
             if (Session["donationItems"] != null)
             {
@@ -214,6 +214,7 @@ namespace PayItForward.Pages
                             }
                         }
                     }
+                    
 
                     donation.DonationDateTime = DateTime.Now;
 
@@ -230,6 +231,12 @@ namespace PayItForward.Pages
                         db.Entry(currentUser).State = EntityState.Modified;
                         db.SaveChanges();
                     }
+                }
+                else
+                {
+                    //if not logged in redirect to log in page
+                    Response.BufferOutput = true;
+                    Response.Redirect("/Pages/Login.aspx");
                 }
                 Session["donationItems"] = items;
                 Response.BufferOutput = true;

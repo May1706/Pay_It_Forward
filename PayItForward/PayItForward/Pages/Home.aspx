@@ -4,7 +4,9 @@
 
     <div class="jumbotron">
         <h1>Pay It Forward</h1>
-        <p>Welcome to Pay It Forward, a site that enables a simple donation process for any potential donor. Create a list of items to see any donation center that accepts those items, or see all available centers by clicking one of the buttons below.</p>
+        <p>Welcome to Pay It Forward, a site that enables a simple donation process for any potential donor.</p>
+        <p>Create a list of items to see any donation center that accepts those items, or see all available centers by clicking one of the buttons below.</p>
+        <p>Log in with an account to save your donation history or get your donation center registered!</p>
     </div>
 
     <div class="actionCenter">
