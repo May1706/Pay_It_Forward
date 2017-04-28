@@ -68,7 +68,10 @@ namespace PayItForward.Pages
 
             foreach (Donation d in donations)
             {
+                // Append Date
                 retVal.Append(d.DonationDateTime.ToShortDateString());
+
+                // Get sum of items in this donation and append
                 List<DonatedItem> items = d.Items;
                 decimal lowSum = 0;
                 decimal highSum = 0;
@@ -77,15 +80,22 @@ namespace PayItForward.Pages
                     lowSum += item.ItemType.LowPrice * item.Quantity;
                     highSum += item.ItemType.HighPrice * item.Quantity;
                 }
-                retVal.AppendFormat("- Estimated value = {0:C} to {1:C}", lowSum, highSum);
+                retVal.AppendFormat("- Estimated value = {0:C}-{1:C}", lowSum, highSum);
                 retVal.Append("<br/>");
                 totalLow += lowSum;
                 totalHigh += highSum;
 
+                // Create item descriptions
                 foreach(DonatedItem item in items)
                 {
-                    retVal.Append(item.Quantity + "x " + item.ItemType.Name + " = ");
-                    retVal.AppendFormat(" {0:C}-{1:C} - ", item.ItemType.LowPrice, item.ItemType.HighPrice);
+                    // <Quantity> x <Name>
+                    retVal.Append(item.Quantity + "x " + item.ItemType.Name + "<br/>");
+
+                    //    - Estimated Value <Low>-<High>
+                    retVal.AppendFormat("&emsp;- Estimated Value = {0:C}-{1:C}", item.ItemType.LowPrice, item.ItemType.HighPrice);
+                    retVal.Append("<br/>&emsp;-");
+
+                    //    - <Donation Center>
                     if (item.Center == null)
                     {
                         retVal.Append("Donation center not specified at time of donation");
@@ -99,6 +109,7 @@ namespace PayItForward.Pages
                 retVal.Append("<br/>");
             }
 
+            // Prepend total estimation
             string firstLine = new StringBuilder().AppendFormat("Total Donation History = {0:C} to {1:C}", totalLow, totalHigh).Append("<br/>").ToString();
             return  firstLine + retVal.ToString();
         }
