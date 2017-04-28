@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PayItForward.Classes
 {
@@ -67,7 +68,7 @@ namespace PayItForward.Classes
 
         #region Properties
 
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CenterId
         {
             get { return _centerId; }
