@@ -32,6 +32,7 @@ namespace PayItForward.Pages
             using (var db = new DatabaseContext())
             {
                 string centerName = Name.Text;
+                string description = Description.Text;
                 //make string of hours out of things
                 string sun = "closed;";
                 string mon = "closed;";
@@ -40,33 +41,33 @@ namespace PayItForward.Pages
                 string thu = "closed;";
                 string fri = "closed;";
                 string sat = "closed;";
-                if (!DropDownList1.SelectedValue.Equals(-1) && !DropDownList2.SelectedValue.Equals(-1))
+                if (!DropDownList1.SelectedValue.Equals("-1") && !DropDownList2.SelectedValue.Equals("-1"))
                 {
-                    sun = DropDownList1.Text + " - " + DropDownList2.Text + ";";
+                    sun = DropDownList1.SelectedItem + " - " + DropDownList2.SelectedItem + ";";
                 }
-                if (!DropDownList3.SelectedValue.Equals(-1) && !DropDownList4.SelectedValue.Equals(-1))
+                if (!DropDownList3.SelectedValue.Equals("-1") && !DropDownList4.SelectedValue.Equals("-1"))
                 {
-                    mon = DropDownList3.Text + " - " + DropDownList4.Text + ";";
+                    mon = DropDownList3.SelectedItem + " - " + DropDownList4.SelectedItem + ";";
                 }
-                if (!DropDownList5.SelectedValue.Equals(-1) && !DropDownList6.SelectedValue.Equals(-1))
+                if (!DropDownList5.SelectedValue.Equals("-1") && !DropDownList6.SelectedValue.Equals("-1"))
                 {
-                    tue = DropDownList5.Text + " - " + DropDownList6.Text + ";";
+                    tue = DropDownList5.SelectedItem + " - " + DropDownList6.SelectedItem + ";";
                 }
-                if (!DropDownList7.SelectedValue.Equals(-1) && !DropDownList8.SelectedValue.Equals(-1))
+                if (!DropDownList7.SelectedValue.Equals("-1") && !DropDownList8.SelectedValue.Equals("-1"))
                 {
-                    wed = DropDownList7.Text + " - " + DropDownList8.Text + ";";
+                    wed = DropDownList7.SelectedItem + " - " + DropDownList8.SelectedItem + ";";
                 }
-                if (!DropDownList9.SelectedValue.Equals(-1) && !DropDownList10.SelectedValue.Equals(-1))
+                if (!DropDownList9.SelectedValue.Equals("-1") && !DropDownList10.SelectedValue.Equals("-1"))
                 {
-                    thu = DropDownList9.Text + " - " + DropDownList10.Text + ";";
+                    thu = DropDownList9.SelectedItem + " - " + DropDownList10.SelectedItem + ";";
                 }
-                if (!DropDownList11.SelectedValue.Equals(-1) && !DropDownList12.SelectedValue.Equals(-1))
+                if (!DropDownList11.SelectedValue.Equals("-1") && !DropDownList12.SelectedValue.Equals("-1"))
                 {
-                    fri = DropDownList11.Text + " - " + DropDownList12.Text + ";";
+                    fri = DropDownList11.SelectedItem + " - " + DropDownList12.SelectedItem + ";";
                 }
-                if (!DropDownList13.SelectedValue.Equals(-1) && !DropDownList14.SelectedValue.Equals(-1))
+                if (!DropDownList13.SelectedValue.Equals("-1") && !DropDownList14.SelectedValue.Equals("-1"))
                 {
-                    sat = DropDownList13.Text + " - " + DropDownList14.Text + ";";
+                    sat = DropDownList13.SelectedItem + " - " + DropDownList14.SelectedItem + ";";
                 }
 
                 string hours = sun + mon + tue + wed + thu + fri + sat;
@@ -82,8 +83,24 @@ namespace PayItForward.Pages
                         categories.Add(item.Text);
                     }
                 }
-                DonationCenter center = new DonationCenter(u.UserID, centerName, hours, address, phone, pickup, categories);
+                DonationCenter center = new DonationCenter(u.UserID, centerName, description, hours, address, phone, pickup, categories);
                 u.addDonationCenter(center);
+
+                db.Entry(center).State = System.Data.Entity.EntityState.Modified;
+
+                string info = "Name: " + center.CenterName + " Description: " + center.Description + " Hours: " + hours + " Address: " + address + " Phone: " + phone + " Pickup: " + pickup;
+
+                Request req = new Classes.Request();
+                req.CreatedTime = DateTime.Now;
+                req.LastUpdateTime = DateTime.Now;
+                req.MessageInfo = info;
+                req.CallingId = center.CenterId;
+                req.Type = "New Donation Center";
+                req.Status = 0;
+
+                db.Requests.Add(req);
+                db.SaveChanges();
+
                 //redirect to user profile
                 Response.Redirect("UserProfile.aspx");
             }
@@ -108,5 +125,6 @@ namespace PayItForward.Pages
         {
             ExistsPanel.Visible = true;
         }
+
+        }
     }
-}

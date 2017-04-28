@@ -43,7 +43,7 @@ namespace PayItForward.Classes
             UserId = requestorId;
         }
 
-        public DonationCenter(int requestorId, string name, string hours, string address, string phone, string pickup, List<string> categories)
+        public DonationCenter(int requestorId, string name, string description, string hours, string address, string phone, string pickup, List<string> categories)
         {
             _centerName = name;
             _hours = hours;
@@ -51,7 +51,7 @@ namespace PayItForward.Classes
             _phoneNumber = phone;
             _pickup = pickup;
             _categories = categories;
-
+            _description = Description;
             _categoryNamesAsString = String.Join(";", categories.ToArray());
 
             UserId = requestorId;
