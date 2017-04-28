@@ -51,18 +51,18 @@
                         <asp:ListItem Text="9 AM" Value=9/>
                         <asp:ListItem Text="10 AM" Value=10/>
                         <asp:ListItem Text="11 AM" Value=11/>
-                        <asp:ListItem Text="12 pm" Value=12/>
-                        <asp:ListItem Text="1 pm" Value=13/>
-                        <asp:ListItem Text="2 pm" Value=14/>
-                        <asp:ListItem Text="3 pm" Value=15/>
-                        <asp:ListItem Text="4 pm" Value=16/>
-                        <asp:ListItem Text="5 pm" Value=17/>
-                        <asp:ListItem Text="6 pm" Value=18/>
-                        <asp:ListItem Text="7 pm" Value=19/>
-                        <asp:ListItem Text="8 pm" Value=20/>
-                        <asp:ListItem Text="9 pm" Value=21/>
-                        <asp:ListItem Text="10 pm" Value=22/>
-                        <asp:ListItem Text="11 pm" Value=23/>
+                        <asp:ListItem Text="12 PM" Value=12/>
+                        <asp:ListItem Text="1 PM" Value=13/>
+                        <asp:ListItem Text="2 PM" Value=14/>
+                        <asp:ListItem Text="3 PM" Value=15/>
+                        <asp:ListItem Text="4 PM" Value=16/>
+                        <asp:ListItem Text="5 PM" Value=17/>
+                        <asp:ListItem Text="6 PM" Value=18/>
+                        <asp:ListItem Text="7 PM" Value=19/>
+                        <asp:ListItem Text="8 PM" Value=20/>
+                        <asp:ListItem Text="9 PM" Value=21/>
+                        <asp:ListItem Text="10 PM" Value=22/>
+                        <asp:ListItem Text="11 PM" Value=23/>
                     </asp:DropDownList> 
      
                     <asp:DropDownList runat="server" ID="DropDownList2" class="closeDrop">
@@ -79,18 +79,18 @@
                         <asp:ListItem Text="9 AM" Value="9"></asp:ListItem>
                         <asp:ListItem Text="10 AM" Value="10"></asp:ListItem>
                         <asp:ListItem Text="11 AM" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12 pm" Value="12"></asp:ListItem>  
-                        <asp:ListItem Text="1 pm" Value="13"></asp:ListItem>
-                        <asp:ListItem Text="2 pm" Value="14"></asp:ListItem>
-                        <asp:ListItem Text="3 pm" Value="15"></asp:ListItem>
-                        <asp:ListItem Text="4 pm" Value="16"></asp:ListItem>
-                        <asp:ListItem Text="5 pm" Value="17"></asp:ListItem>
-                        <asp:ListItem Text="6 pm" Value="18"></asp:ListItem>
-                        <asp:ListItem Text="7 pm" Value="19"></asp:ListItem>
-                        <asp:ListItem Text="8 pm" Value="20"></asp:ListItem>
-                        <asp:ListItem Text="9 pm" Value="21"></asp:ListItem>
-                        <asp:ListItem Text="10 pm" Value="22"></asp:ListItem>
-                        <asp:ListItem Text="11 pm" Value="23"></asp:ListItem>
+                        <asp:ListItem Text="12 PM" Value="12"></asp:ListItem>  
+                        <asp:ListItem Text="1 PM" Value="13"></asp:ListItem>
+                        <asp:ListItem Text="2 PM" Value="14"></asp:ListItem>
+                        <asp:ListItem Text="3 PM" Value="15"></asp:ListItem>
+                        <asp:ListItem Text="4 PM" Value="16"></asp:ListItem>
+                        <asp:ListItem Text="5 PM" Value="17"></asp:ListItem>
+                        <asp:ListItem Text="6 PM" Value="18"></asp:ListItem>
+                        <asp:ListItem Text="7 PM" Value="19"></asp:ListItem>
+                        <asp:ListItem Text="8 PM" Value="20"></asp:ListItem>
+                        <asp:ListItem Text="9 PM" Value="21"></asp:ListItem>
+                        <asp:ListItem Text="10 PM" Value="22"></asp:ListItem>
+                        <asp:ListItem Text="11 PM" Value="23"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
       
@@ -110,18 +110,18 @@
                         <asp:ListItem Text="9 AM" Value="9"></asp:ListItem>
                         <asp:ListItem Text="10 AM" Value="10"></asp:ListItem>
                         <asp:ListItem Text="11 AM" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12 pm" Value="12"></asp:ListItem>  
-                        <asp:ListItem Text="1 pm" Value="13"></asp:ListItem>
-                        <asp:ListItem Text="2 pm" Value="14"></asp:ListItem>
-                        <asp:ListItem Text="3 pm" Value="15"></asp:ListItem>
-                        <asp:ListItem Text="4 pm" Value="16"></asp:ListItem>
-                        <asp:ListItem Text="5 pm" Value="17"></asp:ListItem>
-                        <asp:ListItem Text="6 pm" Value="18"></asp:ListItem>
-                        <asp:ListItem Text="7 pm" Value="19"></asp:ListItem>
-                        <asp:ListItem Text="8 pm" Value="20"></asp:ListItem>
-                        <asp:ListItem Text="9 pm" Value="21"></asp:ListItem>
-                        <asp:ListItem Text="10 pm" Value="22"></asp:ListItem>
-                        <asp:ListItem Text="11 pm" Value="23"></asp:ListItem>
+                        <asp:ListItem Text="12 PM" Value="12"></asp:ListItem>  
+                        <asp:ListItem Text="1 PM" Value="13"></asp:ListItem>
+                        <asp:ListItem Text="2 PM" Value="14"></asp:ListItem>
+                        <asp:ListItem Text="3 PM" Value="15"></asp:ListItem>
+                        <asp:ListItem Text="4 PM" Value="16"></asp:ListItem>
+                        <asp:ListItem Text="5 PM" Value="17"></asp:ListItem>
+                        <asp:ListItem Text="6 PM" Value="18"></asp:ListItem>
+                        <asp:ListItem Text="7 PM" Value="19"></asp:ListItem>
+                        <asp:ListItem Text="8 PM" Value="20"></asp:ListItem>
+                        <asp:ListItem Text="9 PM" Value="21"></asp:ListItem>
+                        <asp:ListItem Text="10 PM" Value="22"></asp:ListItem>
+                        <asp:ListItem Text="11 PM" Value="23"></asp:ListItem>
                     </asp:DropDownList> 
     
                     <asp:DropDownList runat="server" ID="DropDownList4" class="closeDrop">
@@ -138,18 +138,18 @@
                         <asp:ListItem Text="9 AM" Value="9"></asp:ListItem>
                         <asp:ListItem Text="10 AM" Value="10"></asp:ListItem>
                         <asp:ListItem Text="11 AM" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12 pm" Value="12"></asp:ListItem>  
-                        <asp:ListItem Text="1 pm" Value="13"></asp:ListItem>
-                        <asp:ListItem Text="2 pm" Value="14"></asp:ListItem>
-                        <asp:ListItem Text="3 pm" Value="15"></asp:ListItem>
-                        <asp:ListItem Text="4 pm" Value="16"></asp:ListItem>
-                        <asp:ListItem Text="5 pm" Value="17"></asp:ListItem>
-                        <asp:ListItem Text="6 pm" Value="18"></asp:ListItem>
-                        <asp:ListItem Text="7 pm" Value="19"></asp:ListItem>
-                        <asp:ListItem Text="8 pm" Value="20"></asp:ListItem>
-                        <asp:ListItem Text="9 pm" Value="21"></asp:ListItem>
-                        <asp:ListItem Text="10 pm" Value="22"></asp:ListItem>
-                        <asp:ListItem Text="11 pm" Value="23"></asp:ListItem>
+                        <asp:ListItem Text="12 PM" Value="12"></asp:ListItem>  
+                        <asp:ListItem Text="1 PM" Value="13"></asp:ListItem>
+                        <asp:ListItem Text="2 PM" Value="14"></asp:ListItem>
+                        <asp:ListItem Text="3 PM" Value="15"></asp:ListItem>
+                        <asp:ListItem Text="4 PM" Value="16"></asp:ListItem>
+                        <asp:ListItem Text="5 PM" Value="17"></asp:ListItem>
+                        <asp:ListItem Text="6 PM" Value="18"></asp:ListItem>
+                        <asp:ListItem Text="7 PM" Value="19"></asp:ListItem>
+                        <asp:ListItem Text="8 PM" Value="20"></asp:ListItem>
+                        <asp:ListItem Text="9 PM" Value="21"></asp:ListItem>
+                        <asp:ListItem Text="10 PM" Value="22"></asp:ListItem>
+                        <asp:ListItem Text="11 PM" Value="23"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
      
@@ -169,18 +169,18 @@
                         <asp:ListItem Text="9 AM" Value="9"></asp:ListItem>
                         <asp:ListItem Text="10 AM" Value="10"></asp:ListItem>
                         <asp:ListItem Text="11 AM" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12 pm" Value="12"></asp:ListItem>  
-                        <asp:ListItem Text="1 pm" Value="13"></asp:ListItem>
-                        <asp:ListItem Text="2 pm" Value="14"></asp:ListItem>
-                        <asp:ListItem Text="3 pm" Value="15"></asp:ListItem>
-                        <asp:ListItem Text="4 pm" Value="16"></asp:ListItem>
-                        <asp:ListItem Text="5 pm" Value="17"></asp:ListItem>
-                        <asp:ListItem Text="6 pm" Value="18"></asp:ListItem>
-                        <asp:ListItem Text="7 pm" Value="19"></asp:ListItem>
-                        <asp:ListItem Text="8 pm" Value="20"></asp:ListItem>
-                        <asp:ListItem Text="9 pm" Value="21"></asp:ListItem>
-                        <asp:ListItem Text="10 pm" Value="22"></asp:ListItem>
-                        <asp:ListItem Text="11 pm" Value="23"></asp:ListItem>
+                        <asp:ListItem Text="12 PM" Value="12"></asp:ListItem>  
+                        <asp:ListItem Text="1 PM" Value="13"></asp:ListItem>
+                        <asp:ListItem Text="2 PM" Value="14"></asp:ListItem>
+                        <asp:ListItem Text="3 PM" Value="15"></asp:ListItem>
+                        <asp:ListItem Text="4 PM" Value="16"></asp:ListItem>
+                        <asp:ListItem Text="5 PM" Value="17"></asp:ListItem>
+                        <asp:ListItem Text="6 PM" Value="18"></asp:ListItem>
+                        <asp:ListItem Text="7 PM" Value="19"></asp:ListItem>
+                        <asp:ListItem Text="8 PM" Value="20"></asp:ListItem>
+                        <asp:ListItem Text="9 PM" Value="21"></asp:ListItem>
+                        <asp:ListItem Text="10 PM" Value="22"></asp:ListItem>
+                        <asp:ListItem Text="11 PM" Value="23"></asp:ListItem>
                     </asp:DropDownList> 
    
                     <asp:DropDownList runat="server" ID="DropDownList6" class="closeDrop">
@@ -197,18 +197,18 @@
                         <asp:ListItem Text="9 AM" Value="9"></asp:ListItem>
                         <asp:ListItem Text="10 AM" Value="10"></asp:ListItem>
                         <asp:ListItem Text="11 AM" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12 pm" Value="12"></asp:ListItem>  
-                        <asp:ListItem Text="1 pm" Value="13"></asp:ListItem>
-                        <asp:ListItem Text="2 pm" Value="14"></asp:ListItem>
-                        <asp:ListItem Text="3 pm" Value="15"></asp:ListItem>
-                        <asp:ListItem Text="4 pm" Value="16"></asp:ListItem>
-                        <asp:ListItem Text="5 pm" Value="17"></asp:ListItem>
-                        <asp:ListItem Text="6 pm" Value="18"></asp:ListItem>
-                        <asp:ListItem Text="7 pm" Value="19"></asp:ListItem>
-                        <asp:ListItem Text="8 pm" Value="20"></asp:ListItem>
-                        <asp:ListItem Text="9 pm" Value="21"></asp:ListItem>
-                        <asp:ListItem Text="10 pm" Value="22"></asp:ListItem>
-                        <asp:ListItem Text="11 pm" Value="23"></asp:ListItem>
+                        <asp:ListItem Text="12 PM" Value="12"></asp:ListItem>  
+                        <asp:ListItem Text="1 PM" Value="13"></asp:ListItem>
+                        <asp:ListItem Text="2 PM" Value="14"></asp:ListItem>
+                        <asp:ListItem Text="3 PM" Value="15"></asp:ListItem>
+                        <asp:ListItem Text="4 PM" Value="16"></asp:ListItem>
+                        <asp:ListItem Text="5 PM" Value="17"></asp:ListItem>
+                        <asp:ListItem Text="6 PM" Value="18"></asp:ListItem>
+                        <asp:ListItem Text="7 PM" Value="19"></asp:ListItem>
+                        <asp:ListItem Text="8 PM" Value="20"></asp:ListItem>
+                        <asp:ListItem Text="9 PM" Value="21"></asp:ListItem>
+                        <asp:ListItem Text="10 PM" Value="22"></asp:ListItem>
+                        <asp:ListItem Text="11 PM" Value="23"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
 
@@ -228,18 +228,18 @@
                         <asp:ListItem Text="9 AM" Value="9"></asp:ListItem>
                         <asp:ListItem Text="10 AM" Value="10"></asp:ListItem>
                         <asp:ListItem Text="11 AM" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12 pm" Value="12"></asp:ListItem>  
-                        <asp:ListItem Text="1 pm" Value="13"></asp:ListItem>
-                        <asp:ListItem Text="2 pm" Value="14"></asp:ListItem>
-                        <asp:ListItem Text="3 pm" Value="15"></asp:ListItem>
-                        <asp:ListItem Text="4 pm" Value="16"></asp:ListItem>
-                        <asp:ListItem Text="5 pm" Value="17"></asp:ListItem>
-                        <asp:ListItem Text="6 pm" Value="18"></asp:ListItem>
-                        <asp:ListItem Text="7 pm" Value="19"></asp:ListItem>
-                        <asp:ListItem Text="8 pm" Value="20"></asp:ListItem>
-                        <asp:ListItem Text="9 pm" Value="21"></asp:ListItem>
-                        <asp:ListItem Text="10 pm" Value="22"></asp:ListItem>
-                        <asp:ListItem Text="11 pm" Value="23"></asp:ListItem>
+                        <asp:ListItem Text="12 PM" Value="12"></asp:ListItem>  
+                        <asp:ListItem Text="1 PM" Value="13"></asp:ListItem>
+                        <asp:ListItem Text="2 PM" Value="14"></asp:ListItem>
+                        <asp:ListItem Text="3 PM" Value="15"></asp:ListItem>
+                        <asp:ListItem Text="4 PM" Value="16"></asp:ListItem>
+                        <asp:ListItem Text="5 PM" Value="17"></asp:ListItem>
+                        <asp:ListItem Text="6 PM" Value="18"></asp:ListItem>
+                        <asp:ListItem Text="7 PM" Value="19"></asp:ListItem>
+                        <asp:ListItem Text="8 PM" Value="20"></asp:ListItem>
+                        <asp:ListItem Text="9 PM" Value="21"></asp:ListItem>
+                        <asp:ListItem Text="10 PM" Value="22"></asp:ListItem>
+                        <asp:ListItem Text="11 PM" Value="23"></asp:ListItem>
                     </asp:DropDownList> 
     
                     <asp:DropDownList runat="server" ID="DropDownList8" class="closeDrop">
@@ -256,18 +256,18 @@
                         <asp:ListItem Text="9 AM" Value="9"></asp:ListItem>
                         <asp:ListItem Text="10 AM" Value="10"></asp:ListItem>
                         <asp:ListItem Text="11 AM" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12 pm" Value="12"></asp:ListItem>  
-                        <asp:ListItem Text="1 pm" Value="13"></asp:ListItem>
-                        <asp:ListItem Text="2 pm" Value="14"></asp:ListItem>
-                        <asp:ListItem Text="3 pm" Value="15"></asp:ListItem>
-                        <asp:ListItem Text="4 pm" Value="16"></asp:ListItem>
-                        <asp:ListItem Text="5 pm" Value="17"></asp:ListItem>
-                        <asp:ListItem Text="6 pm" Value="18"></asp:ListItem>
-                        <asp:ListItem Text="7 pm" Value="19"></asp:ListItem>
-                        <asp:ListItem Text="8 pm" Value="20"></asp:ListItem>
-                        <asp:ListItem Text="9 pm" Value="21"></asp:ListItem>
-                        <asp:ListItem Text="10 pm" Value="22"></asp:ListItem>
-                        <asp:ListItem Text="11 pm" Value="23"></asp:ListItem>
+                        <asp:ListItem Text="12 PM" Value="12"></asp:ListItem>  
+                        <asp:ListItem Text="1 PM" Value="13"></asp:ListItem>
+                        <asp:ListItem Text="2 PM" Value="14"></asp:ListItem>
+                        <asp:ListItem Text="3 PM" Value="15"></asp:ListItem>
+                        <asp:ListItem Text="4 PM" Value="16"></asp:ListItem>
+                        <asp:ListItem Text="5 PM" Value="17"></asp:ListItem>
+                        <asp:ListItem Text="6 PM" Value="18"></asp:ListItem>
+                        <asp:ListItem Text="7 PM" Value="19"></asp:ListItem>
+                        <asp:ListItem Text="8 PM" Value="20"></asp:ListItem>
+                        <asp:ListItem Text="9 PM" Value="21"></asp:ListItem>
+                        <asp:ListItem Text="10 PM" Value="22"></asp:ListItem>
+                        <asp:ListItem Text="11 PM" Value="23"></asp:ListItem>
                     </asp:DropDownList> 
                 </div>
 
@@ -287,18 +287,18 @@
                         <asp:ListItem Text="9 AM" Value="9"></asp:ListItem>
                         <asp:ListItem Text="10 AM" Value="10"></asp:ListItem>
                         <asp:ListItem Text="11 AM" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12 pm" Value="12"></asp:ListItem>  
-                        <asp:ListItem Text="1 pm" Value="13"></asp:ListItem>
-                        <asp:ListItem Text="2 pm" Value="14"></asp:ListItem>
-                        <asp:ListItem Text="3 pm" Value="15"></asp:ListItem>
-                        <asp:ListItem Text="4 pm" Value="16"></asp:ListItem>
-                        <asp:ListItem Text="5 pm" Value="17"></asp:ListItem>
-                        <asp:ListItem Text="6 pm" Value="18"></asp:ListItem>
-                        <asp:ListItem Text="7 pm" Value="19"></asp:ListItem>
-                        <asp:ListItem Text="8 pm" Value="20"></asp:ListItem>
-                        <asp:ListItem Text="9 pm" Value="21"></asp:ListItem>
-                        <asp:ListItem Text="10 pm" Value="22"></asp:ListItem>
-                        <asp:ListItem Text="11 pm" Value="23"></asp:ListItem>
+                        <asp:ListItem Text="12 PM" Value="12"></asp:ListItem>  
+                        <asp:ListItem Text="1 PM" Value="13"></asp:ListItem>
+                        <asp:ListItem Text="2 PM" Value="14"></asp:ListItem>
+                        <asp:ListItem Text="3 PM" Value="15"></asp:ListItem>
+                        <asp:ListItem Text="4 PM" Value="16"></asp:ListItem>
+                        <asp:ListItem Text="5 PM" Value="17"></asp:ListItem>
+                        <asp:ListItem Text="6 PM" Value="18"></asp:ListItem>
+                        <asp:ListItem Text="7 PM" Value="19"></asp:ListItem>
+                        <asp:ListItem Text="8 PM" Value="20"></asp:ListItem>
+                        <asp:ListItem Text="9 PM" Value="21"></asp:ListItem>
+                        <asp:ListItem Text="10 PM" Value="22"></asp:ListItem>
+                        <asp:ListItem Text="11 PM" Value="23"></asp:ListItem>
                     </asp:DropDownList>
 
                     <asp:DropDownList runat="server" ID="DropDownList10" class="closeDrop">
@@ -315,18 +315,18 @@
                         <asp:ListItem Text="9 AM" Value="9"></asp:ListItem>
                         <asp:ListItem Text="10 AM" Value="10"></asp:ListItem>
                         <asp:ListItem Text="11 AM" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12 pm" Value="12"></asp:ListItem>  
-                        <asp:ListItem Text="1 pm" Value="13"></asp:ListItem>
-                        <asp:ListItem Text="2 pm" Value="14"></asp:ListItem>
-                        <asp:ListItem Text="3 pm" Value="15"></asp:ListItem>
-                        <asp:ListItem Text="4 pm" Value="16"></asp:ListItem>
-                        <asp:ListItem Text="5 pm" Value="17"></asp:ListItem>
-                        <asp:ListItem Text="6 pm" Value="18"></asp:ListItem>
-                        <asp:ListItem Text="7 pm" Value="19"></asp:ListItem>
-                        <asp:ListItem Text="8 pm" Value="20"></asp:ListItem>
-                        <asp:ListItem Text="9 pm" Value="21"></asp:ListItem>
-                        <asp:ListItem Text="10 pm" Value="22"></asp:ListItem>
-                        <asp:ListItem Text="11 pm" Value="23"></asp:ListItem>
+                        <asp:ListItem Text="12 PM" Value="12"></asp:ListItem>  
+                        <asp:ListItem Text="1 PM" Value="13"></asp:ListItem>
+                        <asp:ListItem Text="2 PM" Value="14"></asp:ListItem>
+                        <asp:ListItem Text="3 PM" Value="15"></asp:ListItem>
+                        <asp:ListItem Text="4 PM" Value="16"></asp:ListItem>
+                        <asp:ListItem Text="5 PM" Value="17"></asp:ListItem>
+                        <asp:ListItem Text="6 PM" Value="18"></asp:ListItem>
+                        <asp:ListItem Text="7 PM" Value="19"></asp:ListItem>
+                        <asp:ListItem Text="8 PM" Value="20"></asp:ListItem>
+                        <asp:ListItem Text="9 PM" Value="21"></asp:ListItem>
+                        <asp:ListItem Text="10 PM" Value="22"></asp:ListItem>
+                        <asp:ListItem Text="11 PM" Value="23"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
 
@@ -346,18 +346,18 @@
                         <asp:ListItem Text="9 AM" Value="9"></asp:ListItem>
                         <asp:ListItem Text="10 AM" Value="10"></asp:ListItem>
                         <asp:ListItem Text="11 AM" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12 pm" Value="12"></asp:ListItem>  
-                        <asp:ListItem Text="1 pm" Value="13"></asp:ListItem>
-                        <asp:ListItem Text="2 pm" Value="14"></asp:ListItem>
-                        <asp:ListItem Text="3 pm" Value="15"></asp:ListItem>
-                        <asp:ListItem Text="4 pm" Value="16"></asp:ListItem>
-                        <asp:ListItem Text="5 pm" Value="17"></asp:ListItem>
-                        <asp:ListItem Text="6 pm" Value="18"></asp:ListItem>
-                        <asp:ListItem Text="7 pm" Value="19"></asp:ListItem>
-                        <asp:ListItem Text="8 pm" Value="20"></asp:ListItem>
-                        <asp:ListItem Text="9 pm" Value="21"></asp:ListItem>
-                        <asp:ListItem Text="10 pm" Value="22"></asp:ListItem>
-                        <asp:ListItem Text="11 pm" Value="23"></asp:ListItem>
+                        <asp:ListItem Text="12 PM" Value="12"></asp:ListItem>  
+                        <asp:ListItem Text="1 PM" Value="13"></asp:ListItem>
+                        <asp:ListItem Text="2 PM" Value="14"></asp:ListItem>
+                        <asp:ListItem Text="3 PM" Value="15"></asp:ListItem>
+                        <asp:ListItem Text="4 PM" Value="16"></asp:ListItem>
+                        <asp:ListItem Text="5 PM" Value="17"></asp:ListItem>
+                        <asp:ListItem Text="6 PM" Value="18"></asp:ListItem>
+                        <asp:ListItem Text="7 PM" Value="19"></asp:ListItem>
+                        <asp:ListItem Text="8 PM" Value="20"></asp:ListItem>
+                        <asp:ListItem Text="9 PM" Value="21"></asp:ListItem>
+                        <asp:ListItem Text="10 PM" Value="22"></asp:ListItem>
+                        <asp:ListItem Text="11 PM" Value="23"></asp:ListItem>
                     </asp:DropDownList>
 
                     <asp:DropDownList runat="server" ID="DropDownList12" class="closeDrop">
@@ -374,18 +374,18 @@
                         <asp:ListItem Text="9 AM" Value="9"></asp:ListItem>
                         <asp:ListItem Text="10 AM" Value="10"></asp:ListItem>
                         <asp:ListItem Text="11 AM" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12 pm" Value="12"></asp:ListItem>  
-                        <asp:ListItem Text="1 pm" Value="13"></asp:ListItem>
-                        <asp:ListItem Text="2 pm" Value="14"></asp:ListItem>
-                        <asp:ListItem Text="3 pm" Value="15"></asp:ListItem>
-                        <asp:ListItem Text="4 pm" Value="16"></asp:ListItem>
-                        <asp:ListItem Text="5 pm" Value="17"></asp:ListItem>
-                        <asp:ListItem Text="6 pm" Value="18"></asp:ListItem>
-                        <asp:ListItem Text="7 pm" Value="19"></asp:ListItem>
-                        <asp:ListItem Text="8 pm" Value="20"></asp:ListItem>
-                        <asp:ListItem Text="9 pm" Value="21"></asp:ListItem>
-                        <asp:ListItem Text="10 pm" Value="22"></asp:ListItem>
-                        <asp:ListItem Text="11 pm" Value="23"></asp:ListItem>
+                        <asp:ListItem Text="12 PM" Value="12"></asp:ListItem>  
+                        <asp:ListItem Text="1 PM" Value="13"></asp:ListItem>
+                        <asp:ListItem Text="2 PM" Value="14"></asp:ListItem>
+                        <asp:ListItem Text="3 PM" Value="15"></asp:ListItem>
+                        <asp:ListItem Text="4 PM" Value="16"></asp:ListItem>
+                        <asp:ListItem Text="5 PM" Value="17"></asp:ListItem>
+                        <asp:ListItem Text="6 PM" Value="18"></asp:ListItem>
+                        <asp:ListItem Text="7 PM" Value="19"></asp:ListItem>
+                        <asp:ListItem Text="8 PM" Value="20"></asp:ListItem>
+                        <asp:ListItem Text="9 PM" Value="21"></asp:ListItem>
+                        <asp:ListItem Text="10 PM" Value="22"></asp:ListItem>
+                        <asp:ListItem Text="11 PM" Value="23"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
 
@@ -405,18 +405,18 @@
                         <asp:ListItem Text="9 AM" Value="9"></asp:ListItem>
                         <asp:ListItem Text="10 AM" Value="10"></asp:ListItem>
                         <asp:ListItem Text="11 AM" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12 pm" Value="12"></asp:ListItem>  
-                        <asp:ListItem Text="1 pm" Value="13"></asp:ListItem>
-                        <asp:ListItem Text="2 pm" Value="14"></asp:ListItem>
-                        <asp:ListItem Text="3 pm" Value="15"></asp:ListItem>
-                        <asp:ListItem Text="4 pm" Value="16"></asp:ListItem>
-                        <asp:ListItem Text="5 pm" Value="17"></asp:ListItem>
-                        <asp:ListItem Text="6 pm" Value="18"></asp:ListItem>
-                        <asp:ListItem Text="7 pm" Value="19"></asp:ListItem>
-                        <asp:ListItem Text="8 pm" Value="20"></asp:ListItem>
-                        <asp:ListItem Text="9 pm" Value="21"></asp:ListItem>
-                        <asp:ListItem Text="10 pm" Value="22"></asp:ListItem>
-                        <asp:ListItem Text="11 pm" Value="23"></asp:ListItem>
+                        <asp:ListItem Text="12 PM" Value="12"></asp:ListItem>  
+                        <asp:ListItem Text="1 PM" Value="13"></asp:ListItem>
+                        <asp:ListItem Text="2 PM" Value="14"></asp:ListItem>
+                        <asp:ListItem Text="3 PM" Value="15"></asp:ListItem>
+                        <asp:ListItem Text="4 PM" Value="16"></asp:ListItem>
+                        <asp:ListItem Text="5 PM" Value="17"></asp:ListItem>
+                        <asp:ListItem Text="6 PM" Value="18"></asp:ListItem>
+                        <asp:ListItem Text="7 PM" Value="19"></asp:ListItem>
+                        <asp:ListItem Text="8 PM" Value="20"></asp:ListItem>
+                        <asp:ListItem Text="9 PM" Value="21"></asp:ListItem>
+                        <asp:ListItem Text="10 PM" Value="22"></asp:ListItem>
+                        <asp:ListItem Text="11 PM" Value="23"></asp:ListItem>
                     </asp:DropDownList>
   
                     <asp:DropDownList runat="server" ID="DropDownList14" class="closeDrop">
@@ -433,18 +433,18 @@
                         <asp:ListItem Text="9 AM" Value="9"></asp:ListItem>
                         <asp:ListItem Text="10 AM" Value="10"></asp:ListItem>
                         <asp:ListItem Text="11 AM" Value="11"></asp:ListItem>
-                        <asp:ListItem Text="12 pm" Value="12"></asp:ListItem>  
-                        <asp:ListItem Text="1 pm" Value="13"></asp:ListItem>
-                        <asp:ListItem Text="2 pm" Value="14"></asp:ListItem>
-                        <asp:ListItem Text="3 pm" Value="15"></asp:ListItem>
-                        <asp:ListItem Text="4 pm" Value="16"></asp:ListItem>
-                        <asp:ListItem Text="5 pm" Value="17"></asp:ListItem>
-                        <asp:ListItem Text="6 pm" Value="18"></asp:ListItem>
-                        <asp:ListItem Text="7 pm" Value="19"></asp:ListItem>
-                        <asp:ListItem Text="8 pm" Value="20"></asp:ListItem>
-                        <asp:ListItem Text="9 pm" Value="21"></asp:ListItem>
-                        <asp:ListItem Text="10 pm" Value="22"></asp:ListItem>
-                        <asp:ListItem Text="11 pm" Value="23"></asp:ListItem>
+                        <asp:ListItem Text="12 PM" Value="12"></asp:ListItem>  
+                        <asp:ListItem Text="1 PM" Value="13"></asp:ListItem>
+                        <asp:ListItem Text="2 PM" Value="14"></asp:ListItem>
+                        <asp:ListItem Text="3 PM" Value="15"></asp:ListItem>
+                        <asp:ListItem Text="4 PM" Value="16"></asp:ListItem>
+                        <asp:ListItem Text="5 PM" Value="17"></asp:ListItem>
+                        <asp:ListItem Text="6 PM" Value="18"></asp:ListItem>
+                        <asp:ListItem Text="7 PM" Value="19"></asp:ListItem>
+                        <asp:ListItem Text="8 PM" Value="20"></asp:ListItem>
+                        <asp:ListItem Text="9 PM" Value="21"></asp:ListItem>
+                        <asp:ListItem Text="10 PM" Value="22"></asp:ListItem>
+                        <asp:ListItem Text="11 PM" Value="23"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
             </div>

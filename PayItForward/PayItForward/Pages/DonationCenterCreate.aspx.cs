@@ -76,14 +76,23 @@ namespace PayItForward.Pages
                 string pickup = PickupTextBox.Text;
                 //deal with categories
                 List<string> categories = new List<string>();
-                foreach (ListItem item in CheckBoxList.Items)
+                List<string> items = new List<string>();
+                foreach (ListItem c in CheckBoxList.Items)
                 {
-                    if (item.Selected)
+                    if (c.Selected)
                     {
-                        categories.Add(item.Text);
+                        categories.Add(c.Text);
+                        foreach (Item i in db.Items)
+                        {
+                            if (i.StringCategory.Equals(c.Text))
+                            {
+                                items.Add(i.Name);
+                            }
+                        }
                     }
                 }
                 DonationCenter center = new DonationCenter(u.UserID, centerName, description, hours, address, phone, pickup, categories);
+                center.ItemNames = items;
                 db.AddCenter(center);
 
                 u.addDonationCenter(center);
