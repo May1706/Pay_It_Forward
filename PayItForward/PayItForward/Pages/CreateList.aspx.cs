@@ -146,7 +146,6 @@ namespace PayItForward.Pages
 
                 Session["donationItems"] = items;
 
-
                 Response.BufferOutput = true;
                 Response.Redirect("/Pages/ViewDonationCenters.aspx");
             }
@@ -156,6 +155,7 @@ namespace PayItForward.Pages
                 Response.Write("<script language='javascript'>alert('" + message + "');</script>");
             }
         }
+
         protected void saveButton_Click(object sender, EventArgs e)
         {
             Session["donationItems"] = null;
@@ -178,15 +178,41 @@ namespace PayItForward.Pages
                     }
                 }
                 
-                
                 if (Session["activeUser"] != null)
                 {
                     Donation donation = new Donation();
 
+                    items.Sort((x, y) => x.Name.CompareTo(y.Name));
                     // Add each item to donation
-                    foreach (Item item in items)
+                    if (items.Count == 1)
                     {
-                        donation.addItem(item, null, 1);
+                        donation.addItem(items[0], null, 1);
+                    }
+                    else if (items.Count > 0)
+                    {
+                        Item lastItem = items[0];
+                        int count = 1;
+
+                        for (int i = 1; i < items.Count; i++)
+                        {
+                            // TODO: dynamically add donation center
+                            Item thisItem = items[i];
+                            if (lastItem.Name.Equals(thisItem.Name))
+                            {
+                                count++;
+                            }
+                            else
+                            {
+                                donation.addItem(lastItem, null, count);
+                                lastItem = thisItem;
+                                count = 1;
+                            }
+
+                            if (i + 1 >= items.Capacity)
+                            {
+                                donation.addItem(thisItem, null, count);
+                            }
+                        }
                     }
 
                     donation.DonationDateTime = DateTime.Now;
