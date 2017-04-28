@@ -33,14 +33,16 @@ namespace PayItForward.Pages
                 var result = db.Requests.Single(r => r.RequestId == id);
                 if (result != null)
                 {
-                    //using (var db2 = new DatabaseContext())
-                    //{
-                    //    var dc = db2.DonationCenters.Single(d => d.CenterId == result.CallingId);
+                    using (var db2 = new DatabaseContext())
+                    {
+                        var dc = db2.DonationCenters.Single(d => d.CenterId == result.CallingId);
 
-                    //    //Todo Change visibility
-                    //    db2.SaveChanges();
+                        //Todo Change visibility
+                        dc.Status = Classes.DonationCenter.VISIBLE;
+                        dc.LastUpdate = DateTime.Now;
+                        db2.SaveChanges();
 
-                    //}
+                    }
                     result.LastUpdateTime = DateTime.Now;
                     result.Status = Classes.Request.APPROVED;
                     db.SaveChanges();
@@ -60,15 +62,24 @@ namespace PayItForward.Pages
                 var result = db.Requests.Single(r => r.RequestId == id);
                 if (result != null)
                 {
-                    //using (var db2 = new DatabaseContext())
-                    //{
-                    //    var dc = db2.DonationCenters.Single(d => d.CenterId == result.CallingId);
+                    using (var db2 = new DatabaseContext())
+                    {
+                        var dc = db2.DonationCenters.Single(d => d.CenterId == result.CallingId);
 
-                    //    //Todo Remove from table if type is create
-                    //    //Todo Change dc to invisible
-                    //    db2.SaveChanges();
+                        //Remove from table if type is create
+                        if (type == "New Donation Center")
+                        {
+                            db2.DonationCenters.Remove(dc);
+                        }
+                        else
+                        {
+                            //Change dc to invisible
+                            dc.Status = Classes.DonationCenter.INVISIBLE;
+                            dc.LastUpdate = DateTime.Now;
+                        }
+                        db2.SaveChanges();
 
-                    //}
+                    }
                     result.LastUpdateTime = DateTime.Now;
                     result.Status = Classes.Request.DENIED;
                     db.SaveChanges();
