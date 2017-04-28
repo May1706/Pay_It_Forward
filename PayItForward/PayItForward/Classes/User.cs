@@ -71,7 +71,12 @@ namespace PayItForward.Classes
 
         public void addDonationCenter(DonationCenter center)
         {
-            _centers.Add(center);
+            if (_centerNames == null)
+            {
+                _centerNames = new List<string>();
+            }
+
+            _centerNames.Add(center.CenterName);
             Privilege = Privilege | DonationCenterPrivilege;
         }
 
