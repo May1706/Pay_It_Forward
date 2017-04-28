@@ -31,7 +31,7 @@ namespace PayItForward.Pages
                 String centerText = "";
                 foreach(DonationCenter d in centers)
                 {
-                    centerText = "<a href=\"/Pages/DonationCenterEdit.aspx?center=" + d.CenterId + "\">" + d.CenterName + "</a><br />";
+                    centerText += "<a href=\"/Pages/DonationCenterEdit.aspx?center=" + d.CenterId + "\">" + d.CenterName + "</a><br />";
                 }
                 userCenters.InnerHtml = (centerText.Length > 0) ? centerText : "No Donation Centers";
                 userHistory.InnerHtml = getDonationHistoryText();
