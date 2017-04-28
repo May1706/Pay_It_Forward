@@ -15,11 +15,32 @@ namespace PayItForward.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            loadTables();
-            loadDonationCenterTable();
-            if (!Page.IsPostBack)
+            //Check if admin
+            if(Session["activeUser"] == null)
             {
-                loadDropdowns();
+                Response.BufferOutput = true;
+                Response.Redirect("/Pages/Home.aspx");
+            }
+
+            //userName.Font.Size = 30;
+
+            using (var db = new DatabaseContext())
+            {
+                User user = (User)Session["activeUser"];
+
+                if(user.isAdmin())
+                {
+                    loadTables();
+                    loadDonationCenterTable();
+                    if (!Page.IsPostBack)
+                    {
+                        loadDropdowns();
+                    }
+                } else
+                {
+                    Response.BufferOutput = true;
+                    Response.Redirect("/Pages/Home.aspx");
+                }
             }
         }
 
