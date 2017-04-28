@@ -116,7 +116,7 @@
                         <h3>Manage Donation Centers</h3>
                         <p>Activate or deactivate donation centers by clicking on the donation center in the table.</p>
                         <div class="table-responsive">
-                            <asp:GridView runat="server" ID="dcGrid" CssClass="table table-striped table-bordered" />
+                            <asp:GridView runat="server" ID="dcGrid" CssClass="table table-hover table-striped table-bordered" />
                         </div>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="myDcModal" role="dialog">
         <div class="modal-dialog">
     
             <!-- Modal content-->
@@ -157,12 +157,12 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Modal Header</h4>
                 </div>
-                <div class="modal-body" />
+                <div class="modal-body"></div>
                 <div class="modal-footer" style="text-align: center;">
                     <p id="dcId" style="display: none"></p>
 
-                    <input id="Visible" value="Accept" type="button" class="btn btn-default" onclick="acceptRequest()"/>
-                    <input id="Invisible" value=" Deny " type="button" class="btn btn-default" onclick="denyRequest()"/>
+                    <input id="Visible" value=" Make Visible " type="button" class="btn btn-default" onclick="makeVisible()"/>
+                    <input id="Invisible" value=" Make Invisible" type="button" class="btn btn-default" onclick="makeInvisible()"/>
                 </div>
             </div>      
         </div>
@@ -203,7 +203,7 @@
                         var message = row.find('td:eq(4)').text();
 
                         lastUpdated = JSON.parse(data.d);
-                        if (data === "") {
+                        if (lastUpdated === "") {
                             alert("Request failed, please try again!");
                         } else {
                             $('#myModal').modal('toggle');
@@ -231,7 +231,7 @@
                         var message = row.find('td:eq(4)').text();
 
                         lastUpdated = JSON.parse(data.d);
-                        if (data === "") {
+                        if (lastUpdated === "") {
                             alert("Request failed, please try again!");
                         } else {
                             $('#myModal').modal('toggle');
@@ -251,17 +251,80 @@
             row.addClass("selectedDcRow");
 
             var close = '<button type="button" class="close" data-dismiss="modal">&times;</button>';
-            var type = "<h3 id='type'>" + row.find('td:eq(2)').text() + "</h3>";
-            var message = "<p>" + row.find('td:eq(4)').text() + "</p>";
+            var dcName = "<h3 id='dcName'>" + row.find('td:eq(1)').text() + "</h3>";
 
-            $(".modal-header").empty().append(close, type);
-            $(".modal-body").empty().append(message);
+            $(".modal-header").empty().append(close, dcName);
+            $("#dcId").text(row.find('td:eq(0)').text());
 
-            $("#uid").text(row.find('td:eq(0)').text());
+            //Todo make ajax call
+            $.ajax({
+                type: "POST",
+                url: "AdminProfile.aspx/CheckVisibility",
+                data: '{"id":"' + $('#dcId').text() + '"}',
+                contentType: "application/json",
+                dataType: "json",
+                success:
+                    function (data) {
+ 
+                        vString = JSON.parse(data.d);
+                        if (vString === "") {
+                            alert("Request failed, please try again!");
+                        } else {
+                            var message = '<h4>' + vString + '</h4>';
 
+                            $(".modal-body").empty().append(message);
+                            if (vString === "visible") {
+                                $("#Visible").hide();
+                                $("#Invisible").show();
+                            } else {
+                                $("#Invisible").hide();
+                                $("#Visible").show();
+                            }
+                            $("#myDcModal").modal();
+                        }
 
-            $("#myModal").modal();
+                    }
+            });
+
         });
+
+        function makeVisible() {
+            $.ajax({
+                type: "POST",
+                url: "AdminProfile.aspx/MakeVisible",
+                data: '{"id":"' + $('#dcId').text() + '"}',
+                contentType: "application/json",
+                dataType: "json",
+                success:
+                    function (data) {
+                        response = JSON.parse(data.d);
+                        if (response === "") {
+                            alert("Request failed, please try again!");
+                        } else {
+                            $('#myDcModal').modal('toggle');
+                        }
+                    }
+            });
+        }
+
+        function makeInvisible() {
+            $.ajax({
+                type: "POST",
+                url: "AdminProfile.aspx/MakeInvisible",
+                data: '{"id":"' + $('#dcId').text() + '"}',
+                contentType: "application/json",
+                dataType: "json",
+                success:
+                    function (data) {
+                        response = JSON.parse(data.d);
+                        if (response === "") {
+                            alert("Request failed, please try again!");
+                        } else {
+                            $('#myDcModal').modal('toggle');
+                        }
+                    }
+            });
+        }
     </script>
 
     <style>
