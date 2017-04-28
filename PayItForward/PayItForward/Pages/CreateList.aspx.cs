@@ -25,6 +25,7 @@ namespace PayItForward.Pages
             //Response.Cache.SetExpires(DateTime.MinValue);
 
             //cart.InnerHtml = "";
+            saveButtonShow.Visible = Session["activeUser"] != null;
 
             if (Session["donationItems"] != null)
             {
@@ -145,16 +146,46 @@ namespace PayItForward.Pages
 
                 Session["donationItems"] = items;
 
-                // TODO: Move to when the donation summary is created
-                if(Session["activeUser"] != null)
+
+                Response.BufferOutput = true;
+                Response.Redirect("/Pages/ViewDonationCenters.aspx");
+            }
+            else
+            {
+                string message = "You must add at least one item to your donation cart!";
+                Response.Write("<script language='javascript'>alert('" + message + "');</script>");
+            }
+        }
+        protected void saveButton_Click(object sender, EventArgs e)
+        {
+            Session["donationItems"] = null;
+            if (cartText.Text != null && cartText.Text.Length > 0)
+            {
+                List<Item> items = new List<Item>();
+
+                string ditems = cartText.Text;
+
+                string[] strings = Regex.Split(ditems, ";");
+
+                foreach (string s in strings)
+                {
+                    if (s.Trim() != "✖" && s.Trim().Length > 0)
+                    {
+                        using (var db = new DatabaseContext())
+                        {
+                            items.Add(db.GetItem(s.Trim()));
+                        }
+                    }
+                }
+                
+                
+                if (Session["activeUser"] != null)
                 {
                     Donation donation = new Donation();
 
                     // Add each item to donation
                     foreach (Item item in items)
                     {
-                        // TODO: dynamically add donation center
-                        // TODO: dynamically add quantity
                         donation.addItem(item, null, 1);
                     }
 
@@ -167,14 +198,14 @@ namespace PayItForward.Pages
                         db.SaveChanges();
 
                         // Add donation to user and update
-                        User currentUser = (User) Session["activeUser"];
+                        User currentUser = (User)Session["activeUser"];
                         currentUser.addDonation(donation);
                         db.Users.Attach(currentUser);
                         db.Entry(currentUser).State = EntityState.Modified;
                         db.SaveChanges();
                     }
                 }
-
+                Session["donationItems"] = items;
                 Response.BufferOutput = true;
                 Response.Redirect("/Pages/ViewDonationCenters.aspx");
             }

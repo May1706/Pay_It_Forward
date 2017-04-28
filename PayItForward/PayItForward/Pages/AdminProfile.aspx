@@ -15,8 +15,7 @@
         <div class="row">
             <div class="col-sm-2">
                 <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
-                    <li><a data-toggle="pill" href="#pendingRequests">Pending Requests</a></li>
+                    <li class="active"><a data-toggle="pill" href="#pendingRequests">Pending Requests</a></li>
                     <li><a data-toggle="pill" href="#requestHistory">Request History</a></li>
                     <li><a data-toggle="pill" href="#item">Manage Items</a></li>
                     <li><a data-toggle="pill" href="#category">Manage Categories</a></li>
@@ -26,21 +25,6 @@
 
             <div class="col-sm-10">
                 <div class="tab-content">
-                    <!-- Home content -->
-                    <div id="home" class="tab-pane fade in active">
-                        <h3>Home</h3>
-                        <p>Select the action you would like to take using the links on the left.</p>
-                        <asp:Button ID="Generate" runat="server" Text="Generate Requests" style="width:auto" onclick="Generate_Click" />
-                        <asp:Button ID="Remove" runat="server" Text="Remove Requests" style="width:auto" onclick="Remove_Click" />
-                        <hr />
-                        
-                        <!--<asp:GridView ID="requestsGridView" SkinID="Professional" runat="server"></asp:GridView>-->
-
-                        <h2>Modal Example</h2>
-                        <!-- Trigger the modal with a button -->
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
-                    </div>
 
                     <!-- Open Requests content -->
                     <div id="pendingRequests" class="tab-pane fade">
@@ -114,7 +98,6 @@
                     <!-- Manage Donation Centers -->
                     <div id="donationCenters" class="tab-pane fade">
                         <h3>Manage Donation Centers</h3>
-                        <p>Activate or deactivate donation centers by clicking on the donation center in the table.</p>
                         <div class="table-responsive">
                             <asp:GridView runat="server" ID="dcGrid" CssClass="table table-hover table-striped table-bordered" />
                         </div>

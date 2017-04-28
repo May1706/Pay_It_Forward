@@ -84,11 +84,12 @@ namespace PayItForward.Pages
                     }
                 }
                 DonationCenter center = new DonationCenter(u.UserID, centerName, description, hours, address, phone, pickup, categories);
-                center = db.AddCenter(center);
+                db.AddCenter(center);
 
                 u.addDonationCenter(center);
 
-                db.Entry(center).State = System.Data.Entity.EntityState.Modified;
+                db.Users.Attach(u);
+                db.Entry(u).State = System.Data.Entity.EntityState.Modified;
 
                 string info = "Name: " + center.CenterName + " Description: " + center.Description + " Hours: " + hours + " Address: " + address + " Phone: " + phone + " Pickup: " + pickup;
 
