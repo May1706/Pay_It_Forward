@@ -20,6 +20,7 @@
         .dcStuff {
             display: inline-block;
             margin: 5px;
+            max-width: 65%
         }
 
         .dcThumb {
